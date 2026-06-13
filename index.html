@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1D1D1F" media="(prefers-color-scheme: dark)" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="AppBOT" />
+<title>AppBOT · LVAM</title>
+<link rel="manifest" href="./manifest.json" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<style>
+  :root {
+    --bg-primary:#FFFFFF; --bg-secondary:#F5F5F7; --bg-tertiary:#FAFAFA;
+    --border-primary:#D2D2D7; --border-secondary:#E5E5EA; --border-tertiary:#EFEFF1;
+    --text-primary:#1D1D1F; --text-secondary:#6E6E73; --text-tertiary:#86868B; --text-inverse:#FFFFFF;
+    --accent:#185FA5; --accent-hover:#0F4A82; --accent-bg:#E6F1FB; --accent-bg-soft:#F0F7FD; --accent-text:#042C53;
+    --positive:#0F6E56; --negative:#B91C1C;
+    --font-sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --radius-sm:6px; --radius-md:8px; --radius-lg:12px; --radius-pill:999px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary:#1D1D1F; --bg-secondary:#2C2C2E; --bg-tertiary:#242426;
+      --border-primary:#3A3A3C; --border-secondary:#2F2F31; --border-tertiary:#2A2A2C;
+      --text-primary:#F5F5F7; --text-secondary:#A1A1A6; --text-tertiary:#86868B;
+      --accent:#4A9EFF; --accent-hover:#6FB1FF; --accent-bg:#1A2F4A; --accent-bg-soft:#15243A; --accent-text:#B8D4F0;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%}
+  body{font-family:var(--font-sans);background:var(--bg-secondary);color:var(--text-primary);font-size:13.5px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;height:100dvh;overflow:hidden}
+  button{font-family:inherit;font-size:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+  input,select{font-family:inherit;font-size:inherit;color:inherit;background:transparent}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* TOPBAR */
+  .topbar{padding:14px 20px;background:var(--bg-primary);border-bottom:1px solid var(--border-tertiary);display:flex;align-items:center;gap:12px}
+  .topbar-icon{width:26px;height:26px;border-radius:var(--radius-sm);background:var(--accent-bg);color:var(--accent-text);display:grid;place-items:center;font-size:14px}
+  .topbar-title{font-size:13px;font-weight:500;color:var(--text-primary)}
+  .topbar-sub{font-size:11px;color:var(--text-tertiary)}
+  .topbar-spacer{flex:1}
+  .topbar-avatar{width:28px;height:28px;border-radius:var(--radius-pill);background:var(--bg-secondary);color:var(--text-secondary);display:grid;place-items:center;font-size:11px;font-weight:500;border:1px solid var(--border-secondary);cursor:pointer}
+  .topbar-breadcrumb{font-size:12px;color:var(--text-secondary)}
+  .topbar-breadcrumb span{color:var(--text-tertiary)}
+  .icon-btn{width:32px;height:32px;display:grid;place-items:center;color:var(--text-secondary);border-radius:var(--radius-sm);font-size:16px;cursor:pointer}
+  .icon-btn:hover{background:var(--bg-secondary);color:var(--text-primary)}
+
+  /* DEGRADED BANNER */
+  .alert-banner{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;background:var(--bg-tertiary);border-bottom:1px solid var(--border-secondary);color:var(--text-secondary)}
+  .alert-banner i{color:var(--text-secondary);font-size:16px;flex-shrink:0;margin-top:2px}
+  .alert-banner-text{font-size:12.5px;line-height:1.5;flex:1}
+  .alert-banner-text strong{font-weight:500;color:var(--text-primary)}
+  .alert-banner-action{padding:6px 12px;border:1px solid var(--border-secondary);border-radius:var(--radius-sm);background:var(--bg-primary);font-size:11.5px;color:var(--text-primary);cursor:pointer;white-space:nowrap}
+  .alert-banner-action:hover{background:var(--bg-secondary)}
+
+  /* MAIN LAYOUT */
+  .app{display:flex;flex-direction:column;height:100dvh;background:var(--bg-secondary)}
+  .main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+  /* HOME */
+  .home-content{padding:32px 24px;max-width:760px;margin:0 auto}
+  @media(max-width:640px){.home-content{padding:24px 16px}}
+  .home-greeting{font-size:22px;font-weight:500;letter-spacing:-0.02em;margin:0 0 6px;color:var(--text-primary)}
+  .home-greeting-sub{font-size:12.5px;color:var(--text-secondary);margin:0 0 24px}
+  .search-box{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-primary);transition:border-color 150ms}
+  .search-box:focus-within{border-color:var(--accent)}
+  .search-box .search-icon{color:var(--text-tertiary);font-size:16px}
+  .search-box input{flex:1;border:none;outline:none;font-size:14px;color:var(--text-primary);padding:4px 0;min-width:0}
+  .search-box input::placeholder{color:var(--text-tertiary)}
+  .send-btn{width:28px;height:28px;display:grid;place-items:center;color:var(--accent);border-radius:var(--radius-sm);font-size:16px;cursor:pointer}
+  .send-btn:hover{background:var(--accent-bg)}
+
+  .home-section-label{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin:28px 0 12px}
+  .category-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:640px){.category-grid{grid-template-columns:1fr}}
+  .category-card{padding:14px 16px;border:1px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-primary);cursor:pointer;transition:background 150ms,border-color 150ms;text-align:left}
+  .category-card:hover{background:var(--bg-tertiary);border-color:var(--border-secondary)}
+  .category-card-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .category-card-icon{width:30px;height:30px;border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-secondary);display:grid;place-items:center;font-size:15px}
+  .category-card-title{font-size:14px;font-weight:500;color:var(--text-primary);line-height:1.2}
+  .category-card-count{font-size:11px;color:var(--text-tertiary);margin-top:1px}
+  .category-card-desc{font-size:12px;color:var(--text-secondary);line-height:1.45;margin:0}
+  .category-card.unavailable{opacity:0.55;cursor:not-allowed}
+
+  /* SEARCH RESULTS */
+  .search-content{padding:24px;max-width:760px;margin:0 auto}
+  @media(max-width:640px){.search-content{padding:16px}}
+  .results-count{font-size:11.5px;color:var(--text-tertiary);margin:14px 0 12px}
+  .filter-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  .chip{padding:6px 12px;border:1px solid var(--border-secondary);border-radius:var(--radius-pill);background:var(--bg-primary);color:var(--text-secondary);font-size:12px;font-weight:400;white-space:nowrap;cursor:pointer;transition:background 150ms,border-color 150ms,color 150ms}
+  .chip:hover{background:var(--bg-secondary);color:var(--text-primary)}
+  .chip.active{background:var(--accent-bg);color:var(--accent-text);border-color:var(--accent-bg)}
+  .entry-list{display:flex;flex-direction:column;gap:8px}
+  .entry-card{padding:13px 16px;border:1px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-primary);cursor:pointer;transition:background 150ms,border-color 150ms;text-align:left}
+  .entry-card:hover{background:var(--bg-secondary);border-color:var(--border-secondary)}
+  .entry-card-meta{font-size:10.5px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;font-weight:500;margin-bottom:3px}
+  .entry-card-title{font-size:13.5px;font-weight:500;color:var(--text-primary);line-height:1.4;margin:0 0 3px}
+  .entry-card-id{color:var(--text-tertiary);font-weight:400;font-size:12px}
+  .entry-card-snippet{font-size:12.5px;color:var(--text-secondary);line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .entry-card-placeholder-badge{display:inline-block;font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;font-weight:500;margin-top:6px}
+
+  /* ENTRY VIEW */
+  .entry-content{padding:28px 24px;max-width:780px;margin:0 auto}
+  @media(max-width:640px){.entry-content{padding:20px 16px}}
+  .entry-meta-label{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:4px}
+  .entry-title{font-size:22px;font-weight:500;letter-spacing:-0.02em;margin:0 0 6px;color:var(--text-primary);line-height:1.3}
+  .entry-id-line{font-size:12px;color:var(--text-secondary);margin-bottom:20px}
+  .entry-id-line .badge-inline{color:var(--text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:0.04em;font-weight:500}
+  .entry-short{font-size:14px;color:var(--text-primary);line-height:1.7;margin:0 0 20px}
+  .entry-short strong{font-weight:500}
+  .section-divider-label{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin:24px 0 10px}
+  .entry-long{font-size:13.5px;color:var(--text-primary);line-height:1.7;margin:0;white-space:pre-wrap}
+  .xref-list{display:flex;flex-direction:column;gap:6px}
+  .xref-card{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-primary);cursor:pointer;transition:background 150ms,border-color 150ms;text-align:left}
+  .xref-card:hover{background:var(--bg-secondary);border-color:var(--border-secondary)}
+  .xref-icon{width:28px;height:28px;border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-secondary);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+  .xref-body{flex:1;min-width:0}
+  .xref-title{font-size:13px;color:var(--text-primary);font-weight:400;line-height:1.3;margin:0}
+  .xref-title strong{color:var(--text-tertiary);font-weight:400;font-size:11.5px;letter-spacing:0.02em}
+  .source-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:12.5px;color:var(--text-secondary)}
+  .source-item i{color:var(--text-tertiary);font-size:14px}
+  .source-item .source-meta{color:var(--text-tertiary);font-size:11px;margin-left:auto}
+  .feedback-bar{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border-tertiary);margin-top:24px}
+  .feedback-group{display:flex;gap:2px}
+  .feedback-btn{width:30px;height:30px;display:grid;place-items:center;color:var(--text-tertiary);border-radius:var(--radius-sm);font-size:15px;cursor:pointer;transition:background 150ms,color 150ms}
+  .feedback-btn:hover{background:var(--bg-secondary);color:var(--text-primary)}
+  .feedback-btn.active.up{color:var(--positive)}
+  .feedback-btn.active.down{color:var(--negative)}
+
+  /* PLACEHOLDER BANNER inside entry */
+  .placeholder-banner{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--bg-tertiary);border:1px solid var(--border-secondary);border-radius:var(--radius-md);margin-bottom:18px;color:var(--text-secondary)}
+  .placeholder-banner i{color:var(--text-secondary);font-size:18px;flex-shrink:0;margin-top:1px}
+  .placeholder-banner-title{font-size:13px;font-weight:500;color:var(--text-primary);margin:0 0 3px}
+  .placeholder-banner-text{font-size:12.5px;line-height:1.5;margin:0}
+
+  /* IDENTIFICATION MODAL */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal-card{background:var(--bg-primary);border-radius:var(--radius-lg);max-width:420px;width:100%;padding:28px;border:1px solid var(--border-tertiary);max-height:90vh;overflow-y:auto}
+  .modal-icon{width:36px;height:36px;border-radius:var(--radius-sm);background:var(--accent-bg);color:var(--accent-text);display:grid;place-items:center;font-size:18px;margin-bottom:14px}
+  .modal-title{font-size:18px;font-weight:500;letter-spacing:-0.01em;margin:0 0 8px;color:var(--text-primary)}
+  .modal-text{font-size:12.5px;color:var(--text-secondary);line-height:1.55;margin:0 0 20px}
+  .form-group{margin-bottom:12px}
+  .form-label{display:block;font-size:11.5px;color:var(--text-secondary);font-weight:400;margin-bottom:5px}
+  .form-input{width:100%;padding:9px 12px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);font-size:13px;outline:none;transition:border-color 150ms}
+  .form-input:focus{border-color:var(--accent)}
+  .form-input::placeholder{color:var(--text-tertiary)}
+  .form-error{font-size:11.5px;color:var(--negative);margin-top:4px}
+  .btn-primary{width:100%;padding:11px 18px;background:var(--accent);border:none;border-radius:var(--radius-md);color:var(--text-inverse);font-size:13px;font-weight:500;cursor:pointer;transition:background 150ms;margin-top:8px}
+  .btn-primary:hover{background:var(--accent-hover)}
+  .btn-primary:disabled{opacity:0.5;cursor:not-allowed}
+  .modal-link{text-align:center;font-size:12.5px;color:var(--text-secondary);cursor:pointer;margin-top:14px}
+  .modal-link:hover{color:var(--accent);text-decoration:underline}
+
+  /* QUICK CONFIRM (V7b) */
+  .quick-confirm{background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:18px;font-size:12.5px;color:var(--text-secondary)}
+  .quick-confirm strong{color:var(--text-primary);font-weight:500}
+
+  /* LOADING - instrumentado */
+  .loading-frame{height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:var(--bg-primary);overflow-y:auto}
+  .loading-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--accent-bg);color:var(--accent-text);display:grid;place-items:center;font-size:24px;opacity:0.6;margin-bottom:16px}
+  .loading-title{font-size:15px;font-weight:500;color:var(--text-primary);margin:0 0 4px}
+  .loading-text{font-size:12.5px;color:var(--text-secondary);margin:0 0 16px}
+  .typing-dots{display:inline-flex;gap:5px}
+  .typing-dots span{width:7px;height:7px;background:var(--text-tertiary);border-radius:50%;animation:pulse 1.4s infinite}
+  .typing-dots span:nth-child(2){animation-delay:0.15s}
+  .typing-dots span:nth-child(3){animation-delay:0.3s}
+  @keyframes pulse{0%,60%,100%{opacity:0.3;transform:scale(0.9)}30%{opacity:1;transform:scale(1)}}
+
+  /* Boot instrumentation */
+  .boot-stage{font-size:12.5px;color:var(--text-secondary);margin:6px 0 10px;font-family:'SF Mono',Menlo,Consolas,monospace}
+  .boot-progress-bar{width:240px;max-width:80%;height:4px;background:var(--bg-secondary);border-radius:2px;overflow:hidden;margin-bottom:18px}
+  .boot-progress-fill{height:100%;background:var(--accent);transition:width 250ms ease-out;width:0%}
+  .boot-files{width:240px;max-width:80%;margin-bottom:16px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11.5px}
+  .boot-file{display:flex;justify-content:space-between;padding:3px 0;color:var(--text-secondary)}
+  .boot-file-status.status-ok{color:var(--positive)}
+  .boot-file-status.status-error{color:var(--negative)}
+  .boot-file-status.status-bloqueado{color:var(--negative)}
+  .boot-file-status.status-cargando{color:var(--accent)}
+  .boot-file-status.status-pendiente{color:var(--text-tertiary)}
+  .boot-sw{font-size:11px;color:var(--text-tertiary);font-family:'SF Mono',Menlo,Consolas,monospace;margin-bottom:14px;text-align:center;line-height:1.5}
+  .boot-error{width:100%;max-width:560px;border:1px solid var(--negative);background:var(--bg-tertiary);border-radius:var(--radius-md);padding:14px 16px;margin:14px 0;text-align:left}
+  .boot-error-title{font-size:13px;font-weight:500;color:var(--negative);margin-bottom:8px}
+  .boot-error pre{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11px;color:var(--text-primary);background:var(--bg-primary);padding:10px;border-radius:var(--radius-sm);overflow:auto;max-height:240px;white-space:pre-wrap;word-break:break-word;margin:0}
+  .boot-actions{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap;justify-content:center}
+  .boot-action-btn{padding:8px 14px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-primary);color:var(--text-primary);font-size:12px;cursor:pointer;font-family:inherit}
+  .boot-action-btn:hover{background:var(--bg-secondary)}
+  .boot-action-btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+  .boot-action-btn.primary:hover{background:var(--accent-hover)}
+  .boot-version{font-size:10px;color:var(--text-tertiary);margin-top:auto;padding-top:14px;font-family:'SF Mono',Menlo,Consolas,monospace}
+  .boot-debug{width:100%;max-width:560px;text-align:left;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;line-height:1.5;color:var(--text-tertiary);background:var(--bg-secondary);border-radius:var(--radius-sm);padding:10px;margin-top:12px;max-height:200px;overflow:auto}
+
+  /* EMPTY */
+  .empty-frame{padding:48px 24px;text-align:center;max-width:520px;margin:0 auto}
+  .empty-icon{font-size:42px;color:var(--text-tertiary);opacity:0.4;margin-bottom:14px}
+  .empty-title{font-size:15px;font-weight:500;color:var(--text-primary);margin:0 0 8px}
+  .empty-text{font-size:12.5px;color:var(--text-secondary);margin:0 0 22px;line-height:1.6}
+  .deriv-block{display:flex;flex-direction:column;gap:8px}
+  .deriv-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-primary);cursor:pointer;text-align:left;transition:background 150ms;color:inherit;text-decoration:none}
+  .deriv-card:hover{background:var(--bg-secondary);text-decoration:none}
+  .deriv-card i{color:var(--text-secondary);font-size:18px}
+  .deriv-card-title{font-size:13px;color:var(--text-primary);font-weight:500;margin:0}
+  .deriv-card-sub{font-size:11.5px;color:var(--text-tertiary);margin:0}
+
+  /* FOOTER */
+  .footer{padding:8px 20px;background:var(--bg-primary);border-top:1px solid var(--border-tertiary);font-size:10.5px;color:var(--text-tertiary);text-align:center}
+  .footer a{color:var(--text-tertiary)}
+  .footer a:hover{color:var(--text-secondary);text-decoration:underline}
+
+  /* HIDDEN */
+  .hidden{display:none !important}
+
+  /* ABOUT (V13 MINIMAL) */
+  .about-content{padding:28px 24px;max-width:760px;margin:0 auto}
+  .about-block{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:14px}
+  .about-block-title{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin:0 0 10px}
+  .about-table{width:100%;font-size:12.5px}
+  .about-table td{padding:5px 0;color:var(--text-secondary)}
+  .about-table td:first-child{color:var(--text-primary);width:40%}
+  .about-table td.status-loaded{color:var(--positive)}
+  .about-table td.status-degraded{color:var(--text-secondary)}
+  .about-table td.status-unavailable{color:var(--negative)}
+
+  ::-webkit-scrollbar{width:6px;height:6px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:var(--border-primary);border-radius:3px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--text-tertiary)}
+</style>
+</head>
+<body>
+
+<!-- LOADING - instrumentado -->
+<div id="loading-screen" class="loading-frame">
+  <div class="loading-icon"><i class="ti ti-sparkles"></i></div>
+  <h2 class="loading-title">AppBOT</h2>
+  <p class="loading-text">Cargando conocimiento</p>
+
+  <div id="boot-stage" class="boot-stage">[1/8] Iniciando aplicación</div>
+  <div class="boot-progress-bar"><div id="boot-progress-fill" class="boot-progress-fill"></div></div>
+
+  <div id="boot-files" class="boot-files">
+    <div class="boot-file"><span>APV</span><span id="file-status-APV" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+    <div class="boot-file"><span>REG</span><span id="file-status-REG" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+    <div class="boot-file"><span>OPS</span><span id="file-status-OPS" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+    <div class="boot-file"><span>FLV</span><span id="file-status-FLV" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+    <div class="boot-file"><span>config</span><span id="file-status-config" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+    <div class="boot-file"><span>synonyms</span><span id="file-status-synonyms" class="boot-file-status status-pendiente">PENDIENTE</span></div>
+  </div>
+
+  <div id="boot-sw" class="boot-sw">SW: verificando...</div>
+
+  <div id="boot-error" class="boot-error hidden">
+    <div class="boot-error-title" id="boot-error-title">Error</div>
+    <pre id="boot-error-msg"></pre>
+  </div>
+
+  <div class="boot-actions">
+    <button id="boot-clear-btn" class="boot-action-btn">Limpiar caché y reiniciar</button>
+    <button id="boot-reload-btn" class="boot-action-btn primary">Reintentar</button>
+  </div>
+
+  <div id="boot-debug" class="boot-debug hidden"></div>
+
+  <div class="boot-version" id="boot-version">build: 2026-06-13-v2 · sw v2</div>
+</div>
+
+<!-- IDENTIFICATION MODAL (V7) -->
+<div id="ident-modal" class="modal-backdrop hidden">
+  <div class="modal-card">
+    <div class="modal-icon"><i class="ti ti-sparkles"></i></div>
+    <h2 class="modal-title" id="ident-title">Bienvenido a AppBOT</h2>
+    <p class="modal-text" id="ident-text">Para usar el asistente necesitamos que confirmes tu identidad. Esta información permite trazabilidad de consultas con fines de capacitación y mejora continua. Uso exclusivo interno LVAM. Información sobre clientes (RUT, correo, teléfono) se anonimiza antes de almacenarse.</p>
+
+    <!-- Quick confirm (V7b) -->
+    <div id="quick-confirm" class="quick-confirm hidden">
+      Continuar como <strong id="quick-name"></strong><br>
+      <span id="quick-email" style="color:var(--text-tertiary)"></span>
+    </div>
+    <button id="quick-confirm-btn" class="btn-primary hidden" style="margin-bottom:12px">Continuar</button>
+
+    <!-- Full form -->
+    <div id="ident-form">
+      <div class="form-group">
+        <label class="form-label">Nombre</label>
+        <input class="form-input" id="f-firstName" placeholder="Rubén" autocomplete="given-name" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Apellido</label>
+        <input class="form-input" id="f-lastName" placeholder="Pérez" autocomplete="family-name" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Correo corporativo</label>
+        <input class="form-input" id="f-email" placeholder="nombre@correo.com" autocomplete="email" />
+        <div class="form-error hidden" id="f-email-error">Ingresa un email con formato válido</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Jefe de ventas</label>
+        <input class="form-input" id="f-manager" placeholder="Nombre del jefe directo" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Agencia</label>
+        <select class="form-input" id="f-agency">
+          <option value="">Seleccionar...</option>
+          <option>Santiago Centro</option>
+          <option>Vitacura</option>
+          <option>Las Condes</option>
+          <option>Providencia</option>
+          <option>Ñuñoa</option>
+          <option>Viña del Mar</option>
+          <option>Concepción</option>
+          <option>Otra</option>
+        </select>
+      </div>
+      <button class="btn-primary" id="ident-submit">Continuar</button>
+    </div>
+    <div class="modal-link hidden" id="ident-change-link">Cambiar identidad</div>
+    <div class="modal-link" id="ident-skip-link" style="margin-top:6px">Continuar sin identificarme (modo prueba)</div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="app hidden">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <button class="topbar-icon" id="home-btn" title="Inicio"><i class="ti ti-sparkles"></i></button>
+    <div>
+      <div class="topbar-title">AppBOT</div>
+      <div class="topbar-sub" id="topbar-sub">LVAM · uso interno</div>
+    </div>
+    <div class="topbar-spacer"></div>
+    <button class="icon-btn" id="about-btn" title="Estado del sistema"><i class="ti ti-info-circle"></i></button>
+    <button class="icon-btn" id="diag-btn" title="Diagnóstico"><i class="ti ti-bug"></i></button>
+    <div class="topbar-avatar" id="user-avatar" title="Cambiar identidad">??</div>
+  </div>
+
+  <!-- DEGRADED BANNER -->
+  <div class="alert-banner hidden" id="degraded-banner">
+    <i class="ti ti-alert-triangle"></i>
+    <div class="alert-banner-text" id="degraded-text"></div>
+    <button class="alert-banner-action" id="degraded-retry">Reintentar</button>
+  </div>
+
+  <!-- MAIN VIEW (router target) -->
+  <div class="main" id="main-view">
+    <!-- HOME, SEARCH RESULTS, ENTRY, EMPTY, ABOUT se renderizan dinámicamente -->
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span id="footer-corpus">corpus cargando...</span> · <a href="#/about">estado del sistema</a>
+  </div>
+
+</div>
+
+<!-- DIAGNOSTIC PANEL (temporal, para verificación end-to-end) -->
+<div id="diag-panel" class="modal-backdrop hidden" style="z-index:2000">
+  <div class="modal-card" style="max-width:640px;width:100%">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 class="modal-title" style="margin:0">Diagnóstico del sistema</h2>
+      <button class="icon-btn" id="diag-close"><i class="ti ti-x"></i></button>
+    </div>
+    <div id="diag-body" style="font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12px;line-height:1.7">
+      Cargando...
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="action-btn" id="diag-refresh" style="padding:8px 14px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-secondary);font-size:12px;cursor:pointer">Refrescar estado</button>
+      <button class="action-btn" id="diag-run-tests" style="padding:8px 14px;border:1px solid var(--accent);border-radius:var(--radius-md);background:var(--accent);color:white;font-size:12px;cursor:pointer">Ejecutar suite de 15 tests</button>
+      <button class="action-btn" id="diag-clear-cache" style="padding:8px 14px;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:var(--bg-secondary);font-size:12px;cursor:pointer">Borrar caché &amp; recargar</button>
+    </div>
+    <div id="diag-test-results" style="margin-top:14px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11.5px;line-height:1.6"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   ETAPA 1 — LOADER
+   ============================================================ */
+
+const CORPUS_FILES = [
+  { category: "APV",    file: "./corpus/apv.json"       },
+  { category: "REG",    file: "./corpus/regulacion.json" },
+  { category: "OPS",    file: "./corpus/operaciones.json"},
+  { category: "FLV",    file: "./corpus/flv.json"       }
+];
+
+async function fetchJson(url, retries = 2, timeoutMs = 8000) {
+  let lastError;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const ctrl = new AbortController();
+    const tid = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { cache: "default", signal: ctrl.signal });
+      clearTimeout(tid);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return await res.json();
+    } catch (err) {
+      clearTimeout(tid);
+      lastError = err.name === "AbortError" ? new Error("timeout " + timeoutMs + "ms") : err;
+      if (attempt < retries) await new Promise(r => setTimeout(r, attempt === 0 ? 500 : 1500));
+    }
+  }
+  throw lastError;
+}
+
+async function loadAll() {
+  const promises = CORPUS_FILES.map(c => fetchJson(c.file).then(
+    data => ({ category: c.category, data, ok: true }),
+    err  => ({ category: c.category, error: err.message, ok: false })
+  ));
+  const config = fetchJson("./config/search-config.json").catch(()=>null);
+  const synonyms = fetchJson("./config/synonyms.json").catch(()=>null);
+  const results = await Promise.all([Promise.all(promises), config, synonyms]);
+  return { corpora: results[0], searchConfig: results[1], synonymsData: results[2] };
+}
+
+/* ============================================================
+   ETAPA 2 — VALIDATOR (Nivel A + B básico)
+   ============================================================ */
+
+const REQUIRED_FIELDS = ["id","category","title","keywords","shortAnswer","sources"];
+
+function validateCorpus(category, raw) {
+  // Nivel A: JSON ya parseado por fetch; aquí solo validar root structure.
+  if (!raw || typeof raw !== "object") return { ok: false, reason: "root_not_object" };
+  if (!Array.isArray(raw.entries)) return { ok: false, reason: "entries_not_array" };
+
+  // Nivel B básico por entry
+  const validEntries = [];
+  const rejected = [];
+  for (const e of raw.entries) {
+    const missing = REQUIRED_FIELDS.filter(f => !(f in e) || e[f] == null || (Array.isArray(e[f]) && e[f].length === 0) || e[f] === "");
+    if (missing.length > 0) {
+      rejected.push({ id: e.id || "(sin id)", reason: "missing: " + missing.join(",") });
+      continue;
+    }
+    if (typeof e.id !== "string" || !/^(APV|REG|OPS|FLV)-\d{3}$/.test(e.id)) {
+      rejected.push({ id: e.id, reason: "invalid_id_format" });
+      continue;
+    }
+    // Excluir deprecated del índice
+    if (e.reviewStatus === "deprecated") continue;
+    validEntries.push(e);
+  }
+
+  const health = validEntries.length === 0 ? "unavailable"
+              : rejected.length > 0       ? "degraded"
+              : "loaded";
+
+  return {
+    ok: true,
+    health,
+    version: raw.metadata?.version || "?",
+    entries: validEntries,
+    rejected,
+    subcategories: raw.subcategories || []
+  };
+}
+
+/* ============================================================
+   ETAPA 3 — CATEGORY HEALTH + globalHealth
+   ============================================================ */
+
+function deriveGlobalHealth(catStates) {
+  const loaded     = catStates.filter(c => c.health === "loaded").length;
+  const degraded   = catStates.filter(c => c.health === "degraded").length;
+  const unavailable= catStates.filter(c => c.health === "unavailable").length;
+  if (unavailable === 4) return "unavailable";
+  if (loaded === 4)      return "healthy";
+  if (loaded === 0)      return "degraded_critical";
+  return "degraded_partial";
+}
+
+/* ============================================================
+   ETAPA 4 — ÍNDICE UNIFICADO
+   ============================================================ */
+
+function normalize(s) {
+  if (s == null) return "";
+  return String(s).toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[¿?¡!.,;:()[\]{}"']/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+const STOP_WORDS = new Set(["de","la","el","los","las","un","una","y","o","con","sin","para","por","en","del","al","a"]);
+
+function tokenize(s) {
+  const norm = normalize(s);
+  if (!norm) return [];
+  const tokens = norm.split(/\s+/).filter(t => t.length > 1 && !STOP_WORDS.has(t));
+  return tokens.length > 0 ? tokens : norm.split(/\s+/).filter(t => t.length > 0);
+}
+
+function buildIndex(allEntries) {
+  // Índice por ID + lookup directo
+  const byId = {};
+  for (const e of allEntries) byId[e.id] = e;
+  return { byId, entries: allEntries };
+}
+
+/* ============================================================
+   ETAPA 5 — SEARCH ENGINE
+   ============================================================ */
+
+let SYNONYMS_MAP = {}; // token base -> Set(variantes normalizadas)
+
+function buildSynonymsMap(synonymsData) {
+  SYNONYMS_MAP = {};
+  if (!synonymsData || !Array.isArray(synonymsData.entries)) return;
+  for (const e of synonymsData.entries) {
+    const baseNorm = normalize(e.base);
+    const variants = (e.variants || []).map(normalize);
+    const all = new Set([baseNorm, ...variants]);
+    // Cada término del set mapea a todo el set (bidireccional)
+    for (const t of all) {
+      if (!SYNONYMS_MAP[t]) SYNONYMS_MAP[t] = new Set();
+      for (const u of all) SYNONYMS_MAP[t].add(u);
+    }
+    // También capturar variantes multi-palabra completas
+    // (se manejan al hacer matching, ver buildExpandedQuery)
+  }
+}
+
+function expandTokens(tokens, queryNormalized) {
+  const expandedSets = tokens.map(t => {
+    if (SYNONYMS_MAP[t]) return SYNONYMS_MAP[t];
+    return new Set([t]);
+  });
+  // Bonus: si la query entera (o sub-frases) matchea un base/variant multi-palabra
+  // hacemos un check secundario: si la query normalizada contiene "art 107" → agregar tokens
+  const allBaseKeys = Object.keys(SYNONYMS_MAP);
+  for (const key of allBaseKeys) {
+    if (key.includes(" ") && queryNormalized.includes(key)) {
+      const set = SYNONYMS_MAP[key];
+      expandedSets.push(set);
+    }
+  }
+  return expandedSets;
+}
+
+function getFieldText(entry, field) {
+  const v = entry[field];
+  if (v == null) return "";
+  if (Array.isArray(v)) return v.map(x => typeof x === "string" ? x : (x.text || x.question || "")).join(" ");
+  return String(v);
+}
+
+const SEARCHABLE_FIELDS = ["title","keywords","mainQuestion","equivalentQuestions","subcategory","relatedProducts","tags","shortAnswer","longAnswer"];
+
+function scoreEntry(entry, tokenSets, queryNormalized, config) {
+  const weights = config.weights;
+  let score = 0;
+  let perTokenCap = config.threshold?.perTokenCap || 20;
+
+  for (const tokenSet of tokenSets) {
+    let tokenContribution = 0;
+    for (const field of SEARCHABLE_FIELDS) {
+      const fieldText = " " + normalize(getFieldText(entry, field)) + " ";
+      const w = weights[field];
+      if (!w) continue;
+      for (const tk of tokenSet) {
+        if (!tk || tk.length < 2) continue;
+        // match exacto (palabra completa)
+        if (fieldText.indexOf(" " + tk + " ") !== -1) {
+          tokenContribution += (w.exact || 0);
+        } else if (w.partial && tk.length >= 3 && fieldText.indexOf(tk) !== -1) {
+          tokenContribution += (w.partial || 0);
+        }
+      }
+    }
+    score += Math.min(tokenContribution, perTokenCap);
+  }
+
+  // Bonus por ID match exacto
+  const idMatch = queryNormalized.match(/^(apv|reg|ops|flv)-\d{3}$/);
+  if (idMatch && entry.id && entry.id.toLowerCase() === queryNormalized) {
+    return 1000;
+  }
+
+  if (score === 0) return 0; // sin match base, no aplicar boosts
+
+  // Boosts
+  const b = config.boosts;
+  if (b) {
+    if (b.trainingPriority && entry.trainingPriority in b.trainingPriority) score += b.trainingPriority[entry.trainingPriority];
+    if (b.consultationFrequency && entry.consultationFrequency in b.consultationFrequency) score += b.consultationFrequency[entry.consultationFrequency];
+    if (b.businessImpact && entry.businessImpact in b.businessImpact) score += b.businessImpact[entry.businessImpact];
+  }
+
+  // Penalties
+  const p = config.penalties;
+  if (p) {
+    if (entry.reviewStatus && p.reviewStatus && entry.reviewStatus in p.reviewStatus) score += p.reviewStatus[entry.reviewStatus];
+    if (entry.productStatus && p.productStatus && entry.productStatus in p.productStatus) score += p.productStatus[entry.productStatus];
+    if (entry.nextReviewDate) {
+      const days = Math.floor((Date.now() - new Date(entry.nextReviewDate).getTime()) / (1000*60*60*24));
+      if (days > 180) score += p.outdatedDaysOver180 || 0;
+      else if (days > 90) score += p.outdatedDays90to180 || 0;
+    }
+  }
+
+  return score;
+}
+
+function search(query, allEntries, config, categoryFilter) {
+  const queryRaw = query.trim();
+  if (queryRaw.length < 2) return { results: [], queryNormalized: "" };
+
+  const queryNormalized = normalize(queryRaw);
+
+  // ID match directo
+  const idMatch = queryNormalized.match(/^(apv|reg|ops|flv)-\d{3}$/);
+  if (idMatch) {
+    const upper = queryNormalized.toUpperCase();
+    const found = allEntries.find(e => e.id === upper);
+    if (found) return { results: [{ entry: found, score: 1000 }], queryNormalized };
+    return { results: [], queryNormalized };
+  }
+
+  const tokens = tokenize(queryRaw);
+  if (tokens.length === 0) return { results: [], queryNormalized };
+  const tokenSets = expandTokens(tokens, queryNormalized);
+
+  const candidates = [];
+  for (const e of allEntries) {
+    if (categoryFilter && e.category !== categoryFilter) continue;
+    const s = scoreEntry(e, tokenSets, queryNormalized, config);
+    if (s >= (config.threshold?.minScore || 5)) {
+      candidates.push({ entry: e, score: s });
+    }
+  }
+
+  candidates.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    // Desempate: consultationFrequency
+    const freqOrder = { alta: 3, media: 2, baja: 1 };
+    const fa = freqOrder[a.entry.consultationFrequency] || 0;
+    const fb = freqOrder[b.entry.consultationFrequency] || 0;
+    if (fb !== fa) return fb - fa;
+    // trainingPriority
+    const prOrder = { critica: 3, importante: 2, normal: 1 };
+    const pa = prOrder[a.entry.trainingPriority] || 0;
+    const pb = prOrder[b.entry.trainingPriority] || 0;
+    if (pb !== pa) return pb - pa;
+    return a.entry.title.localeCompare(b.entry.title);
+  });
+
+  return { results: candidates.slice(0, config.topN || 10), queryNormalized };
+}
+
+/* ============================================================
+   ETAPA 9 — BITÁCORA MÍNIMA (IF-05)
+   Object stores: user, sessions, events
+   ============================================================ */
+
+const DB_NAME = "lvam-ffvv";
+const DB_VERSION = 1;
+let DB = null;
+
+function openDb() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = e => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains("user")) {
+        db.createObjectStore("user", { keyPath: "userId" });
+      }
+      if (!db.objectStoreNames.contains("sessions")) {
+        const s = db.createObjectStore("sessions", { keyPath: "sessionId" });
+        s.createIndex("userId", "userId", { unique: false });
+      }
+      if (!db.objectStoreNames.contains("events")) {
+        const ev = db.createObjectStore("events", { keyPath: "eventId" });
+        ev.createIndex("sessionId", "sessionId", { unique: false });
+        ev.createIndex("userId", "userId", { unique: false });
+        ev.createIndex("timestamp", "timestamp", { unique: false });
+      }
+    };
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = e => reject(e.target.error);
+  });
+}
+
+function uuid() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    return (c === "x" ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+}
+
+function dbPut(store, value) {
+  return new Promise((resolve, reject) => {
+    const tx = DB.transaction([store], "readwrite");
+    tx.objectStore(store).put(value);
+    tx.oncomplete = () => resolve();
+    tx.onerror = e => reject(e.target.error);
+  });
+}
+
+function dbGet(store, key) {
+  return new Promise((resolve, reject) => {
+    const tx = DB.transaction([store], "readonly");
+    const r = tx.objectStore(store).get(key);
+    r.onsuccess = () => resolve(r.result || null);
+    r.onerror = e => reject(e.target.error);
+  });
+}
+
+function dbCount(store) {
+  return new Promise((resolve, reject) => {
+    const tx = DB.transaction([store], "readonly");
+    const r = tx.objectStore(store).count();
+    r.onsuccess = () => resolve(r.result);
+    r.onerror = e => reject(e.target.error);
+  });
+}
+
+/* ANONIMIZACIÓN PRE-PERSISTENCIA (P0-3) */
+
+const ANON_PATTERNS = [
+  // RUT chileno con punto y guión: 12.345.678-9 o 1.234.567-K
+  { rx: /\b\d{1,2}\.\d{3}\.\d{3}-[\dkK]\b/g, replacement: "[RUT]" },
+  // RUT sin punto con guión: 12345678-9
+  { rx: /\b\d{7,8}-[\dkK]\b/g, replacement: "[RUT]" },
+  // Email
+  { rx: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g, replacement: "[EMAIL]" },
+  // Teléfono chileno con +56 9
+  { rx: /\b\+?56\s?9\s?\d{4}\s?\d{4}\b/g, replacement: "[TELEFONO]" },
+  // Teléfono 9 + 8 dígitos
+  { rx: /\b9\d{8}\b/g, replacement: "[TELEFONO]" }
+];
+
+function anonymize(text) {
+  if (!text) return text;
+  let r = text;
+  for (const p of ANON_PATTERNS) r = r.replace(p.rx, p.replacement);
+  return r;
+}
+
+let CURRENT_SESSION = null;
+
+async function startSession(userId) {
+  CURRENT_SESSION = {
+    sessionId: uuid(),
+    userId,
+    startedAt: new Date().toISOString(),
+    eventCount: 0
+  };
+  await dbPut("sessions", CURRENT_SESSION);
+}
+
+async function logEvent(eventType, payload) {
+  if (!CURRENT_SESSION) return;
+  // IF-05: bitácora mínima — solo 4 campos para query_executed.
+  // Anonimizar payload.query si existe.
+  const anonPayload = { ...payload };
+  if (anonPayload.query) anonPayload.query = anonymize(anonPayload.query);
+  const ev = {
+    eventId: uuid(),
+    sessionId: CURRENT_SESSION.sessionId,
+    userId: CURRENT_SESSION.userId,
+    eventType,
+    timestamp: new Date().toISOString(),
+    payload: anonPayload
+  };
+  await dbPut("events", ev);
+  CURRENT_SESSION.eventCount += 1;
+  await dbPut("sessions", CURRENT_SESSION);
+}
+
+/* ============================================================
+   ESTADO DE LA APP
+   ============================================================ */
+
+const STATE = {
+  user: null,
+  corpora: null,        // map { APV: {health, entries, version, ...}, ... }
+  allEntries: [],
+  byId: {},
+  searchConfig: null,
+  globalHealth: "pending",
+  currentRoute: "/",
+  currentSearchQuery: "",
+  currentSearchResults: [],
+  currentCategoryFilter: null,
+  currentEntryId: null,
+  searchSourceQueryId: null  // para vincular result_clicked con query_executed
+};
+
+const CATEGORY_INFO = {
+  APV: { icon: "ti-coin",       label: "Ahorro previsional voluntario", desc: "Regímenes A y B, topes, beneficios tributarios, retiros." },
+  REG: { icon: "ti-gavel",      label: "Marco normativo",                desc: "CMF, SII, Superintendencia. Idoneidad, tributación, compliance." },
+  OPS: { icon: "ti-settings",   label: "Operaciones",                     desc: "Apertura, suscripción, rescate, traspaso, mandato electrónico." },
+  FLV: { icon: "ti-chart-pie",  label: "Fondos LVAM",                     desc: "Familias de fondos, series, productos APV, alianza Consorcio." }
+};
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+
+const $main = () => document.getElementById("main-view");
+
+function escapeHtml(s) {
+  return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function renderHome() {
+  const m = $main();
+  const cats = ["APV","REG","OPS","FLV"];
+  m.innerHTML = `
+    <div class="home-content">
+      <h1 class="home-greeting">¿En qué te ayudo hoy?</h1>
+      <p class="home-greeting-sub">Pregúntame sobre productos, regulación, operaciones o argumentarios.</p>
+      <div class="search-box">
+        <i class="ti ti-search search-icon"></i>
+        <input type="text" id="home-search-input" placeholder="Formula tu consulta..." autocomplete="off" autofocus />
+        <button class="send-btn" id="home-search-btn"><i class="ti ti-arrow-up"></i></button>
+      </div>
+      <div class="home-section-label">Categorías</div>
+      <div class="category-grid">
+        ${cats.map(c => {
+          const info = CATEGORY_INFO[c];
+          const cd = STATE.corpora[c];
+          const unav = cd && cd.health === "unavailable";
+          const count = (cd && cd.entries) ? cd.entries.length : "—";
+          return `<button class="category-card ${unav?'unavailable':''}" data-cat="${c}" ${unav?'disabled':''}>
+            <div class="category-card-head">
+              <div class="category-card-icon"><i class="ti ${info.icon}"></i></div>
+              <div>
+                <div class="category-card-title">${c}</div>
+                <div class="category-card-count">${count} entries · ${escapeHtml(info.label)}</div>
+              </div>
+            </div>
+            <p class="category-card-desc">${escapeHtml(info.desc)}</p>
+          </button>`;
+        }).join("")}
+      </div>
+    </div>
+  `;
+  // Listeners
+  const input = document.getElementById("home-search-input");
+  const btn = document.getElementById("home-search-btn");
+  const trigger = () => {
+    const q = input.value.trim();
+    if (q.length >= 2) navigateTo("/search?q=" + encodeURIComponent(q));
+  };
+  input.addEventListener("keydown", e => { if (e.key === "Enter") trigger(); });
+  btn.addEventListener("click", trigger);
+  document.querySelectorAll(".category-card[data-cat]").forEach(card => {
+    card.addEventListener("click", () => {
+      const c = card.dataset.cat;
+      if (STATE.corpora[c]?.health === "unavailable") return;
+      // En MVP no implementamos vista de categoría completa; filtramos búsqueda vacía sobre esa categoría
+      // Comportamiento: ofrecer buscar dentro de la categoría
+      input.focus();
+      // alternativamente: navigateTo("/category/" + c);
+    });
+  });
+}
+
+function highlightCategoryFilter(cat) {
+  document.querySelectorAll("#filter-chips .chip").forEach(c => c.classList.toggle("active", c.dataset.cat === (cat || "ALL")));
+}
+
+async function renderSearch(q, catFilter) {
+  console.log("[SEARCH] query=", q, "category=", catFilter || "ALL", "totalEntries=", STATE.allEntries.length);
+  STATE.currentSearchQuery = q;
+  STATE.currentCategoryFilter = catFilter || null;
+  const { results, queryNormalized } = search(q, STATE.allEntries, STATE.searchConfig, catFilter);
+  console.log("[SEARCH] results=", results.length, "top=", results[0]?.entry?.id || "none");
+  STATE.currentSearchResults = results;
+
+  // Log query_executed (IF-05: minimal — sesión, query, timestamp, topResultId)
+  const queryId = uuid();
+  STATE.searchSourceQueryId = queryId;
+  await logEvent("query_executed", {
+    queryId,
+    query: q,
+    topResultId: results[0]?.entry?.id || null,
+    topResultCategory: results[0]?.entry?.category || null,
+    resultsCount: results.length,
+    searchModelVersion: STATE.searchConfig.searchModelVersion
+  });
+
+  const cats = ["APV","REG","OPS","FLV"];
+  const chipsHtml = `<div id="filter-chips" class="filter-row">
+    <span class="chip ${!catFilter?'active':''}" data-cat="ALL">Todas</span>
+    ${cats.map(c => {
+      const av = STATE.corpora[c]?.health !== "unavailable";
+      return `<span class="chip ${catFilter===c?'active':''} ${!av?'unavailable':''}" data-cat="${c}">${c}</span>`;
+    }).join("")}
+  </div>`;
+
+  if (results.length === 0) {
+    // Empty
+    $main().innerHTML = `
+      <div class="search-content">
+        <div class="search-box">
+          <i class="ti ti-search search-icon"></i>
+          <input type="text" id="search-input-top" value="${escapeHtml(q)}" />
+          <button class="icon-btn" id="search-clear"><i class="ti ti-x"></i></button>
+        </div>
+        ${chipsHtml}
+        <div class="empty-frame">
+          <i class="ti ti-search empty-icon"></i>
+          <h2 class="empty-title">No encontramos información sobre tu consulta</h2>
+          <p class="empty-text">Podría estar fuera del alcance actual del conocimiento cargado, o estar formulado con otras palabras. Argumentarios comerciales y comparativos competitivos todavía no están en el corpus base.</p>
+          <div class="deriv-block">
+            <a class="deriv-card" href="mailto:rperez@larrainvial.com?subject=${encodeURIComponent('Consulta FFVV: ' + q)}&body=${encodeURIComponent('Hola Rubén, tengo una consulta sobre: ' + q)}">
+              <i class="ti ti-mail"></i>
+              <div>
+                <div class="deriv-card-title">Escribir a Rubén Pérez</div>
+                <div class="deriv-card-sub">jefe comercial &amp; habilitación digital</div>
+              </div>
+            </a>
+            <a class="deriv-card" target="_blank" rel="noopener" href="https://wa.me/56912345678?text=${encodeURIComponent('Hola Rubén, tengo una consulta sobre: ' + q)}">
+              <i class="ti ti-brand-whatsapp"></i>
+              <div>
+                <div class="deriv-card-title">WhatsApp directo</div>
+                <div class="deriv-card-sub">+56 9 1234 5678</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+    setupSearchInputListeners(q);
+    return;
+  }
+
+  $main().innerHTML = `
+    <div class="search-content">
+      <div class="search-box">
+        <i class="ti ti-search search-icon"></i>
+        <input type="text" id="search-input-top" value="${escapeHtml(q)}" />
+        <button class="icon-btn" id="search-clear"><i class="ti ti-x"></i></button>
+      </div>
+      ${chipsHtml}
+      <div class="results-count">${results.length} resultado${results.length===1?'':'s'}</div>
+      <div class="entry-list">
+        ${results.map((r, idx) => {
+          const e = r.entry;
+          const isPlaceholder = e.reviewStatus === "pendingBusinessValidation";
+          const snippet = (e.shortAnswer || "").replace(/<[^>]+>/g,"").slice(0, 180);
+          return `<button class="entry-card" data-entry-id="${e.id}" data-rank="${idx+1}">
+            <div class="entry-card-meta">${e.category} · ${escapeHtml(e.subcategory || "")}</div>
+            <h3 class="entry-card-title"><span class="entry-card-id">${e.id} · </span>${escapeHtml(e.title)}</h3>
+            <p class="entry-card-snippet">${escapeHtml(snippet)}</p>
+            ${isPlaceholder ? '<div class="entry-card-placeholder-badge">[información preliminar]</div>' : ''}
+          </button>`;
+        }).join("")}
+      </div>
+    </div>
+  `;
+  setupSearchInputListeners(q);
+  document.querySelectorAll(".entry-card[data-entry-id]").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.dataset.entryId;
+      const rank = parseInt(card.dataset.rank, 10);
+      logEvent("result_clicked", { queryId: STATE.searchSourceQueryId, entryId: id, rank });
+      navigateTo("/entry/" + id + "?ref=search");
+    });
+  });
+}
+
+function setupSearchInputListeners(currentQ) {
+  const input = document.getElementById("search-input-top");
+  if (input) {
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        const q = input.value.trim();
+        if (q.length >= 2 && q !== currentQ) navigateTo("/search?q=" + encodeURIComponent(q));
+      }
+    });
+  }
+  const clearBtn = document.getElementById("search-clear");
+  if (clearBtn) clearBtn.addEventListener("click", () => navigateTo("/"));
+  document.querySelectorAll("#filter-chips .chip[data-cat]").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const c = chip.dataset.cat;
+      const newCat = c === "ALL" ? null : c;
+      const url = "/search?q=" + encodeURIComponent(currentQ) + (newCat ? "&c=" + newCat : "");
+      navigateTo(url);
+    });
+  });
+}
+
+async function renderEntry(entryId, refSource) {
+  const e = STATE.byId[entryId];
+  if (!e) {
+    $main().innerHTML = `
+      <div class="empty-frame">
+        <i class="ti ti-search empty-icon"></i>
+        <h2 class="empty-title">Entry no encontrada</h2>
+        <p class="empty-text">El identificador ${escapeHtml(entryId)} no existe en el corpus actual.</p>
+        <div class="deriv-block">
+          <button class="deriv-card" onclick="navigateTo('/')">
+            <i class="ti ti-home"></i>
+            <div><div class="deriv-card-title">Volver al inicio</div></div>
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  STATE.currentEntryId = entryId;
+  await logEvent("entry_viewed", {
+    entryId,
+    entryVersion: e.version || "?",
+    source: refSource || "direct"
+  });
+
+  const isPlaceholder = e.reviewStatus === "pendingBusinessValidation";
+  const isOverdue = e.nextReviewDate && new Date(e.nextReviewDate) < new Date();
+
+  // Cross-refs agrupados por dominio
+  const xrefs = (e.crossReferences || []).filter(x => typeof x === "string" || (x && x.targetId));
+  const xrefById = xrefs.map(x => {
+    const id = typeof x === "string" ? x : x.targetId;
+    return STATE.byId[id] ? { id, target: STATE.byId[id] } : null;
+  }).filter(Boolean);
+
+  const xrefGroups = { REG: [], OPS: [], FLV: [], APV: [] };
+  for (const x of xrefById) xrefGroups[x.target.category]?.push(x);
+
+  const groupLabels = {
+    REG: "Marco regulatorio",
+    OPS: "Operativa relacionada",
+    FLV: "Productos relacionados",
+    APV: "Beneficios previsionales relacionados"
+  };
+  const groupIcons = { REG: "ti-gavel", OPS: "ti-settings", FLV: "ti-chart-pie", APV: "ti-coin" };
+
+  const sourcesHtml = (e.sources || []).map(s => {
+    const sourceType = (s.sourceType || s.type || "internal").toLowerCase();
+    const icon = sourceType === "pdf" ? "ti-file-text" : sourceType === "web" ? "ti-world" : "ti-book";
+    return `<div class="source-item">
+      <i class="ti ${icon}"></i>
+      <span>${escapeHtml(s.title || s.sourceTitle || "")}</span>
+      <span class="source-meta">${escapeHtml(s.publisher || s.url || sourceType || "")}</span>
+    </div>`;
+  }).join("");
+
+  $main().innerHTML = `
+    <div class="entry-content">
+      <div class="entry-meta-label">${e.category} · ${escapeHtml(e.subcategory || "")}</div>
+      <h1 class="entry-title">${escapeHtml(e.title)}</h1>
+      <div class="entry-id-line">
+        ${e.id} ·
+        ${isPlaceholder ? '<span class="badge-inline">información preliminar</span> · ' : ''}
+        ${isOverdue && !isPlaceholder ? '<span class="badge-inline">revisión vencida</span> · ' : ''}
+        ${escapeHtml(e.reviewStatus || 'vigente')}
+        ${e.lastEdited ? ' · revisada ' + escapeHtml(e.lastEdited) : ''}
+      </div>
+
+      ${isPlaceholder ? `<div class="placeholder-banner">
+        <i class="ti ti-clock"></i>
+        <div>
+          <p class="placeholder-banner-title">Información preliminar</p>
+          <p class="placeholder-banner-text">Esta entrada está pendiente de validación. Verificar contra ficha vigente antes de utilizar con clientes.</p>
+        </div>
+      </div>` : ''}
+
+      ${isOverdue && !isPlaceholder ? `<div class="placeholder-banner">
+        <i class="ti ti-calendar-clock"></i>
+        <div>
+          <p class="placeholder-banner-title">Revisión vencida</p>
+          <p class="placeholder-banner-text">Esta entrada superó su fecha de revisión programada (${escapeHtml(e.nextReviewDate)}). Verificar vigencia antes de utilizar con clientes.</p>
+        </div>
+      </div>` : ''}
+
+      <p class="entry-short">${e.shortAnswer || ''}</p>
+
+      ${e.longAnswer ? `<div class="section-divider-label">Detalle</div><div class="entry-long">${escapeHtml(e.longAnswer)}</div>` : ''}
+
+      ${Object.entries(xrefGroups).filter(([k,v]) => v.length>0).map(([k,v]) => `
+        <div class="section-divider-label">${groupLabels[k]}</div>
+        <div class="xref-list">
+          ${v.map(x => `<button class="xref-card" data-xref-id="${x.id}" data-from="${e.id}">
+            <div class="xref-icon"><i class="ti ${groupIcons[k]}"></i></div>
+            <div class="xref-body">
+              <h4 class="xref-title"><strong>${x.id} · </strong>${escapeHtml(x.target.title)}</h4>
+            </div>
+          </button>`).join("")}
+        </div>
+      `).join("")}
+
+      ${sourcesHtml ? `<div class="section-divider-label">Fuentes</div>${sourcesHtml}` : ''}
+
+      <div class="feedback-bar">
+        <div class="feedback-group">
+          <button class="feedback-btn up" data-fb="up" title="Respuesta útil"><i class="ti ti-thumb-up"></i></button>
+          <button class="feedback-btn down" data-fb="down" title="No útil"><i class="ti ti-thumb-down"></i></button>
+        </div>
+        <div class="feedback-group">
+          <button class="feedback-btn" id="copy-btn" title="Copiar"><i class="ti ti-copy"></i></button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll(".xref-card[data-xref-id]").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.dataset.xrefId;
+      logEvent("crossreference_clicked", { fromEntryId: card.dataset.from, toEntryId: id });
+      navigateTo("/entry/" + id + "?ref=xref");
+    });
+  });
+
+  document.querySelectorAll(".feedback-btn[data-fb]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const dir = btn.dataset.fb;
+      document.querySelectorAll(".feedback-btn[data-fb]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      logEvent("feedback_given", { entryId: e.id, direction: dir });
+    });
+  });
+
+  const copyBtn = document.getElementById("copy-btn");
+  if (copyBtn) copyBtn.addEventListener("click", () => {
+    const txt = e.title + "\n\n" + (e.shortAnswer || "").replace(/<[^>]+>/g, "") + "\n\n" + (e.longAnswer || "");
+    navigator.clipboard?.writeText(txt);
+    copyBtn.classList.add("active");
+    setTimeout(() => copyBtn.classList.remove("active"), 1500);
+  });
+}
+
+async function computeWeeklyMetrics() {
+  // Computa métricas mínimas desde la bitácora local
+  // POR CATEGORÍA (A2) y por tipo de evento
+  if (!DB) return null;
+  const events = await new Promise((res, rej) => {
+    const tx = DB.transaction(["events"], "readonly");
+    const r = tx.objectStore("events").getAll();
+    r.onsuccess = () => res(r.result || []);
+    r.onerror = e => rej(e.target.error);
+  });
+
+  const sevenDaysAgo = Date.now() - 7*24*60*60*1000;
+  const recentEvents = events.filter(e => new Date(e.timestamp).getTime() >= sevenDaysAgo);
+
+  const totalQueries = events.filter(e => e.eventType === "query_executed").length;
+  const queriesWeek = recentEvents.filter(e => e.eventType === "query_executed");
+  const clicksWeek = recentEvents.filter(e => e.eventType === "result_clicked");
+  const queryIdsWithClick = new Set(clicksWeek.map(e => e.payload?.queryId).filter(Boolean));
+
+  // Por categoría (basado en topResultCategory)
+  const byCat = { APV:{q:0,clicks:0,noResult:0}, REG:{q:0,clicks:0,noResult:0}, OPS:{q:0,clicks:0,noResult:0}, FLV:{q:0,clicks:0,noResult:0}, sin_categoria:{q:0,clicks:0,noResult:0} };
+  for (const q of queriesWeek) {
+    const cat = q.payload?.topResultCategory || "sin_categoria";
+    if (!byCat[cat]) byCat[cat] = {q:0,clicks:0,noResult:0};
+    byCat[cat].q++;
+    if (q.payload?.resultsCount === 0) byCat[cat].noResult++;
+    if (queryIdsWithClick.has(q.payload?.queryId)) byCat[cat].clicks++;
+  }
+
+  // Consultas problemáticas (sin resultado o sin click)
+  const noResults = queriesWeek.filter(q => q.payload?.resultsCount === 0);
+  const noClicks = queriesWeek.filter(q => q.payload?.resultsCount > 0 && !queryIdsWithClick.has(q.payload?.queryId));
+
+  // Adopción semanal (usuarios únicos activos / habilitados)
+  const activeUserIds = new Set(recentEvents.map(e => e.userId).filter(Boolean));
+  const HABILITADOS = 12; // según objetivo de piloto
+  const adoptionPct = HABILITADOS > 0 ? Math.round((activeUserIds.size / HABILITADOS) * 100) : 0;
+
+  return {
+    totalQueries,
+    queriesWeek: queriesWeek.length,
+    byCat,
+    noResults,
+    noClicks,
+    activeUsersWeek: activeUserIds.size,
+    habilitados: HABILITADOS,
+    adoptionPct
+  };
+}
+
+async function renderAbout() {
+  await logEvent("system_status_viewed", { triggeredBy: "manual" });
+
+  const corpusVersion = ["APV","REG","OPS","FLV"].map(c => {
+    const d = STATE.corpora[c];
+    return c + "v" + (d?.version || "?");
+  }).join("-");
+
+  const metrics = await computeWeeklyMetrics();
+
+  // Listas simples KQS reemplazado por: vencidas, pendientes, sin validación (según prompt)
+  const vencidas = STATE.allEntries.filter(e => e.nextReviewDate && new Date(e.nextReviewDate) < new Date() && e.reviewStatus !== "pendingBusinessValidation");
+  const pendientes = STATE.allEntries.filter(e => e.reviewStatus === "pendingBusinessValidation");
+  const sinValidacion = STATE.allEntries.filter(e => !e.reviewStatus || (e.reviewStatus !== "validated" && e.reviewStatus !== "pendingBusinessValidation"));
+
+  // Conteo por categoría de listas simples (A2)
+  const countByCat = (arr) => ({
+    APV: arr.filter(e => e.category === "APV").length,
+    REG: arr.filter(e => e.category === "REG").length,
+    OPS: arr.filter(e => e.category === "OPS").length,
+    FLV: arr.filter(e => e.category === "FLV").length
+  });
+  const vencidasCat = countByCat(vencidas);
+  const pendientesCat = countByCat(pendientes);
+
+  const catLabels = ["APV","REG","OPS","FLV"];
+
+  // Bloque 1: Búsquedas realizadas (por categoría — A2)
+  const busquedaRows = catLabels.map(c => {
+    const d = STATE.corpora[c];
+    const cls = d?.health || "unavailable";
+    const m = metrics?.byCat[c] || {q:0,clicks:0};
+    const ctr = m.q > 0 ? Math.round((m.clicks / m.q) * 100) : 0;
+    return `<tr>
+      <td>${c}</td>
+      <td>${m.q}</td>
+      <td>${m.clicks}</td>
+      <td>${ctr}%</td>
+      <td class="status-${cls}">${cls}</td>
+    </tr>`;
+  }).join("");
+
+  // Bloque 2: Consultas problemáticas
+  const probItems = [...(metrics?.noResults || []).slice(0,5), ...(metrics?.noClicks || []).slice(0,5)];
+  const probHtml = probItems.length === 0
+    ? `<div style="color:var(--text-tertiary);font-size:12px">Sin consultas problemáticas en los últimos 7 días.</div>`
+    : `<table class="about-table">
+        <tr><td><strong>Query</strong></td><td><strong>Tipo</strong></td><td><strong>Categoría top</strong></td></tr>
+        ${probItems.map(p => {
+          const isNoRes = (p.payload?.resultsCount === 0);
+          return `<tr>
+            <td><code style="font-size:11.5px">${escapeHtml((p.payload?.query || "").slice(0,60))}</code></td>
+            <td>${isNoRes ? "sin resultado" : "sin click"}</td>
+            <td>${escapeHtml(p.payload?.topResultCategory || "—")}</td>
+          </tr>`;
+        }).join("")}
+      </table>`;
+
+  // Estado del corpus (deuda editorial — KQS simplificado a 3 listas)
+  const deudaHtml = `<table class="about-table">
+    <tr><td><strong>Tipo</strong></td><td><strong>Total</strong></td><td><strong>APV</strong></td><td><strong>REG</strong></td><td><strong>OPS</strong></td><td><strong>FLV</strong></td></tr>
+    <tr><td>Vencidas</td><td>${vencidas.length}</td><td>${vencidasCat.APV}</td><td>${vencidasCat.REG}</td><td>${vencidasCat.OPS}</td><td>${vencidasCat.FLV}</td></tr>
+    <tr><td>Pendientes (placeholder)</td><td>${pendientes.length}</td><td>${pendientesCat.APV}</td><td>${pendientesCat.REG}</td><td>${pendientesCat.OPS}</td><td>${pendientesCat.FLV}</td></tr>
+    <tr><td>Sin validación formal</td><td>${sinValidacion.length}</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  </table>`;
+
+  $main().innerHTML = `
+    <div class="about-content">
+      <!-- Bloque base: versión y estado -->
+      <div class="about-block">
+        <div class="about-block-title">Estado del sistema</div>
+        <table class="about-table">
+          <tr><td>corpusVersion</td><td>${escapeHtml(corpusVersion)}</td></tr>
+          <tr><td>searchModelVersion</td><td>${escapeHtml(STATE.searchConfig.searchModelVersion)}</td></tr>
+          <tr><td>Estado global</td><td class="status-${STATE.globalHealth === 'healthy' ? 'loaded' : 'degraded'}">${escapeHtml(STATE.globalHealth)}</td></tr>
+          <tr><td>Identidad activa</td><td>${escapeHtml((STATE.user?.firstName || "") + " " + (STATE.user?.lastName || ""))}</td></tr>
+        </table>
+      </div>
+
+      <!-- BLOQUE 1: Búsquedas realizadas (por categoría — A2) -->
+      <div class="about-block">
+        <div class="about-block-title">Búsquedas realizadas (últimos 7 días, por categoría)</div>
+        <table class="about-table">
+          <tr><td><strong>Categoría</strong></td><td><strong>Consultas</strong></td><td><strong>Clicks</strong></td><td><strong>CTR</strong></td><td><strong>Salud</strong></td></tr>
+          ${busquedaRows}
+        </table>
+        <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">
+          Total acumulado: ${metrics?.totalQueries || 0} consultas · esta semana: ${metrics?.queriesWeek || 0}
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: Consultas problemáticas -->
+      <div class="about-block">
+        <div class="about-block-title">Consultas problemáticas (últimos 7 días)</div>
+        ${probHtml}
+        <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">
+          Sin resultado: ${metrics?.noResults?.length || 0} · sin click: ${metrics?.noClicks?.length || 0}
+        </div>
+      </div>
+
+      <!-- BLOQUE 3: Adopción semanal (A4) -->
+      <div class="about-block">
+        <div class="about-block-title">Adopción semanal</div>
+        <table class="about-table">
+          <tr><td>Usuarios activos esta semana</td><td>${metrics?.activeUsersWeek || 0} / ${metrics?.habilitados || 12}</td></tr>
+          <tr><td>Adopción semanal</td><td><strong style="color:${(metrics?.adoptionPct || 0) >= 50 ? 'var(--positive)' : 'var(--text-secondary)'};font-size:14px">${metrics?.adoptionPct || 0}%</strong></td></tr>
+          <tr><td>Objetivo</td><td>≥ 50% sostenido por 2 semanas</td></tr>
+        </table>
+      </div>
+
+      <!-- Deuda editorial (KQS simplificado) -->
+      <div class="about-block">
+        <div class="about-block-title">Estado editorial del corpus</div>
+        ${deudaHtml}
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   ETAPA 7 — ROUTING (4 URLs mínimas)
+   /, /search?q=...&c=..., /entry/X, /about
+   ============================================================ */
+
+function parseHash() {
+  const h = location.hash.replace(/^#/, "") || "/";
+  const [path, qs] = h.split("?");
+  const params = {};
+  if (qs) {
+    for (const kv of qs.split("&")) {
+      const [k, v] = kv.split("=");
+      params[k] = decodeURIComponent(v || "");
+    }
+  }
+  return { path, params };
+}
+
+function navigateTo(path) {
+  if (location.hash !== "#" + path) location.hash = path;
+  else handleRoute(); // refresh manual
+}
+
+async function handleRoute() {
+  const { path, params } = parseHash();
+  STATE.currentRoute = path;
+  // home
+  if (path === "/" || path === "") return renderHome();
+  // search
+  if (path === "/search") {
+    const q = params.q || "";
+    if (!q) return renderHome();
+    return renderSearch(q, params.c || null);
+  }
+  // entry
+  if (path.startsWith("/entry/")) {
+    const id = path.slice("/entry/".length);
+    return renderEntry(id, params.ref || "direct");
+  }
+  // about
+  if (path === "/about") return renderAbout();
+  // unknown
+  navigateTo("/");
+}
+
+/* ============================================================
+   IDENTIFICACIÓN
+   ============================================================ */
+
+function getStoredUser() {
+  try {
+    return JSON.parse(localStorage.getItem("lvam-user") || "null");
+  } catch { return null; }
+}
+
+function setStoredUser(u) {
+  localStorage.setItem("lvam-user", JSON.stringify(u));
+}
+
+function showIdentificationModal(quickMode) {
+  const modal = document.getElementById("ident-modal");
+  modal.classList.remove("hidden");
+  const quick = document.getElementById("quick-confirm");
+  const quickBtn = document.getElementById("quick-confirm-btn");
+  const form = document.getElementById("ident-form");
+  const changeLink = document.getElementById("ident-change-link");
+  if (quickMode && STATE.user) {
+    quick.classList.remove("hidden");
+    quickBtn.classList.remove("hidden");
+    document.getElementById("quick-name").textContent = STATE.user.firstName + " " + STATE.user.lastName;
+    document.getElementById("quick-email").textContent = STATE.user.corporateEmail + " · " + STATE.user.agency;
+    form.classList.add("hidden");
+    changeLink.classList.remove("hidden");
+    document.getElementById("ident-title").textContent = "Hola " + STATE.user.firstName;
+    document.getElementById("ident-text").textContent = "Continúa con tu identidad guardada o cámbiala si es necesario.";
+  } else {
+    quick.classList.add("hidden");
+    quickBtn.classList.add("hidden");
+    form.classList.remove("hidden");
+    changeLink.classList.add("hidden");
+    document.getElementById("ident-title").textContent = "Bienvenido a AppBOT";
+    document.getElementById("ident-text").textContent = "Para usar el asistente necesitamos que confirmes tu identidad. Esta información permite trazabilidad de consultas con fines de capacitación y mejora continua. Uso exclusivo interno LVAM. Información sobre clientes (RUT, correo, teléfono) se anonimiza antes de almacenarse.";
+  }
+}
+
+function hideIdentificationModal() {
+  document.getElementById("ident-modal").classList.add("hidden");
+}
+
+function validateAndSubmitIdent() {
+  const firstName = document.getElementById("f-firstName").value.trim();
+  const lastName  = document.getElementById("f-lastName").value.trim();
+  const email     = document.getElementById("f-email").value.trim().toLowerCase();
+  const manager   = document.getElementById("f-manager").value.trim();
+  const agency    = document.getElementById("f-agency").value;
+  const emailErr  = document.getElementById("f-email-error");
+
+  emailErr.classList.add("hidden");
+
+  if (firstName.length < 2 || lastName.length < 2 || manager.length < 2 || !agency) {
+    return null;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    emailErr.classList.remove("hidden");
+    return null;
+  }
+
+  return {
+    userId: email,
+    firstName, lastName,
+    corporateEmail: email,
+    salesManager: manager,
+    agency,
+    role: "FFVV",
+    createdAt: new Date().toISOString(),
+    isActive: true
+  };
+}
+
+async function onIdentSubmit() {
+  const u = validateAndSubmitIdent();
+  if (!u) return;
+  STATE.user = u;
+  setStoredUser(u);
+  try { await dbPut("user", u); } catch(e){}
+  await startSession(u.userId);
+  hideIdentificationModal();
+  updateUserAvatar();
+  handleRoute();
+}
+
+async function onQuickConfirm() {
+  if (!STATE.user) return;
+  await startSession(STATE.user.userId);
+  hideIdentificationModal();
+  updateUserAvatar();
+  handleRoute();
+}
+
+function updateUserAvatar() {
+  if (STATE.user) {
+    const initials = (STATE.user.firstName[0] + STATE.user.lastName[0]).toUpperCase();
+    document.getElementById("user-avatar").textContent = initials;
+    document.getElementById("topbar-sub").textContent =
+      STATE.user.firstName + " " + STATE.user.lastName + " · " + STATE.user.agency;
+  }
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+
+function showDegradedBanner(globalHealth, corpora) {
+  if (globalHealth === "healthy") return;
+  const banner = document.getElementById("degraded-banner");
+  const text = document.getElementById("degraded-text");
+  const issues = Object.entries(corpora)
+    .filter(([k,v]) => v.health !== "loaded")
+    .map(([k,v]) => k + " (" + v.health + ")")
+    .join(", ");
+  if (globalHealth === "unavailable") {
+    text.innerHTML = `<strong>No se pudo cargar el conocimiento.</strong> Esto suele pasar cuando la app se abre directamente desde el archivo (file://) o cuando los JSONs no están disponibles en la ruta esperada. Verifica acceso vía servidor HTTP (http://localhost:8080 o URL de Vercel).`;
+  } else {
+    text.innerHTML = `<strong>Conocimiento parcialmente disponible.</strong> ${escapeHtml(issues)}. Las búsquedas y resultados pueden estar incompletos.`;
+  }
+  banner.classList.remove("hidden");
+}
+
+function updateFooterVersion() {
+  const corpusVersion = ["APV","REG","OPS","FLV"].map(c => {
+    const d = STATE.corpora[c];
+    return c + "v" + (d?.version || "?");
+  }).join("-");
+  document.getElementById("footer-corpus").textContent = "corpus " + corpusVersion;
+}
+
+/* ============================================================
+   INSTRUMENTACIÓN DE BOOT
+   ============================================================ */
+
+const BUILD_VERSION = "1.0.2-2026-06-13-v2";
+const SW_VERSION = "lvam-ffvv-v2-2026-06-13";
+const DEBUG = new URLSearchParams(location.search).get("debug") === "1";
+const TOTAL_STAGES = 8;
+const BOOT_TIMEOUT_MS = 10000;
+const BOOT_T0 = performance.now();
+let CURRENT_STAGE_TEXT = "[0/8] Antes de iniciar";
+
+function bootLog(msg) {
+  const t = (performance.now() - BOOT_T0).toFixed(0);
+  const line = "[BOOT][" + t + "ms] " + msg;
+  console.log(line);
+  if (DEBUG) {
+    const dbg = document.getElementById("boot-debug");
+    if (dbg) {
+      dbg.classList.remove("hidden");
+      dbg.textContent += line + "\n";
+      dbg.scrollTop = dbg.scrollHeight;
+    }
+  }
+}
+
+function setStage(n, msg) {
+  CURRENT_STAGE_TEXT = "[" + n + "/" + TOTAL_STAGES + "] " + msg;
+  const stageEl = document.getElementById("boot-stage");
+  const fill = document.getElementById("boot-progress-fill");
+  if (stageEl) stageEl.textContent = CURRENT_STAGE_TEXT;
+  if (fill) fill.style.width = ((n / TOTAL_STAGES) * 100).toFixed(0) + "%";
+  bootLog("STAGE " + CURRENT_STAGE_TEXT);
+}
+
+function setFileStatus(key, status, detail) {
+  const el = document.getElementById("file-status-" + key);
+  if (!el) return;
+  const txt = status + (detail != null && detail !== "" ? " (" + detail + ")" : "");
+  el.textContent = txt;
+  el.className = "boot-file-status status-" + status.toLowerCase();
+  bootLog("FILE " + key + " → " + txt);
+}
+
+function showBootError(title, detail) {
+  const errBox = document.getElementById("boot-error");
+  const errTitle = document.getElementById("boot-error-title");
+  const errMsg = document.getElementById("boot-error-msg");
+  if (errBox && errTitle && errMsg) {
+    errBox.classList.remove("hidden");
+    errTitle.textContent = title;
+    errMsg.textContent =
+      "Etapa actual: " + CURRENT_STAGE_TEXT + "\n" +
+      "Tiempo desde boot: " + (performance.now() - BOOT_T0).toFixed(0) + "ms\n" +
+      "----------------------------------------\n" +
+      detail;
+  }
+  console.error("[BOOT-ERROR]", title, detail);
+}
+
+// Captura global
+window.addEventListener("error", function(e) {
+  showBootError("JavaScript Error",
+    (e.error && e.error.stack) ? e.error.stack :
+    (e.message + "\n  at " + (e.filename || "?") + ":" + (e.lineno || "?") + ":" + (e.colno || "?"))
+  );
+});
+window.addEventListener("unhandledrejection", function(e) {
+  const r = e.reason;
+  showBootError("Unhandled Promise Rejection",
+    (r && r.stack) ? r.stack : String(r)
+  );
+});
+
+async function reportSwStatus() {
+  const swEl = document.getElementById("boot-sw");
+  if (!swEl) return;
+  if (!("serviceWorker" in navigator)) {
+    swEl.textContent = "SW: no soportado por el navegador";
+    return;
+  }
+  try {
+    const regs = await navigator.serviceWorker.getRegistrations();
+    if (regs.length === 0) {
+      swEl.textContent = "SW: no registrado";
+      return;
+    }
+    const reg = regs[0];
+    const state = reg.active ? reg.active.state : reg.installing ? "installing" : reg.waiting ? "waiting" : "—";
+    const scriptUrl = reg.active ? reg.active.scriptURL.split("/").pop() : "?";
+    let cacheNames = [];
+    if (window.caches) {
+      try { cacheNames = await caches.keys(); } catch(_){}
+    }
+    swEl.innerHTML =
+      "SW: <strong>" + state + "</strong> · " + scriptUrl + "<br>" +
+      "Cache: " + (cacheNames.join(", ") || "(ninguno)") + "<br>" +
+      "Esperado: " + SW_VERSION;
+  } catch (e) {
+    swEl.textContent = "SW: error consultando estado · " + e.message;
+  }
+}
+
+async function clearAllAndReload() {
+  bootLog("CLEAR cache + SW + storage");
+  try { if (typeof DB !== "undefined" && DB) DB.close(); } catch(_){}
+  try { indexedDB.deleteDatabase(typeof DB_NAME !== "undefined" ? DB_NAME : "lvam-ffvv"); } catch(_){}
+  if ("serviceWorker" in navigator) {
+    try {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      for (const r of regs) await r.unregister();
+    } catch(_){}
+  }
+  if (window.caches) {
+    try {
+      const keys = await caches.keys();
+      for (const k of keys) await caches.delete(k);
+    } catch(_){}
+  }
+  try { localStorage.removeItem("lvam-user"); } catch(_){}
+  location.reload();
+}
+
+// Wiring inmediato de botones del loading-screen (antes de boot)
+document.addEventListener("DOMContentLoaded", function() {
+  const clearBtn = document.getElementById("boot-clear-btn");
+  const reloadBtn = document.getElementById("boot-reload-btn");
+  if (clearBtn) clearBtn.addEventListener("click", clearAllAndReload);
+  if (reloadBtn) reloadBtn.addEventListener("click", function(){ location.reload(); });
+  // Mostrar versión inmediatamente
+  const vEl = document.getElementById("boot-version");
+  if (vEl) vEl.textContent = "build: " + BUILD_VERSION + " · sw esperado: " + SW_VERSION + (DEBUG ? " · DEBUG=1" : "");
+});
+
+async function boot() {
+  setStage(1, "Iniciando aplicación");
+
+  // === GUARD CRÍTICO: protocolo file:// no soportado ===
+  // Los browsers modernos (Chrome 73+, Edge, Safari, Firefox 68+) bloquean fetch()
+  // de archivos JSON locales bajo file:// por política CORS de seguridad.
+  // Si el usuario abrió el HTML con doble click, esta detección le explica qué hacer
+  // en lugar de dejarlo viendo "Cargando..." o errores opacos de fetch.
+  if (location.protocol === "file:") {
+    const stageEl = document.getElementById("boot-stage");
+    if (stageEl) stageEl.textContent = "[STOP] Modo file:// no soportado";
+    const fill = document.getElementById("boot-progress-fill");
+    if (fill) fill.style.width = "100%";
+    // Marcar todos los archivos como BLOQUEADO
+    for (const k of ["APV","REG","OPS","FLV","config","synonyms"]) {
+      setFileStatus(k, "BLOQUEADO", "file://");
+    }
+    showBootError("Esta aplicación requiere un servidor HTTP",
+      "El asistente está siendo ejecutado desde file://, pero los browsers modernos\n" +
+      "(Chrome, Edge, Safari, Firefox) bloquean fetch() de archivos JSON locales\n" +
+      "por política de seguridad CORS. No es posible cargar el corpus en este modo.\n" +
+      "\n" +
+      "Para ejecutarlo correctamente:\n" +
+      "\n" +
+      "  1) Abre una terminal en la carpeta donde está index.html\n" +
+      "  2) Ejecuta:\n" +
+      "       python -m http.server 8080\n" +
+      "     (o si tenés Python 3:  python3 -m http.server 8080)\n" +
+      "  3) Abre en tu navegador:\n" +
+      "       http://localhost:8080/\n" +
+      "\n" +
+      "Alternativa sin Python (Windows): instala Node.js y ejecuta\n" +
+      "       npx serve -p 8080\n" +
+      "en esa misma carpeta. Luego abre http://localhost:8080/\n" +
+      "\n" +
+      "Alternativa para producción: desplegar en Vercel/Netlify/cualquier hosting HTTP.\n" +
+      "\n" +
+      "Protocolo detectado: " + location.protocol + "\n" +
+      "URL actual: " + location.href
+    );
+    bootLog("ABORT · file:// no soportado");
+    return; // NO arranca el resto del boot
+  }
+
+  // Timeout global: si vence, mostrar detalle y cortar
+  let timedOut = false;
+  const bootTimeoutId = setTimeout(function() {
+    timedOut = true;
+    showBootError("Carga interrumpida (timeout " + (BOOT_TIMEOUT_MS / 1000) + "s)",
+      "La carga no terminó en " + (BOOT_TIMEOUT_MS / 1000) + " segundos.\n\n" +
+      "Última etapa alcanzada: " + CURRENT_STAGE_TEXT + "\n\n" +
+      "Revisa el estado por archivo arriba para ver qué quedó PENDIENTE o en ERROR.\n" +
+      "Si todo está PENDIENTE: probablemente la primera request está colgada o el navegador no resuelve la URL.\n" +
+      "Si todo está OK pero igual viste timeout: el error está en validación o construcción del índice.\n\n" +
+      "Usa 'Limpiar caché y reiniciar' si sospechas Service Worker corrupto."
+    );
+  }, BOOT_TIMEOUT_MS);
+
+  try {
+    await reportSwStatus();
+
+    // IndexedDB es opcional (no detiene el boot)
+    try {
+      DB = await openDb();
+      bootLog("IndexedDB OK");
+    } catch (e) {
+      bootLog("IndexedDB no disponible: " + e.message);
+    }
+
+    // Carga en serie de los 4 corpus (uno por etapa)
+    const ORDER = [
+      { cat: "APV", file: "./corpus/apv.json",         stage: 2 },
+      { cat: "REG", file: "./corpus/regulacion.json",  stage: 3 },
+      { cat: "OPS", file: "./corpus/operaciones.json", stage: 4 },
+      { cat: "FLV", file: "./corpus/flv.json",         stage: 5 }
+    ];
+    const loadedCorpora = [];
+    for (const o of ORDER) {
+      if (timedOut) return;
+      setStage(o.stage, "Cargando " + o.cat);
+      setFileStatus(o.cat, "CARGANDO");
+      try {
+        const data = await fetchJson(o.file);
+        const count = (data && Array.isArray(data.entries)) ? data.entries.length : 0;
+        setFileStatus(o.cat, "OK", count);
+        loadedCorpora.push({ category: o.cat, data: data, ok: true });
+      } catch (err) {
+        setFileStatus(o.cat, "ERROR", err.message);
+        loadedCorpora.push({ category: o.cat, error: err.message, ok: false });
+      }
+    }
+
+    if (timedOut) return;
+
+    // Config + sinónimos (no fatales si fallan)
+    setStage(6, "Construyendo índice");
+    setFileStatus("config", "CARGANDO");
+    let searchConfig = null;
+    try {
+      searchConfig = await fetchJson("./config/search-config.json");
+      setFileStatus("config", "OK");
+    } catch (e) {
+      setFileStatus("config", "ERROR", e.message);
+    }
+
+    setFileStatus("synonyms", "CARGANDO");
+    let synonymsData = null;
+    try {
+      synonymsData = await fetchJson("./config/synonyms.json");
+      const n = (synonymsData && Array.isArray(synonymsData.entries)) ? synonymsData.entries.length : 0;
+      setFileStatus("synonyms", "OK", n);
+    } catch (e) {
+      setFileStatus("synonyms", "ERROR", e.message);
+    }
+
+    if (timedOut) return;
+
+    STATE.searchConfig = searchConfig || { searchModelVersion: "1.0", weights:{}, boosts:{}, penalties:{}, threshold:{minScore:5}, topN:10 };
+    buildSynonymsMap(synonymsData);
+    bootLog("synonyms map size: " + Object.keys(SYNONYMS_MAP || {}).length);
+
+    // Validar y construir índice
+    STATE.corpora = {};
+    let allEntries = [];
+    for (const r of loadedCorpora) {
+      if (!r.ok) {
+        STATE.corpora[r.category] = { health: "unavailable", error: r.error, entries: [], version: "?" };
+        continue;
+      }
+      let v;
+      try {
+        v = validateCorpus(r.category, r.data);
+      } catch (e) {
+        bootLog("validateCorpus(" + r.category + ") THREW: " + e.message);
+        v = { ok: false, reason: "validator_threw: " + e.message };
+      }
+      STATE.corpora[r.category] = v.ok ? v : { health: "unavailable", error: v.reason, entries: [], version: "?" };
+      if (v.ok) allEntries = allEntries.concat(v.entries);
+    }
+    STATE.allEntries = allEntries;
+    STATE.byId = {};
+    for (const e of allEntries) STATE.byId[e.id] = e;
+    STATE.globalHealth = deriveGlobalHealth(Object.values(STATE.corpora));
+    bootLog("index built: " + allEntries.length + " entries · health=" + STATE.globalHealth);
+
+    if (timedOut) return;
+
+    setStage(7, "Inicializando rutas");
+    updateFooterVersion();
+    showDegradedBanner(STATE.globalHealth, STATE.corpora);
+    handleRoute();
+    bootLog("route initialized: " + (location.hash || "#/"));
+
+    if (timedOut) return;
+
+    setStage(8, "Aplicación lista");
+    clearTimeout(bootTimeoutId);
+
+    document.getElementById("loading-screen").classList.add("hidden");
+    document.getElementById("app").classList.remove("hidden");
+
+    // Identidad — el modal aparece SOBRE el Home, no en su lugar.
+    const stored = getStoredUser();
+    if (stored && stored.userId) {
+      STATE.user = stored;
+      updateUserAvatar();
+      showIdentificationModal(true);
+    } else {
+      showIdentificationModal(false);
+    }
+    bootLog("DONE total=" + (performance.now() - BOOT_T0).toFixed(0) + "ms");
+  } catch (err) {
+    clearTimeout(bootTimeoutId);
+    showBootError("Excepción durante boot",
+      (err && err.stack) ? err.stack : String(err)
+    );
+  }
+}
+
+/* WIRING */
+
+// Helper defensivo: si el elemento no existe, log un warning pero no rompe el script.
+// Previene que un único ID faltante interrumpa la ejecución de boot() y deje la app
+// atascada (como ocurrió con diag-close el 2026-06-13).
+function wire(id, ev, fn) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener(ev, fn);
+  } else {
+    console.warn("[WIRING] elemento #" + id + " no encontrado en DOM · listener no registrado");
+  }
+}
+
+wire("ident-submit",      "click", onIdentSubmit);
+wire("quick-confirm-btn", "click", onQuickConfirm);
+wire("ident-change-link", "click", () => showIdentificationModal(false));
+wire("ident-skip-link",   "click", async () => {
+  // Sesión anónima: no se identifica pero permite uso. Bitácora marca anónimo.
+  const anonUser = { userId: "anon-" + uuid().slice(0,8), firstName: "Usuario", lastName: "anónimo", anonymous: true };
+  STATE.user = anonUser;
+  await startSession(anonUser.userId);
+  hideIdentificationModal();
+  updateUserAvatar();
+  console.log("[IDENT] modo anónimo activado");
+});
+wire("home-btn",       "click", () => navigateTo("/"));
+wire("about-btn",      "click", () => navigateTo("/about"));
+wire("user-avatar",    "click", () => showIdentificationModal(true));
+wire("degraded-retry", "click", () => location.reload());
+
+window.addEventListener("hashchange", handleRoute);
+window.navigateTo = navigateTo; // exposed for inline onclick
+
+/* ============================================================
+   PANEL DE DIAGNÓSTICO (temporal — para verificación end-to-end)
+   ============================================================ */
+
+const DIAG_TESTS = [
+  { id: 1,  q: "qué es APV",                                expectCat: "APV", expectInTop: ["APV-001","APV-002"] },
+  { id: 2,  q: "tope APV mensual anual",                     expectCat: "APV", expectInTop: ["APV-013","APV-012","APV-014"] },
+  { id: 3,  q: "régimen A bonificación 15",                  expectCat: "APV", expectInTop: ["APV-005","APV-006"] },
+  { id: 4,  q: "régimen B rebajar impuesto",                 expectCat: "APV", expectInTop: ["APV-006","APV-007","APV-008"] },
+  { id: 5,  q: "retiro APV antes de pensionarme",            expectCat: "APV", expectInTop: ["APV-023","APV-024","APV-025"] },
+  { id: 6,  q: "artículo 107 LIR fondos mutuos",             expectCat: "REG", expectInTop: ["REG-038","REG-039","REG-040"] },
+  { id: 7,  q: "DL 3500 sistema pensiones",                  expectCat: "REG", expectInTop: ["REG-"] },
+  { id: 8,  q: "PEP persona expuesta políticamente",         expectCat: "REG", expectInTop: ["REG-050"] },
+  { id: 9,  q: "apertura fondo mutuo persona natural",       expectCat: "OPS", expectInTop: ["OPS-"] },
+  { id: 10, q: "traspaso de fondos mutuos MLT",              expectCat: "OPS", expectInTop: ["OPS-021"] },
+  { id: 11, q: "rescate fondo mutuo plazo liquidación",      expectCat: "OPS", expectInTop: ["OPS-"] },
+  { id: 12, q: "mandato electrónico firma digital",          expectCat: "OPS", expectInTop: ["OPS-"] },
+  { id: 13, q: "fondo accionario Estados Unidos USA",        expectCat: "FLV", expectInTop: ["FLV-"] },
+  { id: 14, q: "money market pesos liquidez",                expectCat: "FLV", expectInTop: ["FLV-"] },
+  { id: 15, q: "Renta Fija Chile Serie F",                   expectCat: "FLV", expectInTop: ["FLV-"] }
+];
+
+async function renderDiagPanel() {
+  const body = document.getElementById("diag-body");
+  let swStatus = "(no soportado)";
+  if ("serviceWorker" in navigator) {
+    try {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      swStatus = regs.length > 0 ? "Activo (" + regs.length + " registro)" : "No registrado";
+    } catch(e) { swStatus = "Error: " + e.message; }
+  }
+  const ids = STATE.user?.userId || "(sin identificar)";
+  const identType = STATE.user?.anonymous ? "modo anónimo" : (STATE.user ? "identificado" : "no identificado");
+
+  const corpusRows = ["APV","REG","OPS","FLV"].map(c => {
+    const d = STATE.corpora?.[c];
+    return d
+      ? `<tr><td style="padding:3px 8px 3px 0">${c}</td><td style="padding:3px 0;color:${d.health==='loaded'?'var(--positive)':d.health==='degraded'?'var(--text-secondary)':'var(--negative)'}">${d.health}</td><td style="padding:3px 0">${d.entries?.length||0} entries · v${d.version||'?'}</td></tr>`
+      : `<tr><td style="padding:3px 8px 3px 0">${c}</td><td colspan="2" style="color:var(--negative)">no cargado</td></tr>`;
+  }).join("");
+
+  // Probar fetch directo de cada URL para diagnóstico
+  let urlChecks = "";
+  for (const url of ["./corpus/apv.json","./corpus/regulacion.json","./corpus/operaciones.json","./corpus/flv.json","./config/search-config.json","./config/synonyms.json"]) {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      urlChecks += `<tr><td style="padding:2px 8px 2px 0">${url}</td><td style="color:${r.ok?'var(--positive)':'var(--negative)'}">${r.status} ${r.ok?'OK':'FAIL'}</td></tr>`;
+    } catch(e) {
+      urlChecks += `<tr><td style="padding:2px 8px 2px 0">${url}</td><td style="color:var(--negative)">ERROR ${escapeHtml(e.message)}</td></tr>`;
+    }
+  }
+
+  body.innerHTML = `
+    <div style="margin-bottom:14px">
+      <div style="color:var(--text-tertiary);text-transform:uppercase;font-size:10.5px;letter-spacing:0.05em;font-weight:500;margin-bottom:6px">Carga de archivos (HTTP)</div>
+      <table style="width:100%"><tbody>${urlChecks}</tbody></table>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="color:var(--text-tertiary);text-transform:uppercase;font-size:10.5px;letter-spacing:0.05em;font-weight:500;margin-bottom:6px">Corpus cargados</div>
+      <table style="width:100%"><tbody>${corpusRows}</tbody></table>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="color:var(--text-tertiary);text-transform:uppercase;font-size:10.5px;letter-spacing:0.05em;font-weight:500;margin-bottom:6px">Estado del motor</div>
+      <table style="width:100%"><tbody>
+        <tr><td style="padding:3px 8px 3px 0">Entries indexadas</td><td style="font-weight:500;color:${STATE.allEntries?.length>0?'var(--positive)':'var(--negative)'}">${STATE.allEntries?.length||0}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Estado global</td><td>${STATE.globalHealth}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Search model</td><td>v${STATE.searchConfig?.searchModelVersion||'?'}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Sinónimos</td><td>${Object.keys(SYNONYMS_MAP||{}).length} términos en mapa</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Threshold</td><td>${STATE.searchConfig?.threshold?.minScore||'?'}</td></tr>
+      </tbody></table>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="color:var(--text-tertiary);text-transform:uppercase;font-size:10.5px;letter-spacing:0.05em;font-weight:500;margin-bottom:6px">Última búsqueda</div>
+      <table style="width:100%"><tbody>
+        <tr><td style="padding:3px 8px 3px 0">Query</td><td>${escapeHtml(STATE.currentSearchQuery||'(sin búsqueda aún)')}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Resultados</td><td>${STATE.currentSearchResults?.length||0}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Top resultado</td><td>${STATE.currentSearchResults?.[0]?.entry?.id||'—'} (score ${STATE.currentSearchResults?.[0]?.score?.toFixed(0)||'—'})</td></tr>
+      </tbody></table>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="color:var(--text-tertiary);text-transform:uppercase;font-size:10.5px;letter-spacing:0.05em;font-weight:500;margin-bottom:6px">Sesión / PWA</div>
+      <table style="width:100%"><tbody>
+        <tr><td style="padding:3px 8px 3px 0">Identificación</td><td>${identType}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">userId</td><td>${escapeHtml(ids)}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Service Worker</td><td>${swStatus}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">IndexedDB</td><td>${DB ? 'Abierta · ' + DB_NAME : 'No disponible'}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">URL actual</td><td style="word-break:break-all">${escapeHtml(location.href)}</td></tr>
+        <tr><td style="padding:3px 8px 3px 0">Ruta hash</td><td>${escapeHtml(location.hash || '(vacío)')}</td></tr>
+      </tbody></table>
+    </div>
+  `;
+}
+
+async function runDiagSuite() {
+  const out = document.getElementById("diag-test-results");
+  out.innerHTML = '<div style="padding:10px;color:var(--text-secondary)">Ejecutando 15 tests...</div>';
+  await new Promise(r => setTimeout(r, 50));
+  let passed = 0, partial = 0, failed = 0;
+  const rows = [];
+  for (const t of DIAG_TESTS) {
+    const { results: rs } = search(t.q, STATE.allEntries, STATE.searchConfig, null);
+    const top3 = rs.slice(0,3).map(r => r.entry.id);
+    const top1 = top3[0] || "(ninguno)";
+    const top1Prefix = top1.split("-")[0];
+    const top1Title = rs[0]?.entry?.title || "—";
+    let verdict = "FAIL";
+    if (t.expectInTop.length === 1 && t.expectInTop[0].endsWith("-")) {
+      verdict = (top1Prefix === t.expectCat) ? "PASS" : "FAIL";
+    } else {
+      if (t.expectInTop.some(id => top3.includes(id))) verdict = "PASS";
+      else if (top1Prefix === t.expectCat) verdict = "PARTIAL";
+    }
+    if (verdict === "PASS") passed++;
+    else if (verdict === "PARTIAL") partial++;
+    else failed++;
+    const color = verdict === "PASS" ? "var(--positive)" : verdict === "PARTIAL" ? "var(--text-secondary)" : "var(--negative)";
+    rows.push(`<div style="padding:5px 0;border-bottom:1px solid var(--border-tertiary)">
+      <span style="display:inline-block;width:60px;color:${color};font-weight:500">${verdict}</span>
+      <span style="color:var(--text-secondary)">[${t.id}]</span>
+      "${escapeHtml(t.q)}" → <span style="color:${color}">${top1}</span>
+      <div style="padding-left:65px;color:var(--text-tertiary);font-size:11px">top3: ${top3.join(", ")} · "${escapeHtml(top1Title.slice(0,60))}"</div>
+    </div>`);
+  }
+  out.innerHTML = `
+    <div style="margin:14px 0 10px;font-weight:500">Resultado: ${passed}/15 PASS · ${partial} PARTIAL · ${failed} FAIL</div>
+    ${rows.join("")}
+  `;
+}
+
+wire("diag-btn", "click", () => {
+  const panel = document.getElementById("diag-panel");
+  if (panel) panel.classList.remove("hidden");
+  renderDiagPanel();
+});
+wire("diag-close", "click", () => {
+  const panel = document.getElementById("diag-panel");
+  if (panel) panel.classList.add("hidden");
+});
+wire("diag-refresh",     "click", renderDiagPanel);
+wire("diag-run-tests",   "click", runDiagSuite);
+wire("diag-clear-cache", "click", async () => {
+  if (DB) DB.close();
+  if (indexedDB.deleteDatabase) indexedDB.deleteDatabase(DB_NAME);
+  if ("serviceWorker" in navigator) {
+    const regs = await navigator.serviceWorker.getRegistrations();
+    for (const r of regs) await r.unregister();
+  }
+  if (window.caches) {
+    const keys = await caches.keys();
+    for (const k of keys) await caches.delete(k);
+  }
+  localStorage.removeItem("lvam-user");
+  location.reload();
+});
+
+boot();
+
+// REGISTRO SERVICE WORKER (PWA)
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(err => {
+      console.warn("[SW] registro falló:", err);
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>
