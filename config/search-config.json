@@ -1,0 +1,35 @@
+{
+  "searchModelVersion": "1.0",
+  "lastEdited": "2026-06-13",
+  "comment": "Pesos heurísticos iniciales. Recalibrar tras semana 2 con bitácora real (riesgo abierto en implementation-risk-review).",
+  "weights": {
+    "title": { "exact": 10, "partial": 6 },
+    "keywords": { "exact": 8 },
+    "mainQuestion": { "exact": 7, "partial": 4 },
+    "equivalentQuestions": { "exact": 6, "partial": 4 },
+    "subcategory": { "exact": 4, "partial": 2 },
+    "relatedProducts": { "exact": 4, "partial": 2 },
+    "tags": { "exact": 3, "partial": 1.5 },
+    "shortAnswer": { "exact": 3, "partial": 1.5 },
+    "longAnswer": { "exact": 1, "partial": 0.5 }
+  },
+  "boosts": {
+    "trainingPriority": { "critica": 3, "importante": 1, "normal": 0 },
+    "consultationFrequency": { "alta": 2, "media": 0.5, "baja": 0 },
+    "businessImpact": { "alto": 1, "medio": 0.3, "bajo": 0 }
+  },
+  "penalties": {
+    "reviewStatus": { "pendingBusinessValidation": -2, "deprecated": -1000 },
+    "productStatus": { "cerrado": -1, "fusionado": -1, "pendienteValidacion": -0.5 },
+    "outdatedDays90to180": -0.5,
+    "outdatedDaysOver180": -1
+  },
+  "threshold": {
+    "minScore": 5,
+    "perTokenCap": 20
+  },
+  "debounceMs": 250,
+  "topN": 10,
+  "diversificationActive": false,
+  "diversificationComment": "Diferida según auditoría §1.1 — activar solo si la bitácora evidencia queries ambiguas con resultados sesgados."
+}
