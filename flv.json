@@ -1,0 +1,4527 @@
+{
+  "schemaVersion": "1.0.1",
+  "category": "Fondos LVAM",
+  "categoryLabel": "Fondos LVAM — conocimiento de productos de inversión",
+  "generatedAt": "2026-06-12",
+  "metadata": {
+    "owner": "LVAM — Producto + Inversiones + Habilitación Comercial",
+    "version": "1.0.1-cobertura-fondos-mutuos",
+    "lastEdited": "2026-06-12",
+    "entriesCount": 48,
+    "purpose": "Knowledge base interno del Asistente FFVV LVAM. Categoría FLV v1.0.1. Iteración sobre v1.0 estructural enfocada en cobertura de fondos mutuos: liquidityLevel, isArt107 y apvEligible incorporados como atributos estructurados; 3 comparativos internos reemplazan placeholders de baja prioridad; 2 eventos de vida reemplazan perfiles redundantes. IDs FLV-049+ reservados para fichas individuales validadas (v1.1).",
+    "audience": "uso comercial interno LVAM",
+    "language": "es-CL",
+    "blueprintReference": "Resolución Arquitectónica FLV v1.0.1 — Cobertura Fondos Mutuos",
+    "principleStatement": "REG: qué exige la norma. OPS: cómo se ejecuta. APV: qué beneficios previsionales aplican. FLV: qué producto es, cómo funciona, para quién sirve y cuándo corresponde recomendarlo.",
+    "v101Changes": [
+      "Nuevos atributos productAttributes: liquidityLevel (enum alta/media/baja), isArt107 (boolean), apvEligible (boolean)",
+      "Reglas validador 24-26 incorporadas",
+      "FLV-022 reemplazado: Acc sectoriales (placeholder) → Comparativo MM vs RF corto plazo",
+      "FLV-027 reemplazado: MM USD (placeholder) → Comparativo RF CLP vs RF UF",
+      "FLV-031 reemplazado: FI infraestructura (placeholder) → Comparativo Balanceado conservador vs RF",
+      "FLV-044 reemplazado: Cliente agresivo joven → Evento de vida: herencia o venta de activo",
+      "FLV-045 reemplazado: Cliente alto patrimonio → Evento de vida: finiquito o excedente extraordinario"
+    ]
+  },
+  "disclaimers": {
+    "general": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+    "producto": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+    "recomendacion": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+    "consorcio": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio."
+  },
+  "schema": {
+    "required": [
+      "id",
+      "category",
+      "title",
+      "keywords",
+      "shortAnswer",
+      "sources",
+      "version",
+      "lastEdited"
+    ],
+    "requiredV11": [
+      "ownerType",
+      "crossReferences",
+      "operationalCriticality",
+      "serviceImpact",
+      "dependencyLevel"
+    ],
+    "requiredFLV": [
+      "productType"
+    ],
+    "conditionallyRequired": {
+      "productAttributes": "obligatorio si productType ∈ {ficha_fondo, ficha_apv_vehiculo, ficha_producto_distribuido}",
+      "productStatus": "obligatorio si productType ∈ {ficha_fondo, ficha_apv_vehiculo, ficha_producto_distribuido}; opcional en serie; omitido en overview/caso_uso",
+      "regulatoryDependencies": "obligatorio si existen dependencias regulatorias; debe ser subconjunto de crossReferences; solo referencias REG",
+      "isArt107": "obligatorio en productAttributes cuando productType=ficha_fondo y fundType ∈ {renta_fija, accionario, balanceado, money_market} (regla 24)",
+      "liquidityLevel": "obligatorio en productAttributes para todas las fichas (regla 25)",
+      "apvEligible": "obligatorio en productAttributes cuando productType=ficha_fondo (regla 26)"
+    },
+    "optional": [
+      "subcategory",
+      "longAnswer",
+      "data",
+      "actions",
+      "tags",
+      "mainQuestion",
+      "equivalentQuestions",
+      "practicalExample",
+      "risksAndWarnings",
+      "regulatoryReferences",
+      "cmfDisclaimers",
+      "relatedProducts",
+      "audience",
+      "difficulty",
+      "trainingTags",
+      "contentOwner",
+      "reviewStatus",
+      "nextReviewDate",
+      "reviewPeriodicity",
+      "placeholder",
+      "businessImpact",
+      "consultationFrequency",
+      "trainingPriority",
+      "queryExamples"
+    ],
+    "sourceTypes": [
+      "web",
+      "internal",
+      "pdf"
+    ],
+    "reviewStatusValues": [
+      "draft",
+      "validated",
+      "approved",
+      "deprecated",
+      "pendingBusinessValidation"
+    ],
+    "reviewPeriodicityValues": [
+      "anual",
+      "semestral"
+    ],
+    "businessImpactValues": [
+      "alto",
+      "medio",
+      "bajo"
+    ],
+    "consultationFrequencyValues": [
+      "alta",
+      "media",
+      "baja"
+    ],
+    "trainingPriorityValues": [
+      "critica",
+      "importante",
+      "normal"
+    ],
+    "operationalCriticalityValues": [
+      "critica",
+      "alta",
+      "media",
+      "baja"
+    ],
+    "serviceImpactValues": [
+      "critico",
+      "alto",
+      "medio",
+      "bajo"
+    ],
+    "dependencyLevelValues": [
+      "alta",
+      "media",
+      "baja"
+    ],
+    "ownerTypeValues": [
+      "Operaciones",
+      "Compliance",
+      "HabilitacionComercial",
+      "Producto",
+      "ServicioCliente",
+      "Tributario",
+      "Inversiones"
+    ],
+    "productTypeValues": [
+      "overview",
+      "serie",
+      "ficha_fondo",
+      "ficha_producto_distribuido",
+      "ficha_apv_vehiculo",
+      "caso_uso"
+    ],
+    "productStatusValues": [
+      "vigente",
+      "cerrado",
+      "fusionado",
+      "pendienteValidacion"
+    ],
+    "fundTypeValues": [
+      "renta_fija",
+      "money_market",
+      "balanceado",
+      "seguro_ahorro",
+      "inversion",
+      "apv",
+      "accionario"
+    ],
+    "administratorValues": [
+      "otro",
+      "LVAM AGF",
+      "Consorcio"
+    ],
+    "currencyValues": [
+      "CLP",
+      "USD",
+      "UF"
+    ],
+    "timeHorizonValues": [
+      "largo",
+      "corto",
+      "mediano"
+    ],
+    "targetProfileValues": [
+      "agresivo",
+      "moderado",
+      "conservador"
+    ],
+    "liquidityLevelValues": [
+      "media",
+      "baja",
+      "alta"
+    ]
+  },
+  "subcategories": [
+    "Catálogo y taxonomía LVAM",
+    "Series y mínimos",
+    "FM LVAM — Renta fija",
+    "FM LVAM — Accionarios",
+    "FM LVAM — Balanceados, multi-activo y money market",
+    "Fondos de inversión LVAM",
+    "Productos APV LVAM",
+    "Productos distribuidos · Consorcio",
+    "Casos de uso por perfil"
+  ],
+  "entries": [
+    {
+      "id": "FLV-001",
+      "category": "Fondos LVAM",
+      "subcategory": "Catálogo y taxonomía LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "overview",
+      "title": "Catálogo LVAM: visión general de la oferta",
+      "mainQuestion": "¿Qué productos administra o distribuye LVAM?",
+      "equivalentQuestions": [
+        "Oferta LVAM",
+        "Que vende LVAM",
+        "Catalogo productos LVAM"
+      ],
+      "keywords": [
+        "catalogo lvam",
+        "oferta lvam",
+        "productos lvam",
+        "familias lvam"
+      ],
+      "shortAnswer": "LVAM ofrece dos grandes grupos de productos: <strong>fondos administrados</strong> por LVAM AGF (fondos mutuos y fondos de inversión propios) y <strong>productos distribuidos</strong> mediante alianza con Consorcio (Inversión Gold, CUI, Fondos Dinámicos). Cada grupo se organiza por familias (renta fija, accionarios, balanceados, money market, fondos de inversión, APV, seguros con ahorro).",
+      "longAnswer": "El catálogo LVAM se estructura en familias por activo subyacente y horizonte. Los fondos administrados por LVAM AGF cubren rangos de riesgo desde money market hasta accionarios emergentes, en monedas CLP, UF y USD. Los productos distribuidos en alianza con Consorcio cubren el segmento de seguros con ahorro y fondos dinámicos multi-perfil. Cada producto tiene un reglamento interno vinculante (ver REG-018) y una ficha producto que el ejecutivo debe conocer y entregar al cliente al onboarding (ver REG-029 y OPS-015). Para detalles operativos de suscripción y rescate, ver OPS-012 a OPS-024.",
+      "productAttributes": {
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF",
+          "USD"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ]
+      },
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-029",
+        "OPS-012",
+        "OPS-015",
+        "FLV-003",
+        "FLV-005"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-029"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+      "tags": [
+        "catalogo",
+        "overview",
+        "oferta-lvam",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-002",
+      "category": "Fondos LVAM",
+      "subcategory": "Catálogo y taxonomía LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "overview",
+      "title": "Taxonomía LVAM: cómo se nombran los fondos",
+      "mainQuestion": "¿Qué significan las partes del nombre de un fondo LVAM?",
+      "equivalentQuestions": [
+        "Nomenclatura LVAM",
+        "Como leer nombre fondo",
+        "Estructura nombre"
+      ],
+      "keywords": [
+        "taxonomia",
+        "nomenclatura",
+        "nombre fondo",
+        "leer nombre"
+      ],
+      "shortAnswer": "Los nombres de fondos LVAM siguen una estructura que combina: <strong>familia</strong> (renta fija, accionarios, balanceado, money market), <strong>universo de inversión</strong> (Chile, LatAm, Global, EEUU, etc.), <strong>moneda</strong> (CLP, UF, USD) y eventualmente <strong>horizonte</strong> (corto, mediano, largo plazo). La serie (P, F, A, I) se indica al final y define las condiciones comerciales.",
+      "longAnswer": "Conocer la taxonomía permite al ejecutivo orientarse en el catálogo sin memorizar producto a producto. Un nombre típico contiene: el administrador (LVAM, Larrain Vial), la familia o activo subyacente (renta fija, acciones, balanceado), el universo geográfico o sectorial (Chile, LatAm, EEUU, global, emergentes), eventualmente la moneda si es relevante (UF, USD), y la serie comercial. La serie no es parte de la identidad de inversión del fondo, sino de su empaquetado comercial (ver FLV-005 a FLV-009). Para detalles regulatorios del nombramiento de fondos, ver REG-013 y REG-014.",
+      "crossReferences": [
+        "REG-013",
+        "REG-014",
+        "FLV-005"
+      ],
+      "regulatoryDependencies": [
+        "REG-013"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "medio",
+      "dependencyLevel": "baja",
+      "businessImpact": "medio",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+      "tags": [
+        "taxonomia",
+        "nomenclatura",
+        "overview"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-003",
+      "category": "Fondos LVAM",
+      "subcategory": "Catálogo y taxonomía LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Compliance",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "overview",
+      "title": "Fondos administrados vs fondos distribuidos",
+      "mainQuestion": "¿Cuál es la diferencia entre un fondo administrado por LVAM y uno distribuido?",
+      "equivalentQuestions": [
+        "LVAM administra o distribuye",
+        "Diferencia administrado distribuido",
+        "Consorcio o LVAM"
+      ],
+      "keywords": [
+        "administrado",
+        "distribuido",
+        "alianza",
+        "consorcio lvam"
+      ],
+      "shortAnswer": "<strong>Administrado</strong>: LVAM AGF es la administradora general de fondos; toma las decisiones de inversión, define el reglamento y reporta al inversionista. <strong>Distribuido</strong>: LVAM comercializa un producto cuyo administrador es Consorcio u otra entidad; LVAM es el canal, no el gestor. La diferencia importa para responsabilidades, tributación y argumento comercial.",
+      "longAnswer": "En los fondos administrados (familias LVAM Renta Fija, LVAM Accionarios, etc.), LVAM AGF es responsable de la gestión y del cumplimiento regulatorio frente a CMF; el reglamento interno es de LVAM (ver REG-018). En los productos distribuidos por alianza Consorcio (Inversión Gold, CUI, Fondos Dinámicos), el administrador es Consorcio y LVAM actúa como canal comercial. La relación contractual del cliente está con Consorcio para los aspectos del producto, y con LVAM para la atención comercial. Esto puede tener implicancias en tributación (depende de la estructura del vehículo), en reclamos (ver OPS-038) y en cómo se presenta al cliente.",
+      "crossReferences": [
+        "REG-018",
+        "OPS-014",
+        "OPS-038",
+        "FLV-001",
+        "FLV-036",
+        "FLV-037"
+      ],
+      "regulatoryDependencies": [
+        "REG-018"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+      "tags": [
+        "overview",
+        "administrado",
+        "distribuido",
+        "alianza",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-004",
+      "category": "Fondos LVAM",
+      "subcategory": "Catálogo y taxonomía LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "overview",
+      "title": "Cómo leer una ficha producto LVAM",
+      "mainQuestion": "¿Qué elementos clave debo identificar en una ficha producto?",
+      "equivalentQuestions": [
+        "Leer ficha producto",
+        "Elementos ficha",
+        "Que mirar ficha"
+      ],
+      "keywords": [
+        "ficha producto",
+        "leer ficha",
+        "interpretar ficha"
+      ],
+      "shortAnswer": "Una ficha producto LVAM debe permitir al ejecutivo identificar al menos: <strong>familia y universo</strong> del fondo, <strong>moneda y horizonte</strong>, <strong>perfil objetivo</strong>, <strong>benchmark</strong>, <strong>series disponibles con mínimos y comisiones</strong>, <strong>liquidez operativa</strong> (con remisión a OPS-022), <strong>tratamiento tributario</strong> (con remisión a REG-038 o REG-040 según corresponda) y <strong>reglamento interno vigente</strong>.",
+      "longAnswer": "La ficha producto es la fuente única comercial para presentar el fondo al cliente. Cumple un rol regulatorio: junto al reglamento interno (ver REG-018), constituye la información obligatoria al inversionista (ver REG-029, REG-030). El ejecutivo debe poder leer la ficha de forma sistemática: identificar el activo subyacente y el universo, evaluar si el perfil objetivo coincide con el del cliente (ver OPS-007), revisar las series disponibles y elegir la apropiada según monto, leer las comisiones y comparar con alternativas internas o competitivas, mirar la composición de portafolio reportada para entender la exposición efectiva.",
+      "crossReferences": [
+        "REG-018",
+        "REG-029",
+        "REG-030",
+        "OPS-007",
+        "OPS-022",
+        "FLV-005"
+      ],
+      "regulatoryDependencies": [
+        "REG-018",
+        "REG-029",
+        "REG-030"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+      "tags": [
+        "overview",
+        "ficha-producto",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-005",
+      "category": "Fondos LVAM",
+      "subcategory": "Catálogo y taxonomía LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "overview",
+      "title": "Series LVAM: visión transversal",
+      "mainQuestion": "¿Qué son las series de un fondo y para qué sirven?",
+      "equivalentQuestions": [
+        "Series fondo",
+        "Que es serie",
+        "Diferencia entre series"
+      ],
+      "keywords": [
+        "series",
+        "serie p",
+        "serie f",
+        "serie a",
+        "serie i"
+      ],
+      "shortAnswer": "Una <strong>serie</strong> es una clase comercial dentro de un mismo fondo. El fondo invierte exactamente igual sin importar la serie; las series difieren en <strong>mínimo de entrada</strong>, <strong>comisiones</strong> y a veces <strong>público objetivo</strong>. LVAM utiliza típicamente las series P (alto patrimonio), F (retail), A (estándar) e I (institucional).",
+      "longAnswer": "Las series existen porque el mismo fondo puede atender perfiles distintos de cliente con condiciones comerciales diferenciadas. La estructura clásica: serie con mínimo bajo y comisión más alta para retail (Serie F o A), serie con mínimo alto y comisión más baja para alto patrimonio (Serie P), serie para inversionistas institucionales con comisión negociada (Serie I). El ejecutivo debe escoger la serie idónea para el cliente según su monto y horizonte. El cambio de serie cuando un cliente crece en patrimonio es operativamente posible (ver OPS-030 traspaso interno). Las cifras específicas de mínimos y comisiones por serie viven en la ficha de cada fondo.",
+      "crossReferences": [
+        "OPS-030",
+        "FLV-006",
+        "FLV-007",
+        "FLV-008",
+        "FLV-009"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría de inversión personalizada. Las características específicas del producto deben verificarse en la ficha producto y reglamento interno vigentes.",
+      "tags": [
+        "overview",
+        "series",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "series"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-006",
+      "category": "Fondos LVAM",
+      "subcategory": "Series y mínimos",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "serie",
+      "title": "Serie P — alto patrimonio",
+      "mainQuestion": "¿Qué caracteriza a la Serie P y para qué cliente aplica?",
+      "equivalentQuestions": [
+        "Serie P",
+        "Que es serie P",
+        "Cliente serie P"
+      ],
+      "keywords": [
+        "serie p",
+        "alto patrimonio",
+        "minimo alto",
+        "comision baja"
+      ],
+      "shortAnswer": "La <strong>Serie P</strong> está orientada a clientes de alto patrimonio. Su característica principal es un mínimo de entrada elevado (típicamente expresado en UF) y la comisión más baja del set de series retail disponibles para ese fondo. Las cifras específicas dependen de cada fondo y se validan contra la ficha vigente.",
+      "longAnswer": "La Serie P existe para servir el segmento de alto patrimonio con condiciones comerciales preferentes. El cliente accede a la misma estrategia de inversión del fondo, con un costo total más bajo. El monto mínimo de entrada típicamente se expresa en UF, lo que protege el valor real frente a la inflación. Operativamente la suscripción sigue el flujo estándar (ver OPS-012). Si un cliente alcanza el umbral mientras está en serie F o A, puede solicitar el traspaso interno a Serie P del mismo fondo (ver OPS-030); ese traspaso preserva la inversión sin cambio de fondo.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ]
+      },
+      "crossReferences": [
+        "OPS-012",
+        "OPS-030",
+        "FLV-005",
+        "FLV-007",
+        "FLV-008",
+        "FLV-009"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "serie",
+        "serie-p",
+        "alto-patrimonio"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "series",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-007",
+      "category": "Fondos LVAM",
+      "subcategory": "Series y mínimos",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "serie",
+      "title": "Serie F — retail",
+      "mainQuestion": "¿Qué caracteriza a la Serie F y para qué cliente aplica?",
+      "equivalentQuestions": [
+        "Serie F",
+        "Que es serie F",
+        "Cliente serie F"
+      ],
+      "keywords": [
+        "serie f",
+        "retail",
+        "minimo bajo",
+        "sin minimo"
+      ],
+      "shortAnswer": "La <strong>Serie F</strong> es la serie retail por excelencia: tiene mínimo de entrada bajo o nulo, lo que permite acceso amplio al fondo. Su comisión es más alta que Serie P pero conservada como producto comercial. La cifra de mínimo específica se valida contra la ficha de cada fondo.",
+      "longAnswer": "La Serie F atiende al cliente retail típico: el que recién comienza a invertir, el que aporta montos modestos de forma recurrente, el que diversifica con monto moderado. La accesibilidad del mínimo bajo (a veces sin mínimo) habilita la captación amplia. Es la serie de elección para aportes recurrentes mensuales o aportes APV mensuales (ver categoría APV). Cuando el cliente crece y supera el umbral de Serie P, puede traspasarse internamente sin gatillar tributación adicional (ver OPS-030, REG-042). En el contexto de comisiones, Serie F es típicamente más cara que Serie P y comparable a Serie A.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ]
+      },
+      "crossReferences": [
+        "OPS-012",
+        "OPS-019",
+        "OPS-030",
+        "REG-042",
+        "FLV-005",
+        "FLV-006",
+        "FLV-008"
+      ],
+      "regulatoryDependencies": [
+        "REG-042"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "serie",
+        "serie-f",
+        "retail"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "series"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-008",
+      "category": "Fondos LVAM",
+      "subcategory": "Series y mínimos",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "serie",
+      "title": "Serie A — estándar",
+      "mainQuestion": "¿Qué caracteriza a la Serie A?",
+      "equivalentQuestions": [
+        "Serie A",
+        "Que es serie A"
+      ],
+      "keywords": [
+        "serie a",
+        "estandar",
+        "intermedia"
+      ],
+      "shortAnswer": "La <strong>Serie A</strong> es típicamente la serie estándar del fondo: mínimo intermedio, comisión intermedia. Suele ser la opción por defecto para clientes que no califican a Serie P y prefieren no estar en la Serie F retail. La existencia y cifras específicas de Serie A dependen de cada fondo.",
+      "longAnswer": "No todos los fondos LVAM tienen Serie A; algunos operan solo con P, F e I. Cuando existe, la Serie A actúa como puente entre el retail puro y el alto patrimonio: el cliente accede al fondo con un mínimo razonable y una comisión intermedia, sin tener que llegar al umbral de Serie P. Operativamente sigue las mismas reglas que P y F.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ]
+      },
+      "crossReferences": [
+        "FLV-005",
+        "FLV-006",
+        "FLV-007"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "baja",
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "serie",
+        "serie-a",
+        "estandar"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "series"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-009",
+      "category": "Fondos LVAM",
+      "subcategory": "Series y mínimos",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "serie",
+      "title": "Serie I — institucional",
+      "mainQuestion": "¿Qué caracteriza a la Serie I institucional?",
+      "equivalentQuestions": [
+        "Serie I",
+        "Que es serie I",
+        "Institucional"
+      ],
+      "keywords": [
+        "serie i",
+        "institucional",
+        "comision negociada"
+      ],
+      "shortAnswer": "La <strong>Serie I</strong> es la serie institucional: orientada a inversionistas profesionales o institucionales (compañías de seguros, AFP, fondos de pensiones, family offices grandes). Mínimo muy alto y comisión negociada, típicamente la más baja del set de series.",
+      "longAnswer": "La Serie I no es para FFVV de cliente persona natural promedio. Se utiliza con cuentas institucionales y de muy alto patrimonio que justifiquen la negociación de comisiones. El ejecutivo retail típicamente no opera en esta serie. La existencia de Serie I depende de cada fondo y de la política comercial vigente.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ]
+      },
+      "crossReferences": [
+        "FLV-005",
+        "FLV-006"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "bajo",
+      "dependencyLevel": "baja",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "serie",
+        "serie-i",
+        "institucional"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "series",
+        "institucional"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "FLV-010",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija CLP corto plazo",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM de renta fija CLP de corto plazo?",
+      "equivalentQuestions": [
+        "RF CLP corto",
+        "Renta fija pesos corto",
+        "Fondos liquidez pesos"
+      ],
+      "keywords": [
+        "renta fija clp",
+        "corto plazo",
+        "liquidez pesos",
+        "baja duracion"
+      ],
+      "shortAnswer": "Los fondos LVAM de renta fija CLP de corto plazo invierten en instrumentos de deuda local en pesos con baja duración (típicamente menor a 2 años). Apuntan a un perfil <strong>conservador</strong> con horizonte corto. Suelen ser alternativa al depósito a plazo con liquidez operativa diaria. Para tributación, ver REG-040.",
+      "longAnswer": "Esta familia busca preservación de capital con rentabilidad superior a la liquidez bancaria estricta. El activo subyacente típico: bonos corporativos y de gobierno de corta madurez, depósitos a plazo, instrumentos del Banco Central. La volatilidad es baja y la sensibilidad a tasas (duración) es reducida. Es el reemplazo natural del depósito a plazo para clientes que requieren liquidez. Tributariamente sigue las reglas generales de fondos mutuos no Art. 107 (ver REG-040, REG-042). Operativamente la liquidez de rescate es competitiva (ver OPS-022).",
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "corto",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "alta"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "REG-042",
+        "OPS-022",
+        "OPS-023",
+        "FLV-007"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "REG-042"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "clp",
+        "corto-plazo",
+        "conservador",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-011",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija CLP mediano plazo",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM de renta fija CLP de mediano plazo?",
+      "equivalentQuestions": [
+        "RF CLP mediano",
+        "Renta fija pesos mediano",
+        "Duracion media"
+      ],
+      "keywords": [
+        "renta fija clp",
+        "mediano plazo",
+        "duracion media"
+      ],
+      "shortAnswer": "Los fondos LVAM de renta fija CLP de mediano plazo invierten en deuda local en pesos con duración intermedia (típicamente 2-5 años). Apuntan a perfil <strong>conservador</strong> con horizonte <strong>mediano</strong>. Mayor sensibilidad a tasas que el corto plazo, mayor rentabilidad esperada en escenarios estables.",
+      "longAnswer": "La familia de mediano plazo busca capturar el premio por plazo de la curva soberana y corporativa local. La duración intermedia implica mayor variabilidad de precio frente a movimientos de tasas, compensada por mayor cupón esperado. Adecuada para clientes que pueden mantener la inversión 1-3 años sin necesidad de liquidez total. Tributariamente sigue REG-040 (no Art. 107). Operativamente comparte el ciclo estándar de FM (ver OPS-020).",
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "REG-042",
+        "OPS-020",
+        "FLV-010",
+        "FLV-012"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "REG-042"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "clp",
+        "mediano-plazo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-012",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija CLP largo plazo",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM de renta fija CLP de largo plazo?",
+      "equivalentQuestions": [
+        "RF CLP largo",
+        "Renta fija pesos largo",
+        "Duracion alta"
+      ],
+      "keywords": [
+        "renta fija clp",
+        "largo plazo",
+        "duracion alta"
+      ],
+      "shortAnswer": "Los fondos LVAM de renta fija CLP de largo plazo invierten en deuda local en pesos con duración alta (típicamente mayor a 5 años). Sensibilidad significativa a tasas. Apuntan a perfil <strong>conservador a moderado</strong> con horizonte <strong>largo</strong> que pueda tolerar volatilidad en el camino.",
+      "longAnswer": "La familia de largo plazo apunta a capturar la totalidad del premio por plazo de la curva CLP. La duración alta implica que un movimiento de tasas tiene impacto material en el precio del fondo. Adecuada para clientes con horizonte real de 3+ años, tolerancia a variaciones intermedias y objetivo de rentabilidad superior al mediano plazo. La gestión activa puede modular la duración según expectativas de mercado. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "timeHorizon": "largo",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-010",
+        "FLV-011"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "clp",
+        "largo-plazo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-013",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija UF",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM de renta fija en UF?",
+      "equivalentQuestions": [
+        "RF UF",
+        "Renta fija UF",
+        "Inflacion indexado"
+      ],
+      "keywords": [
+        "renta fija uf",
+        "indexado uf",
+        "inflacion",
+        "proteccion inflacion"
+      ],
+      "shortAnswer": "Los fondos LVAM de renta fija UF invierten en instrumentos de deuda denominados en Unidades de Fomento. La UF se reajusta diariamente por inflación, por lo que estos fondos preservan poder adquisitivo real. Apuntan a perfil <strong>conservador</strong> que busca cobertura de inflación.",
+      "longAnswer": "La indexación en UF tiene como propósito principal proteger el capital del cliente frente a la inflación chilena. Para clientes con objetivos en UF (educación de hijos, retiro, propiedad), el fondo de RF UF mantiene la naturaleza de la unidad de cuenta. La duración del fondo puede ser corta, mediana o larga; cada subfamilia presenta su propio perfil de riesgo. Tributariamente sigue REG-040 (no Art. 107).",
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-010",
+        "FLV-046"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "uf",
+        "inflacion",
+        "conservador"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-014",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija USD",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM de renta fija en USD?",
+      "equivalentQuestions": [
+        "RF USD",
+        "Renta fija dolar",
+        "Bonos USD"
+      ],
+      "keywords": [
+        "renta fija usd",
+        "dolar",
+        "bonos usd",
+        "diversificacion moneda"
+      ],
+      "shortAnswer": "Los fondos LVAM de renta fija USD invierten en instrumentos de deuda denominados en dólares. Cumplen rol de diversificación de moneda y exposición al ciclo de tasas USD. Apuntan a perfil <strong>conservador a moderado</strong> que requiere componente dólar.",
+      "longAnswer": "La exposición USD agrega dos dimensiones de riesgo y oportunidad: la fluctuación cambiaria CLP/USD y el ciclo de tasas en dólares. Para un cliente chileno, el fondo de RF USD funciona como hedge frente a depreciación del peso o como parte de una diversificación deliberada. La gestión activa puede combinar deuda soberana USD, corporativa investment grade y emergente. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-013",
+        "FLV-048"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "usd",
+        "diversificacion-moneda"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-015",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija internacional / emergente",
+      "mainQuestion": "¿LVAM ofrece fondos de renta fija internacional o emergente?",
+      "equivalentQuestions": [
+        "RF internacional",
+        "Emerging market debt",
+        "Bonos globales"
+      ],
+      "keywords": [
+        "renta fija internacional",
+        "emergente",
+        "global",
+        "emerging market"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente la categoría cubriría exposición a deuda fuera de Chile, en mercados desarrollados o emergentes, con riesgo cambiario y de tasa internacional.",
+      "longAnswer": "Contenido pendiente. Si esta familia existe en la oferta LVAM, cubriría deuda corporativa o soberana fuera de Chile, en monedas duras o locales emergentes, con un perfil de riesgo-retorno superior al de la renta fija local pero con mayor volatilidad. La existencia, denominación exacta y atributos serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "FLV-014"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "internacional",
+        "emergente",
+        "pendiente-validacion"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-016",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM de renta fija latinoamericana",
+      "mainQuestion": "¿LVAM ofrece fondos de renta fija latinoamericana?",
+      "equivalentQuestions": [
+        "RF LatAm",
+        "Bonos LatAm",
+        "Renta fija region"
+      ],
+      "keywords": [
+        "renta fija latam",
+        "bonos latam",
+        "region"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría deuda corporativa o soberana de la región LatAm con riesgo cambiario regional.",
+      "longAnswer": "Contenido pendiente. Si LVAM mantiene esta familia, cubriría deuda emitida en países latinoamericanos en monedas locales o dólares, con exposición al riesgo país regional. Útil para diversificación geográfica dentro de un perfil moderado. La existencia y atributos exactos serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "renta_fija",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "moderado"
+        ],
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "FLV-014",
+        "FLV-015"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "renta-fija",
+        "latam",
+        "pendiente-validacion"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "renta-fija"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-017",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Accionarios",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM accionarios Chile",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM accionarios Chile?",
+      "equivalentQuestions": [
+        "Acciones Chile",
+        "Bolsa chilena",
+        "Equity local"
+      ],
+      "keywords": [
+        "acciones chile",
+        "bolsa local",
+        "ipsa",
+        "equity chile"
+      ],
+      "shortAnswer": "Los fondos LVAM accionarios Chile invierten en acciones de empresas listadas en la bolsa local. Apuntan a perfil <strong>moderado a agresivo</strong> con horizonte <strong>largo</strong>. Algunos pueden cumplir condiciones del <strong>Art. 107</strong> con beneficio tributario asociado (ver REG-038 y REG-039).",
+      "longAnswer": "Esta familia entrega exposición directa al mercado accionario chileno. El activo subyacente son acciones de empresas locales, típicamente con benchmark referencial vinculado al IPSA o índices similares. Volatilidad alta, horizonte recomendado largo. Para fondos que cumplen condiciones del Art. 107 (presencia bursátil, requisitos formales), la ganancia de capital puede quedar exenta para inversionistas que cumplan condiciones (ver REG-038, REG-039). Tributariamente, los no Art. 107 siguen REG-040.",
+      "productAttributes": {
+        "fundType": "accionario",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "isArt107": true,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-038",
+        "REG-039",
+        "REG-040",
+        "FLV-018",
+        "FLV-044"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-038",
+        "REG-039",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "accionario",
+        "chile",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "accionario"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-018",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Accionarios",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM accionarios LatAm",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM accionarios LatAm?",
+      "equivalentQuestions": [
+        "Acciones LatAm",
+        "Equity latinoamerica",
+        "Bolsa region"
+      ],
+      "keywords": [
+        "acciones latam",
+        "equity region",
+        "bolsa latam"
+      ],
+      "shortAnswer": "Los fondos LVAM accionarios LatAm invierten en acciones de empresas listadas en bolsas latinoamericanas (Brasil, México, Perú, Colombia, Chile). Apuntan a perfil <strong>agresivo</strong> con horizonte <strong>largo</strong>. Diversificación geográfica regional con alta correlación a ciclos de materias primas y a riesgo país emergente.",
+      "longAnswer": "La familia LatAm captura el potencial de crecimiento de las principales economías de la región a costa de volatilidad alta y exposición a riesgo cambiario y político. Adecuada para clientes con tolerancia a fluctuaciones materiales y horizonte de varios años. Tributariamente sigue REG-040 (no Art. 107 por estructura geográfica).",
+      "productAttributes": {
+        "fundType": "accionario",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "USD"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-017",
+        "FLV-044"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "accionario",
+        "latam"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "accionario"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-019",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Accionarios",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM accionarios global desarrollado",
+      "mainQuestion": "¿LVAM ofrece fondos accionarios de mercados desarrollados globales?",
+      "equivalentQuestions": [
+        "Acciones global",
+        "Equity desarrollado",
+        "MSCI World"
+      ],
+      "keywords": [
+        "acciones global",
+        "desarrollado",
+        "msci world",
+        "developed"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría exposición a acciones de empresas en mercados desarrollados (EEUU, Europa, Japón) con benchmark referencial tipo MSCI World.",
+      "longAnswer": "Contenido pendiente. Si LVAM mantiene esta familia, ofrecería diversificación accionaria global con exposición a economías maduras. Perfil moderado a agresivo, horizonte largo. La existencia exacta y la moneda de denominación serán confirmadas por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "accionario",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "FLV-020"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "accionario",
+        "global",
+        "desarrollado",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "accionario"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-020",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Accionarios",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM accionarios EEUU",
+      "mainQuestion": "¿LVAM ofrece fondos accionarios específicamente de EEUU?",
+      "equivalentQuestions": [
+        "Acciones EEUU",
+        "Equity USA",
+        "S&P 500"
+      ],
+      "keywords": [
+        "acciones eeuu",
+        "usa",
+        "s&p 500",
+        "nasdaq"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría exposición concentrada a acciones del mercado estadounidense.",
+      "longAnswer": "Contenido pendiente. Si LVAM mantiene una familia específica EEUU, ofrecería exposición concentrada al mercado más profundo del mundo, con benchmark referencial tipo S&P 500 o similar. La existencia exacta podría estar absorbida por la familia 'global desarrollado' (FLV-019), a confirmar por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "accionario",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "FLV-019"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "accionario",
+        "eeuu",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "accionario"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-021",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Accionarios",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM accionarios emergentes",
+      "mainQuestion": "¿LVAM ofrece fondos accionarios de mercados emergentes?",
+      "equivalentQuestions": [
+        "Acciones emergentes",
+        "Emerging markets",
+        "MSCI EM"
+      ],
+      "keywords": [
+        "acciones emergentes",
+        "emerging markets",
+        "msci em"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría exposición a acciones de mercados emergentes (Asia, América Latina, Europa del Este) con perfil agresivo.",
+      "longAnswer": "Contenido pendiente. Si LVAM mantiene esta familia, ofrecería exposición a economías de mayor potencial de crecimiento y mayor volatilidad. Útil como satélite agresivo en carteras diversificadas. La existencia y atributos exactos serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "accionario",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "FLV-018",
+        "FLV-019"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "accionario",
+        "emergentes",
+        "pendiente-validacion"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "accionario"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-022",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "overview",
+      "title": "Diferencias entre money market y renta fija corto plazo",
+      "mainQuestion": "¿En qué se diferencia un money market de un renta fija corto plazo?",
+      "equivalentQuestions": [
+        "MM vs RF corto",
+        "Diferencia money market renta fija",
+        "Que elegir mm o rf"
+      ],
+      "keywords": [
+        "money market vs renta fija",
+        "mm vs rf corto",
+        "diferencia liquidez",
+        "comparativo mm rf"
+      ],
+      "shortAnswer": "La diferencia clave entre <strong>money market CLP</strong> (FLV-026) y <strong>renta fija CLP corto plazo</strong> (FLV-010) está en duración, liquidez efectiva y volatilidad esperada. El money market tiene duración casi nula, liquidez alta y volatilidad mínima; sirve como reemplazo de cuenta corriente. El renta fija corto plazo tiene duración hasta ~2 años, liquidez media y mayor rentabilidad esperada con volatilidad acotada pero no nula.",
+      "longAnswer": "<strong>Money market CLP (FLV-026)</strong>: activos de muy corta duración (depósitos, papeles del Banco Central). Objetivo principal liquidez con preservación. Rentabilidad cercana a la tasa overnight. Volatilidad casi nula. Uso típico: reserva de emergencia (FLV-047), gestión de tesorería, espera entre operaciones.<br><br><strong>Renta fija CLP corto plazo (FLV-010)</strong>: activos de hasta ~2 años de duración (bonos corporativos cortos, papeles soberanos, depósitos plazo). Objetivo: rentabilidad superior al money market a cambio de exposición moderada a tasas. Volatilidad baja pero existe ante movimientos materiales de tasas. Uso típico: alternativa al DAP, ahorro de corto-mediano plazo.<br><br><strong>Criterio de elección</strong>: si el cliente puede necesitar el dinero en días o semanas → money market. Si tolera 6-24 meses sin retirar para obtener mayor rentabilidad → RF corto plazo. Ambos comparten tratamiento tributario (REG-040) y comparten clientela conservadora.",
+      "crossReferences": [
+        "REG-040",
+        "OPS-022",
+        "FLV-010",
+        "FLV-026",
+        "FLV-047"
+      ],
+      "regulatoryDependencies": [
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "comparativo-interno",
+        "money-market",
+        "renta-fija",
+        "liquidez",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "comparativos-internos"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-023",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM balanceados conservadores",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM balanceados conservadores?",
+      "equivalentQuestions": [
+        "Balanceado conservador",
+        "Multi-activo conservador",
+        "Cartera conservadora"
+      ],
+      "keywords": [
+        "balanceado conservador",
+        "multi-activo",
+        "cartera conservadora"
+      ],
+      "shortAnswer": "Los fondos LVAM balanceados conservadores combinan deuda y acciones con peso predominante en deuda (típicamente 70-80% renta fija, 20-30% accionario). Apuntan a perfil <strong>conservador</strong> con horizonte <strong>mediano</strong>. Buscan rentabilidad superior a la pura renta fija con volatilidad moderada.",
+      "longAnswer": "Los balanceados conservadores son la solución 'one-stop' para clientes que prefieren una cartera diversificada gestionada sin tener que combinar productos. La gestión activa rebalancea entre renta fija y acciones según el escenario macro. Adecuada para clientes que no quieren tomar decisiones de asignación pero requieren algo más que renta fija pura. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-024",
+        "FLV-041"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "balanceado",
+        "conservador",
+        "multi-activo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "balanceado"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-024",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM balanceados moderados",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM balanceados moderados?",
+      "equivalentQuestions": [
+        "Balanceado moderado",
+        "Multi-activo moderado",
+        "Cartera mixta"
+      ],
+      "keywords": [
+        "balanceado moderado",
+        "multi-activo",
+        "cartera mixta"
+      ],
+      "shortAnswer": "Los fondos LVAM balanceados moderados combinan deuda y acciones con peso equilibrado (típicamente 50-60% renta fija, 40-50% accionario). Apuntan a perfil <strong>moderado</strong> con horizonte <strong>mediano a largo</strong>. Mayor potencial de retorno y mayor volatilidad que los balanceados conservadores.",
+      "longAnswer": "Los balanceados moderados son la opción central para el cliente que entiende y acepta volatilidad intermedia a cambio de mayor potencial de rentabilidad. La gestión activa modula la asignación según ciclo de mercado. Solución apropiada para horizontes de 3+ años. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-023",
+        "FLV-025",
+        "FLV-043"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "balanceado",
+        "moderado",
+        "multi-activo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "balanceado"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-025",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM balanceados agresivos",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM balanceados agresivos?",
+      "equivalentQuestions": [
+        "Balanceado agresivo",
+        "Multi-activo agresivo",
+        "Cartera agresiva"
+      ],
+      "keywords": [
+        "balanceado agresivo",
+        "multi-activo",
+        "cartera agresiva"
+      ],
+      "shortAnswer": "Los fondos LVAM balanceados agresivos combinan deuda y acciones con peso dominante en accionario (típicamente 70-80% accionario, 20-30% renta fija). Apuntan a perfil <strong>agresivo</strong> con horizonte <strong>largo</strong>. Alta volatilidad esperada, mayor potencial de rentabilidad en horizonte extendido.",
+      "longAnswer": "Los balanceados agresivos son la alternativa multi-activo para clientes con tolerancia alta al riesgo que quieren delegar la asignación táctica al gestor. Comparten lógica con los moderados pero con mayor peso accionario. Adecuados para clientes jóvenes en acumulación o con horizontes de 5+ años. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "isArt107": false,
+        "apvEligible": true,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-024",
+        "FLV-044"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "balanceado",
+        "agresivo",
+        "multi-activo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "balanceado"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-026",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos LVAM money market CLP",
+      "mainQuestion": "¿Qué caracteriza a los fondos LVAM money market en pesos?",
+      "equivalentQuestions": [
+        "Money market CLP",
+        "Liquidez pesos",
+        "Mercado monetario pesos"
+      ],
+      "keywords": [
+        "money market clp",
+        "mercado monetario",
+        "liquidez extrema"
+      ],
+      "shortAnswer": "Los fondos LVAM money market CLP invierten en instrumentos de muy corto plazo en pesos (depósitos a plazo, papeles del Banco Central). Apuntan a perfil <strong>conservador</strong> con horizonte <strong>corto</strong>. Buscan rentabilidad similar a tasa de mercado overnight, con liquidez operativa diaria. Alternativa a cuenta corriente o de ahorro.",
+      "longAnswer": "El money market es la opción de menor riesgo en la oferta LVAM. Activos típicos: depósitos a plazo de muy corta duración, papeles del Banco Central. Volatilidad casi nula. Apropiado para colocar fondos con propósito de liquidez (reserva de emergencia, fondos para una compra próxima) o como espera entre operaciones de inversión más amplias. Tributariamente sigue REG-040.",
+      "productAttributes": {
+        "fundType": "money_market",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "corto",
+        "isArt107": false,
+        "apvEligible": false,
+        "liquidityLevel": "alta"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-040",
+        "FLV-010",
+        "FLV-047"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "LarrainVial Asset Management · sitio comercial",
+          "link": "https://www.larrainvial.com/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "money-market",
+        "clp",
+        "liquidez",
+        "conservador",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "money-market"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-027",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Renta fija",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "overview",
+      "title": "Diferencias entre renta fija CLP y renta fija UF",
+      "mainQuestion": "¿En qué se diferencia un fondo de renta fija CLP de uno en UF?",
+      "equivalentQuestions": [
+        "RF CLP vs RF UF",
+        "Pesos vs UF",
+        "Diferencia clp uf renta fija",
+        "Inflacion uf"
+      ],
+      "keywords": [
+        "renta fija clp vs uf",
+        "pesos vs uf",
+        "comparativo clp uf",
+        "cobertura inflacion"
+      ],
+      "shortAnswer": "La diferencia clave entre <strong>renta fija CLP</strong> (FLV-010, FLV-011, FLV-012) y <strong>renta fija UF</strong> (FLV-013) está en la <strong>unidad de cuenta</strong>: CLP es nominal, UF se reajusta diariamente por inflación. La RF UF preserva poder adquisitivo real; la RF CLP entrega rentabilidad nominal expuesta a riesgo de inflación. Tributariamente ambas siguen REG-040.",
+      "longAnswer": "<strong>Renta fija CLP</strong>: el capital y los retornos se expresan en pesos nominales. La rentabilidad esperada incluye implícitamente expectativas de inflación. En escenarios de inflación inesperada al alza, el retorno real puede ser bajo o negativo. Uso típico: cliente que piensa en pesos, horizonte corto-mediano, sin metas indexadas a UF.<br><br><strong>Renta fija UF</strong>: el capital y los retornos se expresan en UF, que se reajusta diariamente por inflación (IPC). Garantiza preservación de poder adquisitivo real. La rentabilidad sobre la UF es típicamente menor en valor nominal que la RF CLP, pero protegida frente a sorpresas inflacionarias. Uso típico: ahorro para meta con valor real (educación, propiedad, retiro), cliente que piensa en términos reales.<br><br><strong>Criterio de elección</strong>: si la meta del cliente está indexada a UF o es de muy largo plazo donde la inflación importa mucho → RF UF. Si la meta es nominal de corto plazo o el cliente piensa en pesos → RF CLP. Pueden combinarse para diversificar el riesgo de inflación. Ambas son APV-elegibles.",
+      "crossReferences": [
+        "REG-040",
+        "FLV-010",
+        "FLV-011",
+        "FLV-013",
+        "FLV-046"
+      ],
+      "regulatoryDependencies": [
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "comparativo-interno",
+        "renta-fija",
+        "clp",
+        "uf",
+        "inflacion",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam",
+        "comparativos-internos"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-028",
+      "category": "Fondos LVAM",
+      "subcategory": "Fondos de inversión LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos de inversión LVAM de deuda privada",
+      "mainQuestion": "¿LVAM ofrece fondos de inversión de deuda privada?",
+      "equivalentQuestions": [
+        "FI deuda privada",
+        "Deuda privada LVAM",
+        "Private debt"
+      ],
+      "keywords": [
+        "fondo inversion deuda privada",
+        "private debt",
+        "deuda corporativa privada"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría exposición a deuda corporativa no listada o estructurada, con perfil moderado a agresivo, horizonte largo y liquidez restringida.",
+      "longAnswer": "Contenido pendiente. Los FI de deuda privada típicamente invierten en bonos corporativos no listados, deuda mezzanine, créditos sindicados o instrumentos estructurados. Ofrecen prima de iliquidez sobre la deuda pública listada, pero requieren horizontes largos y aceptación de baja liquidez. Tributariamente siguen reglas específicas de FI (ver REG-043). La existencia y atributos LVAM serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "inversion",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF",
+          "USD"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "apvEligible": false,
+        "liquidityLevel": "baja"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-043",
+        "FLV-045"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-043"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "fondo-inversion",
+        "deuda-privada",
+        "pendiente-validacion",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "fondo-inversion",
+        "altoPatrimonio"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-029",
+      "category": "Fondos LVAM",
+      "subcategory": "Fondos de inversión LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos de inversión LVAM inmobiliarios",
+      "mainQuestion": "¿LVAM ofrece fondos de inversión inmobiliarios?",
+      "equivalentQuestions": [
+        "FI inmobiliario",
+        "Real estate LVAM",
+        "Renta inmobiliaria"
+      ],
+      "keywords": [
+        "fondo inversion inmobiliario",
+        "real estate",
+        "renta inmobiliaria"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría exposición a activos inmobiliarios (renta comercial, residencial, industrial) con horizonte largo y liquidez restringida.",
+      "longAnswer": "Contenido pendiente. Los FI inmobiliarios LVAM podrían invertir en propiedades de renta, desarrollos inmobiliarios o instrumentos vinculados al sector. Ofrecen exposición a un activo distinto del mercado financiero tradicional, con dinámica propia. Liquidez típicamente trimestral o semestral. Tributariamente siguen REG-043. Atributos exactos serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "inversion",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "moderado",
+          "agresivo"
+        ],
+        "apvEligible": false,
+        "liquidityLevel": "baja"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-043",
+        "FLV-045"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-043"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "fondo-inversion",
+        "inmobiliario",
+        "pendiente-validacion",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "fondo-inversion",
+        "altoPatrimonio"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-030",
+      "category": "Fondos LVAM",
+      "subcategory": "Fondos de inversión LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_fondo",
+      "title": "Fondos de inversión LVAM de capital privado",
+      "mainQuestion": "¿LVAM ofrece fondos de inversión de capital privado?",
+      "equivalentQuestions": [
+        "FI capital privado",
+        "Private equity",
+        "Venture capital LVAM"
+      ],
+      "keywords": [
+        "fondo inversion capital privado",
+        "private equity",
+        "venture capital"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de esta familia pendiente de validación con Producto e Inversiones LVAM. Conceptualmente cubriría inversión en empresas no listadas con horizonte muy largo y liquidez muy restringida.",
+      "longAnswer": "Contenido pendiente. Los FI de capital privado típicamente toman participación accionaria en empresas no listadas (private equity, venture capital, growth) con horizontes de 7-10 años. Adecuados solo para alto patrimonio con tolerancia a iliquidez. Tributariamente siguen REG-043. Existencia y atributos LVAM serán confirmados por Producto/Inversiones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "inversion",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "USD",
+          "CLP"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "apvEligible": false,
+        "liquidityLevel": "baja"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "REG-013",
+        "REG-018",
+        "REG-043",
+        "FLV-045"
+      ],
+      "regulatoryDependencies": [
+        "REG-013",
+        "REG-018",
+        "REG-043"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de inversiones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "fondo-inversion",
+        "capital-privado",
+        "pendiente-validacion",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "productos-lvam",
+        "fondo-inversion",
+        "altoPatrimonio"
+      ],
+      "actions": []
+    },
+    {
+      "id": "FLV-031",
+      "category": "Fondos LVAM",
+      "subcategory": "FM LVAM — Balanceados, multi-activo y money market",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Inversiones, Producto",
+      "ownerType": "Inversiones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "overview",
+      "title": "Diferencias entre balanceado conservador y renta fija",
+      "mainQuestion": "¿En qué se diferencia un balanceado conservador de un fondo de renta fija puro?",
+      "equivalentQuestions": [
+        "Balanceado conservador vs RF",
+        "Comparativo balanceado renta fija",
+        "Mixto vs renta fija"
+      ],
+      "keywords": [
+        "balanceado vs renta fija",
+        "comparativo balanceado rf",
+        "mixto vs renta fija"
+      ],
+      "shortAnswer": "La diferencia clave entre <strong>balanceado conservador</strong> (FLV-023) y <strong>renta fija</strong> (FLV-010 a FLV-013) está en la presencia de un componente accionario acotado (típicamente 20-30%) en el balanceado. Esto agrega volatilidad pero también mayor rentabilidad esperada de largo plazo. El balanceado conservador no es 'renta fija con riesgo', es una solución multi-activo gestionada activamente.",
+      "longAnswer": "<strong>Renta fija pura</strong>: 100% deuda. La rentabilidad depende de tasas y spreads de crédito. Volatilidad baja a moderada según duración. Sin exposición accionaria. Predecible en términos de comportamiento.<br><br><strong>Balanceado conservador</strong>: combina renta fija dominante (70-80%) con componente accionario acotado (20-30%) y gestión activa de la asignación. El componente accionario agrega volatilidad pero también potencial de rentabilidad mayor en horizonte de varios años. La gestión puede modular tácticamente la asignación según escenarios de mercado.<br><br><strong>Criterio de elección</strong>: si el cliente quiere predecibilidad y horizonte corto-mediano sin tolerancia a variaciones materiales → renta fija. Si el cliente puede tolerar oscilaciones intermedias en busca de mayor rentabilidad de largo plazo y prefiere una solución gestionada single-product → balanceado conservador. La elección depende también del horizonte: a más años, más sentido tiene la componente accionaria. Ambos son APV-elegibles y siguen REG-040.",
+      "crossReferences": [
+        "REG-040",
+        "FLV-010",
+        "FLV-011",
+        "FLV-013",
+        "FLV-023",
+        "FLV-041"
+      ],
+      "regulatoryDependencies": [
+        "REG-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "comparativo-interno",
+        "balanceado",
+        "renta-fija",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "comparativos-internos"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "comparador"
+      ]
+    },
+    {
+      "id": "FLV-032",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_apv_vehiculo",
+      "title": "APV LVAM cartera conservadora",
+      "mainQuestion": "¿Qué caracteriza al vehículo APV LVAM cartera conservadora?",
+      "equivalentQuestions": [
+        "APV conservador LVAM",
+        "Vehiculo APV conservador",
+        "Cartera conservadora APV"
+      ],
+      "keywords": [
+        "apv conservador",
+        "cartera conservadora",
+        "apv lvam conservador"
+      ],
+      "shortAnswer": "El vehículo APV LVAM cartera conservadora invierte mayoritariamente en renta fija con baja exposición accionaria. Apropiado para afiliados cercanos al retiro o de perfil conservador. Para reglas tributarias del APV (régimen A vs B, topes), ver categoría APV. Para apertura operativa, ver OPS-013.",
+      "longAnswer": "Este vehículo materializa el ahorro APV bajo un mandato de inversión conservador. La gestión apunta a preservación de capital con rentabilidad moderada superior a la inflación. Es el vehículo natural para afiliados próximos al retiro (5 años o menos) o que no toleran volatilidad significativa sobre el ahorro previsional. Los beneficios tributarios del APV (régimen A o B, topes, retiros) NO se redefinen aquí — viven en la categoría APV. La operatoria de apertura sigue OPS-013.",
+      "productAttributes": {
+        "fundType": "apv",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "mediano",
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "APV-004",
+        "APV-005",
+        "APV-009",
+        "REG-005",
+        "OPS-013",
+        "OPS-028",
+        "FLV-033"
+      ],
+      "regulatoryDependencies": [
+        "REG-005"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones",
+          "link": "https://www.spensiones.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "apv",
+        "vehiculo",
+        "conservador",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "FLV-033",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_apv_vehiculo",
+      "title": "APV LVAM cartera moderada",
+      "mainQuestion": "¿Qué caracteriza al vehículo APV LVAM cartera moderada?",
+      "equivalentQuestions": [
+        "APV moderado LVAM",
+        "Vehiculo APV moderado",
+        "Cartera mixta APV"
+      ],
+      "keywords": [
+        "apv moderado",
+        "cartera moderada",
+        "apv mixto"
+      ],
+      "shortAnswer": "El vehículo APV LVAM cartera moderada combina renta fija y acciones en proporción equilibrada. Apropiado para afiliados con horizonte mediano (10-20 años al retiro) y tolerancia moderada al riesgo. Para reglas tributarias APV ver categoría APV; operatoria ver OPS-013.",
+      "longAnswer": "Vehículo APV con perfil de inversión moderado: combinación equilibrada entre renta fija y acciones, gestión activa de asignación táctica. Apuntado a afiliados que pueden tolerar variaciones intermedias en el ahorro previsional a cambio de mayor rentabilidad esperada de largo plazo. Beneficios tributarios viven en categoría APV.",
+      "productAttributes": {
+        "fundType": "apv",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "moderado"
+        ],
+        "timeHorizon": "largo",
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "APV-004",
+        "APV-005",
+        "APV-009",
+        "REG-005",
+        "OPS-013",
+        "FLV-032",
+        "FLV-034"
+      ],
+      "regulatoryDependencies": [
+        "REG-005"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones",
+          "link": "https://www.spensiones.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "apv",
+        "vehiculo",
+        "moderado",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "FLV-034",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_apv_vehiculo",
+      "title": "APV LVAM cartera agresiva",
+      "mainQuestion": "¿Qué caracteriza al vehículo APV LVAM cartera agresiva?",
+      "equivalentQuestions": [
+        "APV agresivo LVAM",
+        "Vehiculo APV agresivo",
+        "Cartera agresiva APV"
+      ],
+      "keywords": [
+        "apv agresivo",
+        "cartera agresiva",
+        "apv accionario"
+      ],
+      "shortAnswer": "El vehículo APV LVAM cartera agresiva tiene exposición predominante o exclusiva a acciones. Apropiado para afiliados con horizonte largo al retiro (20+ años) y alta tolerancia al riesgo. Beneficios tributarios viven en categoría APV; operatoria en OPS-013.",
+      "longAnswer": "Vehículo APV con mandato de inversión agresivo: peso dominante accionario, exposición global o local según el perfil del vehículo. Adecuado para afiliados jóvenes en fase de acumulación que pueden tolerar volatilidad significativa a cambio de mayor potencial de rentabilidad compuesta de largo plazo. Para clientes cercanos al retiro NO es la opción adecuada y debe re-evaluarse.",
+      "productAttributes": {
+        "fundType": "apv",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "CLP",
+          "USD"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "APV-004",
+        "APV-005",
+        "APV-009",
+        "REG-005",
+        "OPS-013",
+        "FLV-033"
+      ],
+      "regulatoryDependencies": [
+        "REG-005"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones",
+          "link": "https://www.spensiones.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "apv",
+        "vehiculo",
+        "agresivo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "FLV-035",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "productType": "ficha_apv_vehiculo",
+      "title": "APV LVAM con foco UF",
+      "mainQuestion": "¿LVAM ofrece un vehículo APV con foco específico en UF?",
+      "equivalentQuestions": [
+        "APV UF",
+        "APV inflacion",
+        "APV indexado"
+      ],
+      "keywords": [
+        "apv uf",
+        "apv indexado",
+        "apv inflacion"
+      ],
+      "shortAnswer": "Existencia o configuración exacta de un vehículo APV específicamente focalizado en UF pendiente de validación con Producto y Habilitación Comercial LVAM. Conceptualmente apuntaría a afiliados que buscan preservación de poder adquisitivo en UF dentro del esquema APV.",
+      "longAnswer": "Contenido pendiente. Si LVAM mantiene un vehículo APV específico en UF (distinto de las carteras conservadora, moderada y agresiva), apuntaría a afiliados que quieren mantener su ahorro previsional reajustado por inflación con un perfil de inversión propio. La existencia y configuración exacta serán confirmadas por Producto y Habilitación Comercial.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Existencia o clasificación de la categoría pendiente de confirmación formal por Producto/Inversiones LVAM."
+      },
+      "productAttributes": {
+        "fundType": "apv",
+        "administrator": "LVAM AGF",
+        "currency": [
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "liquidityLevel": "media"
+      },
+      "productStatus": "pendienteValidacion",
+      "crossReferences": [
+        "APV-004",
+        "APV-005",
+        "REG-005",
+        "OPS-013",
+        "FLV-013",
+        "FLV-032"
+      ],
+      "regulatoryDependencies": [
+        "REG-005"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Fichas de producto LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Las cifras específicas (comisiones, mínimos, benchmarks) son atributos del producto sujetos a actualización por Producto e Inversiones LVAM. Ante consulta puntual con cifras, validar contra la ficha vigente del fondo correspondiente.",
+      "tags": [
+        "apv",
+        "vehiculo",
+        "uf",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "apv"
+      ],
+      "actions": [],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "FLV-036",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos distribuidos · Consorcio",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_producto_distribuido",
+      "title": "Inversión Gold Consorcio",
+      "mainQuestion": "¿Qué es Inversión Gold Consorcio y cómo lo distribuye LVAM?",
+      "equivalentQuestions": [
+        "Inversion Gold",
+        "Gold Consorcio",
+        "Seguro con ahorro Gold"
+      ],
+      "keywords": [
+        "inversion gold",
+        "gold consorcio",
+        "seguro ahorro"
+      ],
+      "shortAnswer": "<strong>Inversión Gold</strong> es un producto de Consorcio distribuido por LVAM. Combina componente de seguro con componente de ahorro/inversión. El administrador del producto es Consorcio; LVAM actúa como canal comercial. Para apertura operativa ver OPS-014.",
+      "longAnswer": "Inversión Gold es un producto del aliado Consorcio que LVAM distribuye en virtud de un acuerdo comercial. La estructura combina cobertura de seguro de vida con un componente de ahorro que se invierte según el mandato del producto. El cliente firma con Consorcio el contrato de seguro y la administración del componente ahorro queda en Consorcio. LVAM atiende la relación comercial: presentación, suscripción, atención posterior. Las características exactas (cobertura, primas, opciones de inversión, rescates, beneficios tributarios) se rigen por la documentación de Consorcio. Ante consulta puntual con cifras, validar con Producto LVAM o directamente con Consorcio.",
+      "productAttributes": {
+        "fundType": "seguro_ahorro",
+        "administrator": "Consorcio",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "OPS-014",
+        "FLV-003",
+        "FLV-037"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Consorcio · sitio institucional",
+          "link": "https://www.consorcio.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio.",
+      "tags": [
+        "consorcio",
+        "gold",
+        "seguro-ahorro",
+        "distribuido",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "Inversión Gold Consorcio"
+      ]
+    },
+    {
+      "id": "FLV-037",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos distribuidos · Consorcio",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_producto_distribuido",
+      "title": "CUI Consorcio",
+      "mainQuestion": "¿Qué es CUI Consorcio y cómo lo distribuye LVAM?",
+      "equivalentQuestions": [
+        "CUI Consorcio",
+        "Cuenta unica inversion",
+        "CUI"
+      ],
+      "keywords": [
+        "cui",
+        "cuenta unica inversion",
+        "cui consorcio"
+      ],
+      "shortAnswer": "<strong>CUI Consorcio</strong> (Cuenta Única de Inversión) es un producto de Consorcio distribuido por LVAM. Combina seguro con flexibilidad de inversión en distintas opciones según el perfil del cliente. El administrador del producto es Consorcio; LVAM actúa como canal.",
+      "longAnswer": "CUI es un producto del tipo seguro con ahorro flexible: el cliente puede asignar el componente ahorro entre varias opciones de inversión (típicamente conservadora, moderada, agresiva). Permite cambios de perfil dentro del producto sin tributar adicionalmente. El administrador es Consorcio; LVAM es canal comercial. Las características exactas, opciones de inversión disponibles, comisiones y reglas de retiro se rigen por la documentación de Consorcio. Para apertura operativa ver OPS-014.",
+      "productAttributes": {
+        "fundType": "seguro_ahorro",
+        "administrator": "Consorcio",
+        "currency": [
+          "CLP",
+          "UF"
+        ],
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ],
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "OPS-014",
+        "FLV-003",
+        "FLV-036"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Consorcio · sitio institucional",
+          "link": "https://www.consorcio.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de productos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio.",
+      "tags": [
+        "consorcio",
+        "cui",
+        "seguro-ahorro",
+        "distribuido",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "CUI Consorcio"
+      ]
+    },
+    {
+      "id": "FLV-038",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos distribuidos · Consorcio",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_producto_distribuido",
+      "title": "Fondo Dinámico Consorcio conservador",
+      "mainQuestion": "¿Qué es el Fondo Dinámico Consorcio conservador?",
+      "equivalentQuestions": [
+        "Fondo Dinamico conservador",
+        "Dinamico Consorcio conservador"
+      ],
+      "keywords": [
+        "fondo dinamico conservador",
+        "dinamico consorcio",
+        "dinamico conservador"
+      ],
+      "shortAnswer": "<strong>Fondo Dinámico Consorcio conservador</strong> es un fondo gestionado por Consorcio con perfil conservador, distribuido por LVAM. Multi-activo con peso dominante en renta fija y rebalanceo táctico. El administrador es Consorcio.",
+      "longAnswer": "Los Fondos Dinámicos Consorcio son una familia de tres fondos multi-activo (conservador, moderado, agresivo) con gestión activa de asignación. El conservador tiene exposición predominante a renta fija con componente accionario limitado. LVAM lo distribuye como parte del acuerdo con Consorcio. Para detalles de composición exacta, comisión, benchmark y reglas, ver ficha producto de Consorcio.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "Consorcio",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "FLV-003",
+        "FLV-023",
+        "FLV-039"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Consorcio · sitio institucional",
+          "link": "https://www.consorcio.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio.",
+      "tags": [
+        "consorcio",
+        "dinamico",
+        "balanceado",
+        "conservador",
+        "distribuido"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-039",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos distribuidos · Consorcio",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_producto_distribuido",
+      "title": "Fondo Dinámico Consorcio moderado",
+      "mainQuestion": "¿Qué es el Fondo Dinámico Consorcio moderado?",
+      "equivalentQuestions": [
+        "Fondo Dinamico moderado",
+        "Dinamico Consorcio moderado"
+      ],
+      "keywords": [
+        "fondo dinamico moderado",
+        "dinamico moderado"
+      ],
+      "shortAnswer": "<strong>Fondo Dinámico Consorcio moderado</strong> es un fondo gestionado por Consorcio con perfil moderado, distribuido por LVAM. Multi-activo con peso equilibrado entre renta fija y acciones. El administrador es Consorcio.",
+      "longAnswer": "El moderado de la familia Dinámicos Consorcio combina renta fija y acciones en proporción equilibrada con gestión activa de la asignación táctica. Equivalente conceptual a balanceados LVAM moderados (FLV-024) pero del administrador Consorcio. Para detalles exactos, ver ficha producto de Consorcio.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "Consorcio",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "isArt107": false,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "FLV-003",
+        "FLV-024",
+        "FLV-038",
+        "FLV-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Consorcio · sitio institucional",
+          "link": "https://www.consorcio.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio.",
+      "tags": [
+        "consorcio",
+        "dinamico",
+        "balanceado",
+        "moderado",
+        "distribuido"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-040",
+      "category": "Fondos LVAM",
+      "subcategory": "Productos distribuidos · Consorcio",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Habilitación Comercial",
+      "ownerType": "Producto",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "productType": "ficha_producto_distribuido",
+      "title": "Fondo Dinámico Consorcio agresivo",
+      "mainQuestion": "¿Qué es el Fondo Dinámico Consorcio agresivo?",
+      "equivalentQuestions": [
+        "Fondo Dinamico agresivo",
+        "Dinamico Consorcio agresivo"
+      ],
+      "keywords": [
+        "fondo dinamico agresivo",
+        "dinamico agresivo"
+      ],
+      "shortAnswer": "<strong>Fondo Dinámico Consorcio agresivo</strong> es un fondo gestionado por Consorcio con perfil agresivo, distribuido por LVAM. Multi-activo con peso dominante en acciones. El administrador es Consorcio.",
+      "longAnswer": "El agresivo de la familia Dinámicos Consorcio tiene predominio accionario sobre renta fija, con gestión activa de la asignación. Para clientes que buscan exposición agresiva multi-activo bajo administración Consorcio. Equivalente conceptual a balanceados LVAM agresivos (FLV-025). Para detalles ver ficha producto de Consorcio.",
+      "productAttributes": {
+        "fundType": "balanceado",
+        "administrator": "Consorcio",
+        "currency": [
+          "CLP"
+        ],
+        "targetProfile": [
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "isArt107": false,
+        "liquidityLevel": "media"
+      },
+      "productStatus": "vigente",
+      "crossReferences": [
+        "FLV-003",
+        "FLV-025",
+        "FLV-039"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Acuerdo de distribución LVAM-Consorcio",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Consorcio · sitio institucional",
+          "link": "https://www.consorcio.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Producto del aliado Consorcio distribuido por LVAM. Las características específicas se rigen por la documentación de Consorcio. Ante dudas sobre detalles del producto, validar con el área de Producto LVAM o directamente con Consorcio.",
+      "tags": [
+        "consorcio",
+        "dinamico",
+        "balanceado",
+        "agresivo",
+        "distribuido"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-041",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Cliente conservador en fase de acumulación",
+      "mainQuestion": "¿Qué productos LVAM corresponden a un cliente conservador en acumulación?",
+      "equivalentQuestions": [
+        "Conservador acumulando",
+        "Conservador joven",
+        "Empezando conservador"
+      ],
+      "keywords": [
+        "conservador acumulacion",
+        "conservador ahorro",
+        "perfil conservador"
+      ],
+      "shortAnswer": "Para un cliente conservador en acumulación, las opciones LVAM naturales son: <strong>renta fija CLP corto/mediano plazo</strong> (FLV-010, FLV-011), <strong>renta fija UF</strong> (FLV-013), y <strong>balanceados conservadores</strong> (FLV-023). El matching debe respetar el resultado del perfilamiento (ver OPS-007, REG-024).",
+      "longAnswer": "Un cliente conservador en fase de acumulación (ahorra para metas futuras sin necesidad inmediata de liquidez) tolera baja volatilidad pero quiere superar la inflación. Las opciones LVAM apropiadas: renta fija CLP de corto y mediano plazo si el horizonte es 1-3 años; renta fija UF si quiere preservar poder adquisitivo; balanceado conservador si acepta exposición accionaria mínima a cambio de mayor rentabilidad esperada. La elección final depende del horizonte específico, las metas concretas y la situación tributaria. La recomendación debe documentarse y respetar la idoneidad regulatoria (ver REG-024, REG-025).",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "mediano",
+        "currency": [
+          "CLP",
+          "UF"
+        ]
+      },
+      "crossReferences": [
+        "REG-024",
+        "REG-025",
+        "OPS-007",
+        "FLV-010",
+        "FLV-011",
+        "FLV-013",
+        "FLV-023"
+      ],
+      "regulatoryDependencies": [
+        "REG-024",
+        "REG-025"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "conservador",
+        "acumulacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "matching",
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-042",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Cliente conservador cercano al retiro",
+      "mainQuestion": "¿Qué productos LVAM corresponden a un cliente conservador cercano al retiro?",
+      "equivalentQuestions": [
+        "Conservador retiro",
+        "Por jubilar conservador",
+        "Cliente mayor conservador"
+      ],
+      "keywords": [
+        "conservador retiro",
+        "jubilacion",
+        "cercano retiro"
+      ],
+      "shortAnswer": "Para un cliente conservador cercano al retiro, la prioridad es <strong>preservación de capital con liquidez disponible</strong>. Opciones naturales: <strong>renta fija CLP corto plazo</strong> (FLV-010), <strong>renta fija UF</strong> (FLV-013), <strong>money market CLP</strong> (FLV-026) para reserva. El componente APV requiere atención especial si está cerca del retiro efectivo.",
+      "longAnswer": "Cliente cercano al retiro: la capacidad de recuperarse de pérdidas materiales se reduce drásticamente. Por eso la lógica es preservación, no maximización. Renta fija de corto plazo y money market para la parte líquida; renta fija UF para el componente que debe mantener poder adquisitivo; reducir o cero exposición accionaria salvo necesidad clara. Si el cliente tiene APV en cartera agresiva (FLV-034) y está a 2-3 años del retiro, debe re-evaluarse el vehículo (ver APV y FLV-032). La conversación de re-perfilamiento gatillado por evento (jubilación inminente) es operativamente obligatoria (ver OPS-010).",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "corto",
+        "currency": [
+          "CLP",
+          "UF"
+        ]
+      },
+      "crossReferences": [
+        "REG-024",
+        "REG-025",
+        "OPS-007",
+        "OPS-010",
+        "FLV-010",
+        "FLV-013",
+        "FLV-026",
+        "FLV-032"
+      ],
+      "regulatoryDependencies": [
+        "REG-024",
+        "REG-025"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "conservador",
+        "retiro",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "matching",
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-043",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Cliente moderado en fase de acumulación",
+      "mainQuestion": "¿Qué productos LVAM corresponden a un cliente moderado en acumulación?",
+      "equivalentQuestions": [
+        "Moderado acumulando",
+        "Moderado balanceado",
+        "Cliente moderado"
+      ],
+      "keywords": [
+        "moderado acumulacion",
+        "moderado balanceado",
+        "perfil moderado"
+      ],
+      "shortAnswer": "Para un cliente moderado en acumulación, las opciones LVAM naturales son: <strong>balanceados moderados</strong> (FLV-024), <strong>renta fija mediano plazo</strong> (FLV-011), y exposición acotada a <strong>accionarios Chile</strong> (FLV-017). El matching debe respetar el resultado del perfilamiento.",
+      "longAnswer": "Cliente moderado en acumulación: tolera volatilidad intermedia, quiere rentabilidad superior a la pura renta fija, tiene horizonte de varios años. Los balanceados moderados son la solución 'one-stop' apropiada. Para quien prefiere armar la cartera con piezas, una combinación de renta fija mediano plazo + posición acotada en accionarios Chile funciona bien. La elección depende de preferencia por simplicidad (un solo fondo balanceado) o control (varios fondos).",
+      "productAttributes": {
+        "targetProfile": [
+          "moderado"
+        ],
+        "timeHorizon": "mediano",
+        "currency": [
+          "CLP",
+          "UF"
+        ]
+      },
+      "crossReferences": [
+        "REG-024",
+        "REG-025",
+        "OPS-007",
+        "FLV-011",
+        "FLV-017",
+        "FLV-024"
+      ],
+      "regulatoryDependencies": [
+        "REG-024",
+        "REG-025"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "moderado",
+        "acumulacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "matching",
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-044",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Cliente que recibe herencia o venta de activo relevante",
+      "mainQuestion": "¿Cómo abordar a un cliente que recibe una herencia o vende un activo importante?",
+      "equivalentQuestions": [
+        "Cliente con herencia",
+        "Venta de propiedad",
+        "Liquidez extraordinaria",
+        "Patrimonio liquido"
+      ],
+      "keywords": [
+        "herencia",
+        "venta propiedad",
+        "liquidez extraordinaria",
+        "monto importante"
+      ],
+      "shortAnswer": "Un cliente que recibe una herencia o vende un activo (propiedad, participación societaria) está temporalmente líquido por un monto típicamente superior a lo que maneja habitualmente. El primer paso es <strong>no apurar la decisión de inversión</strong>; el segundo es <strong>perfilar y re-perfilar</strong> si el monto cambia su tramo patrimonial (ver OPS-007, OPS-010); el tercero es construir un plan por <strong>tramos de horizonte</strong>: reserva de emergencia (FLV-047), corto plazo (FLV-010, FLV-026) y largo plazo según perfil.",
+      "longAnswer": "Este escenario es uno de los más frecuentes en FFVV y uno donde más se juega la calidad del asesoramiento. Características típicas: el cliente tiene un monto extraordinario súbitamente disponible, suele estar emocionalmente cargado (duelo, venta significativa), está expuesto a presión comercial de múltiples actores, y sus decisiones tienen impacto patrimonial de largo plazo.<br><br><strong>Pasos recomendados</strong>:<br>1. No proponer producto en la primera conversación; entender objetivos, plazos, situación tributaria y familiar.<br>2. Re-perfilar formalmente: el monto extraordinario puede cambiar la categoría patrimonial y por tanto la idoneidad (ver OPS-007, OPS-010).<br>3. Construir un plan por tramos: reserva de emergencia inmediata (money market, FLV-026), corto plazo para gastos previstos en 6-24 meses (RF corto, FLV-010), y mediano-largo plazo según perfil.<br>4. Considerar dimensión tributaria: una herencia tiene tratamiento propio (ver REG-070 si está en alcance); una venta de propiedad puede tener implicancias de impuesto a la renta (ver REG-071).<br>5. Si el monto es elevado y la situación tributaria es compleja, derivar a Tributario (ver OPS-036).<br>6. Documentar el plan acordado y la idoneidad.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ],
+        "timeHorizon": "largo",
+        "currency": [
+          "CLP",
+          "UF",
+          "USD"
+        ]
+      },
+      "crossReferences": [
+        "REG-024",
+        "REG-025",
+        "OPS-007",
+        "OPS-010",
+        "OPS-036",
+        "FLV-010",
+        "FLV-026",
+        "FLV-047"
+      ],
+      "regulatoryDependencies": [
+        "REG-024",
+        "REG-025"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "evento-de-vida",
+        "herencia",
+        "venta-activo",
+        "critico"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "matching",
+        "eventos-de-vida"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-045",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Cliente con finiquito o excedente de caja extraordinario",
+      "mainQuestion": "¿Cómo abordar a un cliente que recibe finiquito o tiene excedente de caja extraordinario?",
+      "equivalentQuestions": [
+        "Cliente con finiquito",
+        "Indemnizacion trabajo",
+        "Excedente de caja",
+        "Bono fin de año"
+      ],
+      "keywords": [
+        "finiquito",
+        "indemnizacion",
+        "excedente caja",
+        "bono extraordinario"
+      ],
+      "shortAnswer": "Un cliente con finiquito, indemnización o excedente extraordinario tiene un monto temporal con dos características críticas: <strong>horizonte de uso parcialmente desconocido</strong> (dependiente del nuevo trabajo o de gastos esperados) y <strong>posible necesidad de tramos liquidables</strong>. El plan típico combina money market (FLV-026) para reserva inmediata, RF corto (FLV-010) para 6-12 meses, y mediano-largo según perfil y horizonte verificable.",
+      "longAnswer": "Escenario común y crítico: el cliente recibe un monto extraordinario asociado a un evento laboral o financiero específico (finiquito, indemnización por años de servicio, bono extraordinario, excedente de caja de pyme). Las dos características distintivas frente a otros eventos: el horizonte es parcialmente incierto (puede necesitar parte del monto para sostener gastos hasta nuevo trabajo) y el tratamiento tributario del ingreso puede ser específico (indemnización por años de servicio tiene tratamiento propio, ver REG-071).<br><br><strong>Pasos recomendados</strong>:<br>1. Mapear los tramos de uso: ¿cuánto necesita disponible en 0-3 meses? ¿en 3-12 meses? ¿qué monto puede invertir más allá?<br>2. Money market (FLV-026) para la reserva inmediata, idealmente 3-6 meses de gastos.<br>3. RF corto plazo (FLV-010) para el tramo 6-12 meses si está acotado.<br>4. Para el remanente, aplicar perfilamiento estándar y construir cartera según perfil (ver FLV-041 a FLV-043).<br>5. Si la indemnización tiene componente exento (tope tributario) y componente afecto, considerar la planificación tributaria del año (ver REG-069, REG-071).<br>6. Documentar y revisar a los 3-6 meses cuando la situación laboral se haya estabilizado.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ],
+        "timeHorizon": "corto",
+        "currency": [
+          "CLP",
+          "UF"
+        ]
+      },
+      "crossReferences": [
+        "REG-024",
+        "REG-025",
+        "REG-069",
+        "REG-071",
+        "OPS-007",
+        "FLV-010",
+        "FLV-026",
+        "FLV-041",
+        "FLV-043",
+        "FLV-047"
+      ],
+      "regulatoryDependencies": [
+        "REG-024",
+        "REG-025",
+        "REG-069",
+        "REG-071"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "evento-de-vida",
+        "finiquito",
+        "excedente-caja",
+        "critico"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "matching",
+        "eventos-de-vida"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-046",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Objetivo: educación de hijos",
+      "mainQuestion": "¿Qué productos LVAM funcionan bien para ahorro destinado a educación de hijos?",
+      "equivalentQuestions": [
+        "Educacion hijos",
+        "Universidad hijos",
+        "Ahorro colegiatura"
+      ],
+      "keywords": [
+        "educacion hijos",
+        "universidad",
+        "colegiatura",
+        "ahorro educacion"
+      ],
+      "shortAnswer": "Para ahorro destinado a educación de hijos, el horizonte suele ser mediano a largo (5-15 años) y la unidad de cuenta natural es UF (los aranceles se reajustan con inflación). Opciones LVAM apropiadas: <strong>renta fija UF</strong> (FLV-013) como base, complementada según perfil del cliente.",
+      "longAnswer": "El objetivo educación tiene tres características útiles para el matching: meta cuantificable en UF (los aranceles se expresan típicamente así), horizonte conocido con razonable precisión (cuando el hijo cumpla 18 o 24), tolerancia al riesgo decreciente a medida que se acerca la fecha objetivo (similar a fondo target-date). La renta fija UF mantiene poder adquisitivo. Para un horizonte largo (10+ años) puede combinarse con balanceado moderado (FLV-024). A medida que se acerca la fecha objetivo, conviene reducir progresivamente el componente de riesgo.",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado"
+        ],
+        "timeHorizon": "largo",
+        "currency": [
+          "UF"
+        ]
+      },
+      "crossReferences": [
+        "OPS-007",
+        "FLV-013",
+        "FLV-023",
+        "FLV-024"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "educacion",
+        "horizonte-conocido"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "matching"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-047",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Objetivo: reserva de emergencia",
+      "mainQuestion": "¿Qué productos LVAM funcionan bien para reserva de emergencia?",
+      "equivalentQuestions": [
+        "Reserva emergencia",
+        "Fondo emergencia",
+        "Liquidez disponible"
+      ],
+      "keywords": [
+        "reserva emergencia",
+        "fondo emergencia",
+        "liquidez"
+      ],
+      "shortAnswer": "Para reserva de emergencia, la prioridad es <strong>liquidez inmediata con riesgo casi nulo</strong>. La opción LVAM natural es <strong>money market CLP</strong> (FLV-026). Para clientes con dimensión USD también podría considerarse money market USD si está disponible (FLV-027).",
+      "longAnswer": "La reserva de emergencia debe estar disponible inmediatamente cuando ocurra el evento que la justifica (gasto médico, pérdida de trabajo, gasto inesperado). Por eso no debe estar expuesta a volatilidad de mercado: money market es la opción natural. Si bien la rentabilidad es modesta, la función no es rentabilidad sino disponibilidad. La regla común es mantener entre 3 y 6 meses de gastos como reserva. Operativamente el rescate de money market es rápido (ver OPS-022, ver detalle por familia).",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador"
+        ],
+        "timeHorizon": "corto",
+        "currency": [
+          "CLP",
+          "USD"
+        ]
+      },
+      "crossReferences": [
+        "OPS-022",
+        "FLV-026",
+        "FLV-027"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "emergencia",
+        "liquidez"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "matching"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "FLV-048",
+      "category": "Fondos LVAM",
+      "subcategory": "Casos de uso por perfil",
+      "version": "1.0.1",
+      "lastEdited": "2026-06-12",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Producto",
+      "ownerType": "HabilitacionComercial",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "productType": "caso_uso",
+      "title": "Objetivo: diversificación de moneda",
+      "mainQuestion": "¿Qué productos LVAM permiten diversificar moneda?",
+      "equivalentQuestions": [
+        "Diversificar moneda",
+        "Dolarizar",
+        "Exposicion USD"
+      ],
+      "keywords": [
+        "diversificacion moneda",
+        "dolarizar",
+        "exposicion usd",
+        "cobertura cambiaria"
+      ],
+      "shortAnswer": "Para diversificación de moneda, las opciones LVAM apropiadas son: <strong>renta fija USD</strong> (FLV-014) como componente conservador en dólares, <strong>fondos accionarios global desarrollado o EEUU</strong> (FLV-019, FLV-020) cuando estén disponibles, y money market USD (FLV-027) para liquidez en dólares.",
+      "longAnswer": "La diversificación de moneda responde a dos motivaciones distintas: protección frente a depreciación esperada del peso, o necesidad real de obligaciones en otra moneda (estudio en el extranjero, propiedad en USD, herencia en USD). En el primer caso, conviene cubrir gradualmente; en el segundo, el monto y horizonte vienen dados por la obligación. La combinación de renta fija USD con money market USD ofrece un perfil conservador en dólares; agregar componente accionario USD aumenta el potencial pero también la volatilidad. Para perfiles agresivos también puede considerarse accionarios emergentes USD (FLV-021, cuando aplique).",
+      "productAttributes": {
+        "targetProfile": [
+          "conservador",
+          "moderado",
+          "agresivo"
+        ],
+        "timeHorizon": "mediano",
+        "currency": [
+          "USD"
+        ]
+      },
+      "crossReferences": [
+        "OPS-007",
+        "FLV-014",
+        "FLV-019",
+        "FLV-020",
+        "FLV-021",
+        "FLV-027"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Casos de uso comerciales LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Habilitación Comercial LVAM · matching producto-perfil",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La recomendación específica a un cliente requiere perfilamiento vigente, evaluación de idoneidad y consideración de su situación particular. Las orientaciones de este entry son conceptuales y no sustituyen el análisis caso a caso.",
+      "tags": [
+        "caso-uso",
+        "diversificacion-moneda",
+        "usd"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "matching"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    }
+  ]
+}

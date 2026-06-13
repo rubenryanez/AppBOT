@@ -1,0 +1,3297 @@
+{
+  "schemaVersion": "1.0",
+  "category": "APV",
+  "categoryLabel": "APV — Ahorro Previsional Voluntario",
+  "generatedAt": "2026-06-11",
+  "metadata": {
+    "owner": "LVAM — Habilitación Comercial",
+    "version": "1.0",
+    "lastEdited": "2026-06-11",
+    "entriesCount": 49,
+    "purpose": "Knowledge base interno del Asistente FFVV LVAM. Categoría piloto APV. Plantilla maestra para las categorías restantes.",
+    "audience": "uso comercial interno LVAM",
+    "language": "es-CL"
+  },
+  "disclaimers": {
+    "general": "Información para uso comercial interno LVAM. No constituye asesoría tributaria ni previsional personalizada. Para casos específicos, derivar al área correspondiente.",
+    "tributario": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+    "rentabilidad": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+    "monetaryValues": "Los valores monetarios en CLP que aparecen en ejemplos prácticos son referenciales y están sujetos a actualización según valores UF/UTM/topes vigentes al momento de la consulta."
+  },
+  "schema": {
+    "required": [
+      "id",
+      "category",
+      "title",
+      "keywords",
+      "shortAnswer",
+      "sources",
+      "version",
+      "lastEdited"
+    ],
+    "optional": [
+      "subcategory",
+      "longAnswer",
+      "data",
+      "actions",
+      "validity",
+      "tags",
+      "mainQuestion",
+      "equivalentQuestions",
+      "practicalExample",
+      "risksAndWarnings",
+      "regulatoryReferences",
+      "cmfDisclaimers",
+      "relatedProducts",
+      "audience",
+      "difficulty",
+      "trainingTags",
+      "contentOwner",
+      "reviewStatus",
+      "nextReviewDate",
+      "placeholder",
+      "businessImpact",
+      "consultationFrequency",
+      "trainingPriority"
+    ],
+    "sourceTypes": [
+      "web",
+      "internal",
+      "pdf"
+    ],
+    "reviewStatusValues": [
+      "draft",
+      "validated",
+      "approved",
+      "deprecated",
+      "pendingBusinessValidation"
+    ],
+    "businessImpactValues": [
+      "alto",
+      "medio",
+      "bajo"
+    ],
+    "consultationFrequencyValues": [
+      "alta",
+      "media",
+      "baja"
+    ],
+    "trainingPriorityValues": [
+      "critica",
+      "importante",
+      "normal"
+    ]
+  },
+  "subcategories": [
+    "Conceptos base",
+    "Regímenes tributarios",
+    "Topes y límites",
+    "Aportes y operativa",
+    "Retiros y tributación",
+    "Productos APV LVAM",
+    "Casos especiales y planificación",
+    "Comparaciones y consideraciones"
+  ],
+  "entries": [
+    {
+      "id": "APV-001",
+      "category": "APV",
+      "subcategory": "Conceptos base",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Qué es APV y para qué sirve",
+      "mainQuestion": "¿Qué es el APV?",
+      "equivalentQuestions": [
+        "¿Para qué sirve el APV?",
+        "Explícame qué es el ahorro previsional voluntario",
+        "¿Cuál es el propósito del APV?"
+      ],
+      "keywords": [
+        "que es apv",
+        "ahorro previsional voluntario",
+        "para que sirve apv",
+        "definicion apv",
+        "concepto apv"
+      ],
+      "shortAnswer": "El <strong>APV (Ahorro Previsional Voluntario)</strong> es un mecanismo de ahorro complementario a la cotización obligatoria AFP, que permite aumentar el monto de la pensión futura accediendo a beneficios tributarios (régimen A o B).",
+      "longAnswer": "El APV está regulado por el D.L. 3500 y permite a trabajadores dependientes, independientes y personas sin renta imponible aportar voluntariamente a una cuenta previsional con tratamiento tributario preferente. Existen dos regímenes (A y B) que ofrecen beneficios complementarios y excluyentes: bonificación estatal del 15% (A) o rebaja de la base imponible (B). Los fondos pueden invertirse en fondos mutuos APV, fondos de pensiones (cuenta voluntaria AFP) o seguros con ahorro previsional. El tope conjunto es 50 UF mensuales / 600 UF anuales.",
+      "practicalExample": "Un ejecutivo de cuenta de 38 años aporta $200.000 mensuales a un fondo APV LVAM en régimen B. Esos $200.000 se descuentan de su base imponible cada mes, reduciendo su Global Complementario anual, y el saldo acumulado más rentabilidad complementa su pensión al jubilarse.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario",
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A"
+      ],
+      "cmfDisclaimers": "Información para uso comercial interno LVAM. No constituye asesoría tributaria ni previsional personalizada. Para casos específicos, derivar al área correspondiente.",
+      "tags": [
+        "conceptos",
+        "introduccion",
+        "tributacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "fundamentos-apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-002",
+      "category": "APV",
+      "subcategory": "Conceptos base",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "APV individual vs APVC (colectivo)",
+      "mainQuestion": "¿Cuál es la diferencia entre APV individual y APVC?",
+      "equivalentQuestions": [
+        "¿Qué es el APVC?",
+        "APV colectivo vs individual",
+        "¿Cómo funciona el APV colectivo?",
+        "Diferencias entre APV y APVC"
+      ],
+      "keywords": [
+        "apvc",
+        "apv colectivo",
+        "apv individual vs colectivo",
+        "apv empresa",
+        "diferencia apv apvc"
+      ],
+      "shortAnswer": "El <strong>APV individual</strong> es contratado directamente por el trabajador. El <strong>APVC (Ahorro Previsional Voluntario Colectivo)</strong> lo establece el empleador como beneficio para sus trabajadores, con aporte conjunto (empleador + trabajador) y plan común negociado.",
+      "longAnswer": "El APVC requiere un contrato entre la empresa y una institución autorizada (AFP, banco, administradora de fondos mutuos o compañía de seguros). Los aportes del empleador se asimilan a remuneración para efectos tributarios del trabajador, pero gozan de los mismos beneficios (régimen A o B) hasta los topes legales. Tiene plazo mínimo de permanencia: si el trabajador retira antes de cumplirlo, pierde el aporte del empleador. El APV individual no tiene esta condición. En LVAM el foco principal es APV individual, pero podemos ofrecer APVC a empresas del segmento corporate.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "conceptos",
+        "apvc",
+        "empresas"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "fundamentos-apv",
+        "productos-corporativos"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-003",
+      "category": "APV",
+      "subcategory": "Conceptos base",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Diferencia entre APV y cotización obligatoria AFP",
+      "mainQuestion": "¿En qué se diferencia el APV de la cotización obligatoria?",
+      "equivalentQuestions": [
+        "APV vs cotización obligatoria AFP",
+        "¿El APV reemplaza a la AFP?",
+        "¿Por qué hacer APV si ya cotizo en AFP?",
+        "Diferencia entre APV y AFP"
+      ],
+      "keywords": [
+        "apv vs afp",
+        "cotizacion obligatoria",
+        "apv complementa afp",
+        "diferencia apv afp"
+      ],
+      "shortAnswer": "La cotización AFP es <strong>obligatoria</strong> (10% de la renta imponible, hasta el tope) y se destina a la cuenta de capitalización individual. El APV es <strong>voluntario</strong>, complementa esa cotización y ofrece beneficios tributarios adicionales (15% del Estado o rebaja base imponible).",
+      "longAnswer": "La AFP administra la cotización obligatoria del 10% sobre la renta imponible (con tope en UF ajustado anualmente por la SP), más comisión y seguro de invalidez. Esos fondos están sujetos a las reglas del sistema de pensiones y solo se pueden retirar al pensionarse. El APV opera como un segundo vehículo: el trabajador decide cuánto aporta (hasta 50 UF/mes), elige la institución administradora (LVAM, banco, AFP voluntaria, seguro), y obtiene beneficios tributarios complementarios. Ambos conviven: uno no excluye al otro.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 — Sistema de Pensiones",
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "conceptos",
+        "afp",
+        "comparacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "fundamentos-apv",
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM Renta Fija",
+        "LVAM Multifondo"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-004",
+      "category": "APV",
+      "subcategory": "Conceptos base",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Quiénes pueden hacer APV",
+      "mainQuestion": "¿Quiénes pueden contratar un APV?",
+      "equivalentQuestions": [
+        "¿Cualquiera puede hacer APV?",
+        "¿Los independientes pueden hacer APV?",
+        "¿Puedo hacer APV si no trabajo?",
+        "Requisitos para contratar APV"
+      ],
+      "keywords": [
+        "quienes pueden apv",
+        "requisitos apv",
+        "apv independientes",
+        "apv sin renta",
+        "apv extranjeros"
+      ],
+      "shortAnswer": "Puede contratar APV cualquier <strong>persona natural</strong>: trabajadores dependientes, independientes con o sin boleta de honorarios, personas sin renta imponible, jubilados y afiliados a regímenes previsionales especiales (Capredena, Dipreca). No hay restricción por edad.",
+      "longAnswer": "El APV es abierto a toda persona natural, residente o no residente en Chile. Para acceder a los beneficios tributarios (régimen A o B) se requiere haber tenido renta imponible o haberla obtenido en el año tributario. Quienes no tienen renta pueden igual aportar para acumular ahorro, pero sin beneficio tributario en ese ejercicio. Los menores de edad pueden ser titulares con representación legal. Para los afiliados a regímenes especiales (FFAA, Carabineros, PDI) el APV opera en paralelo a su sistema previsional propio.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "conceptos",
+        "elegibilidad"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "fundamentos-apv"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-005",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Régimen A — bonificación fiscal 15%",
+      "mainQuestion": "¿Cómo funciona el APV régimen A?",
+      "equivalentQuestions": [
+        "¿Qué es el régimen A del APV?",
+        "Bonificación 15% APV",
+        "¿Cuánto bonifica el Estado en el APV?",
+        "Régimen A APV beneficios"
+      ],
+      "keywords": [
+        "regimen a",
+        "régimen a apv",
+        "bonificacion 15 apv",
+        "bonificación fiscal",
+        "15 por ciento estado"
+      ],
+      "shortAnswer": "En <strong>régimen A</strong>, el Estado bonifica un <strong>15% sobre los aportes APV</strong>, con tope anual de <strong>6 UTM</strong>. La bonificación se deposita directamente en la cuenta APV del cliente. Ideal para tramos bajos o exentos de Global Complementario.",
+      "longAnswer": "El régimen A no reduce la base imponible: el cliente paga su impuesto normalmente y el Estado le deposita un 15% del aporte hasta el tope (6 UTM/año). Ejemplo: aporta $1.000.000 al año, recibe $150.000 de bonificación. La bonificación es <strong>inembargable</strong>, queda asociada al ahorro previsional y se retira junto con el APV al pensionarse. Si el cliente retira anticipadamente, debe devolver la bonificación más el impuesto único correspondiente. El régimen se declara al hacer el aporte y puede modificarse anualmente.",
+      "practicalExample": "Cliente con renta líquida $1.500.000 (tramo exento o bajo de Global Complementario) aporta $200.000 mensuales al APV-A. Bonificación anual: 15% × $2.400.000 = $360.000, depositados en su cuenta APV. Rentabilidad efectiva instantánea sobre el aporte, antes de considerar la rentabilidad del fondo.",
+      "risksAndWarnings": "Si el cliente retira el APV antes de pensionarse, devuelve la bonificación recibida más impuesto único. Conviene verificar el tramo de impuesto antes de elegir el régimen.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A",
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "tributacion",
+        "regimen-a",
+        "bonificacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "tributacion",
+        "beneficiosTributarios"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "data": {
+        "porcentajeBonificacion": 0.15,
+        "topeAnualUTM": 6
+      },
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-006",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Régimen B — rebaja de base imponible",
+      "mainQuestion": "¿Cómo funciona el APV régimen B?",
+      "equivalentQuestions": [
+        "¿Qué es el régimen B del APV?",
+        "Rebaja base imponible APV",
+        "¿Cómo bajo mis impuestos con APV?",
+        "Régimen B APV ventajas"
+      ],
+      "keywords": [
+        "regimen b",
+        "régimen b apv",
+        "rebaja base imponible",
+        "descuento impuesto",
+        "bajar global complementario"
+      ],
+      "shortAnswer": "En <strong>régimen B</strong>, los aportes APV se descuentan de la <strong>base imponible</strong> del impuesto a la renta, hasta <strong>50 UF mensuales / 600 UF anuales</strong>. El ahorro tributario depende del tramo del contribuyente; conviene a tramos medios y altos.",
+      "longAnswer": "El régimen B opera vía descuento en la base imponible: cada peso aportado al APV se resta del ingreso afecto a impuesto. El ahorro tributario efectivo equivale al aporte multiplicado por la tasa marginal de Global Complementario del contribuyente. Ejemplo: aporta $5.000.000 al año estando en tramo 35%, ahorra $1.750.000 en impuestos. Es muy potente para tramos altos. Al igual que el régimen A, si el cliente retira anticipadamente paga impuesto único recargado. El cliente declara la opción al hacer el aporte; cambios entre regímenes se ajustan en la Operación Renta del año siguiente.",
+      "practicalExample": "Cliente con renta líquida $5.000.000 mensuales (tramo 35% Global Complementario) aporta $1.500.000 mensuales al APV-B. Ahorro tributario anual: $18.000.000 × 35% = $6.300.000. Es ahorro real que se traduce en menor impuesto a pagar en Operación Renta.",
+      "risksAndWarnings": "Solo conviene si el cliente efectivamente paga Global Complementario en tramos medios o altos. Para tramos bajos o exentos, el régimen A suele ser más eficiente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "tributacion",
+        "regimen-b",
+        "global-complementario"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "tributacion",
+        "beneficiosTributarios",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "data": {
+        "topeMensualUF": 50,
+        "topeAnualUF": 600
+      },
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-007",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cómo elegir entre régimen A y B",
+      "mainQuestion": "¿Cómo elijo entre régimen A y B?",
+      "equivalentQuestions": [
+        "¿Qué régimen APV me conviene más?",
+        "Régimen A o B: cuál elegir",
+        "Diferencia entre APV-A y APV-B en la práctica",
+        "Cuál régimen apv elegir según tramo de impuesto"
+      ],
+      "keywords": [
+        "elegir regimen apv",
+        "a o b apv",
+        "que regimen apv conviene",
+        "comparacion apv a b"
+      ],
+      "shortAnswer": "<strong>Régimen A</strong> conviene a tramos <strong>bajos o exentos</strong> de Global Complementario (ingreso anual hasta ~$11M). <strong>Régimen B</strong> conviene a tramos <strong>medios y altos</strong> (desde ~$23M anuales). Punto de quiebre aproximado: 15% de tasa marginal.",
+      "longAnswer": "La regla práctica: si la tasa marginal de Global Complementario del cliente supera el 15%, el régimen B genera más ahorro tributario en términos absolutos que la bonificación del A. Si está bajo el 15% (tramos exentos o muy bajos), el régimen A entrega un beneficio inmediato y visible. En tramos intermedios (8% a 13,5%) conviene simular ambos escenarios. También influyen: horizonte de inversión (a mayor plazo, mayor importancia del capital invertido) y si el cliente valora más la visibilidad de la bonificación A vs la rebaja efectiva del B en Operación Renta.",
+      "practicalExample": "Cliente A — renta anual $10M, tramo exento. Aporta $1M/año: en régimen A recibe $150.000 de bonificación; en régimen B no obtiene beneficio. <strong>Elige A</strong>. Cliente B — renta anual $80M, tramo 27%. Aporta $5M/año: en régimen B ahorra $1.350.000 en impuesto; en régimen A solo $750.000 (con tope). <strong>Elige B</strong>.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "tributacion",
+        "decisional",
+        "comparacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-008",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cambio de régimen tributario",
+      "mainQuestion": "¿Se puede cambiar de régimen A a B (o viceversa)?",
+      "equivalentQuestions": [
+        "¿Cómo cambio el régimen de mi APV?",
+        "¿Puedo cambiar de A a B?",
+        "Cambio APV régimen mecánica",
+        "Pasar de régimen A a régimen B"
+      ],
+      "keywords": [
+        "cambio regimen apv",
+        "cambiar a b apv",
+        "modificar regimen",
+        "pasar de a a b"
+      ],
+      "shortAnswer": "Sí. El régimen se elige <strong>aporte por aporte</strong> y puede declararse distinto en cada ejercicio tributario. No es necesario un trámite previo: basta indicar el régimen en cada aporte o ajustarlo en la Operación Renta del año siguiente.",
+      "longAnswer": "El cliente puede aportar todo el año en régimen B y, en abril del año siguiente, optar por régimen A en su declaración (o viceversa). Las instituciones administradoras reportan al SII los aportes anuales sin pre-asignación rígida. Esto da flexibilidad para optimizar tributariamente una vez conocida la situación de renta del año. Algunas plataformas operativas piden indicar el régimen al aportar para efectos del flujo (régimen A activa la bonificación durante el año), pero la decisión tributaria final se ratifica en la Operación Renta.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A"
+      ],
+      "tags": [
+        "tributacion",
+        "operativa"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-009",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Combinar régimen A y B en el mismo año",
+      "mainQuestion": "¿Puedo usar régimen A y B simultáneamente?",
+      "equivalentQuestions": [
+        "Combinar regímenes APV",
+        "¿Una parte en A y otra en B?",
+        "Mezclar A y B en el año",
+        "¿Se pueden usar los dos regímenes APV al mismo tiempo?"
+      ],
+      "keywords": [
+        "combinar a y b",
+        "mezclar regimenes apv",
+        "ambos regimenes apv",
+        "a y b mismo año"
+      ],
+      "shortAnswer": "Sí. Es posible distribuir aportes entre régimen A y régimen B en el mismo año tributario, respetando el tope conjunto de 600 UF anuales. Útil para clientes que están justo en el límite entre tramos o que reciben rentas variables.",
+      "longAnswer": "La normativa permite combinar regímenes en distintos aportes del año. Un caso típico: cliente que aporta hasta 6 UTM en régimen A (para maximizar bonificación) y el saldo en régimen B para obtener rebaja adicional sobre rentas más altas. La declaración final se hace en la Operación Renta. Importante: el tope de 50 UF mensuales / 600 UF anuales es <strong>conjunto</strong> entre ambos regímenes, no se duplica.",
+      "practicalExample": "Cliente con renta variable que termina el año en tramo 27%. Aportó $400.000 en régimen A (maximizando bonificación 15% sobre 6 UTM) y $3.000.000 adicionales en régimen B (rebajando base imponible). Total aportado: $3.400.000, dentro del tope anual.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A"
+      ],
+      "tags": [
+        "tributacion",
+        "optimizacion"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "tributacion",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-010",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Aportes sobre el tope (sin beneficio tributario)",
+      "mainQuestion": "¿Qué pasa si aporto más del tope APV?",
+      "equivalentQuestions": [
+        "Aportes APV sobre 600 UF",
+        "¿Puedo aportar más del máximo APV?",
+        "Excedente APV sobre tope",
+        "Qué pasa con aportes APV sobre el límite"
+      ],
+      "keywords": [
+        "sobre tope apv",
+        "exceder tope apv",
+        "aportar mas de 600 uf",
+        "excedente apv"
+      ],
+      "shortAnswer": "Se puede aportar sobre el tope, pero el <strong>excedente no recibe beneficio tributario</strong> (ni bonificación A ni rebaja B). Funciona como ahorro voluntario normal: tributa por las rentabilidades al rescate.",
+      "longAnswer": "La normativa no prohíbe aportes sobre 50 UF mensuales o 600 UF anuales, pero el excedente queda fuera del régimen preferente. Para muchos clientes de alto patrimonio que quieren ahorrar más, tiene más sentido derivar el excedente a otros vehículos: fondos mutuos tradicionales, Cuenta 2 AFP, depósitos a plazo, o productos de inversión LVAM. Vale la pena revisar la cartera global antes de simplemente sobre-aportar al APV.",
+      "risksAndWarnings": "Aportar sobre el tope no genera penalización pero sí pérdida de eficiencia: el cliente paga el costo de oportunidad de no obtener beneficio tributario sobre ese excedente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "tributacion",
+        "topes",
+        "alto-patrimonio"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "altoPatrimonio"
+      ],
+      "relatedProducts": [
+        "LVAM Fondos Mutuos",
+        "Cuenta 2 AFP"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-011",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "APV y Global Complementario: ejemplos por tramo",
+      "mainQuestion": "¿Cómo impacta el APV en mi Global Complementario?",
+      "equivalentQuestions": [
+        "Ejemplos de ahorro tributario APV por tramo",
+        "Impacto APV en Global Complementario",
+        "¿Cuánto bajo de impuesto con APV?",
+        "Cálculo ahorro tributario APV"
+      ],
+      "keywords": [
+        "global complementario apv",
+        "ejemplo tramo impuesto",
+        "ahorro tributario apv",
+        "impacto impuesto"
+      ],
+      "shortAnswer": "El ahorro tributario del APV-B equivale al monto aportado multiplicado por la tasa marginal de Global Complementario. A mayor tramo, mayor beneficio. Tramos exentos no obtienen ahorro vía B; ahí conviene régimen A.",
+      "longAnswer": "Tramos vigentes Global Complementario (referencial 2026, sobre renta líquida anual aprox.): exento hasta ~$11M; 4% hasta ~$24M; 8% hasta ~$40M; 13,5% hasta ~$56M; 23% hasta ~$72M; 30,4% hasta ~$93M; 35% hasta ~$240M; 40% sobre $240M. Para cada tramo, el ahorro APV-B = aporte × tasa marginal. Ejemplos ilustrativos al aportar $5M/año: tramo 8% ahorra $400.000; tramo 23% ahorra $1.150.000; tramo 35% ahorra $1.750.000; tramo 40% ahorra $2.000.000.",
+      "practicalExample": "Cliente gerencial, renta anual $90M (tramo 30,4%). Aporta el máximo APV-B (600 UF ≈ $24M). Ahorro tributario: $24M × 30,4% = $7.296.000 al año. Sobre 20 años de aporte equivalente, el ahorro tributario acumulado bordea $146M (sin considerar valor del dinero en el tiempo).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "tributacion",
+        "ejemplos",
+        "tramos"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "altoPatrimonio",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-012",
+      "category": "APV",
+      "subcategory": "Regímenes tributarios",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "APV y devolución en Operación Renta",
+      "mainQuestion": "¿Cómo se ve el APV en la Operación Renta?",
+      "equivalentQuestions": [
+        "APV en declaración de renta",
+        "Devolución impuesto por APV",
+        "¿Recibo plata de vuelta por mi APV?",
+        "APV y formulario 22"
+      ],
+      "keywords": [
+        "operacion renta apv",
+        "declaracion renta apv",
+        "formulario 22 apv",
+        "devolucion impuesto apv"
+      ],
+      "shortAnswer": "En la Operación Renta de abril, los aportes APV-B se restan de la base imponible declarada, reduciendo el impuesto a pagar o generando devolución si ya hubo retención. La institución administradora reporta los aportes al SII automáticamente.",
+      "longAnswer": "Los aportes APV del año tributario son informados por la administradora (LVAM, AFP, banco, seguro) al SII vía Declaración Jurada. Cuando el cliente declara su renta en abril, los aportes APV-B se reflejan como rebaja en el Formulario 22. Si el cliente tiene retenciones por sueldo (PPM o impuesto único de segunda categoría), la rebaja puede traducirse en <strong>devolución de impuesto</strong>. Para régimen A no hay efecto en la declaración: la bonificación ya se depositó directamente en la cuenta APV durante el año.",
+      "practicalExample": "Trabajador dependiente, sueldo $4M líquidos, aporta $400.000/mes al APV-B vía descuento por planilla. Cada mes el impuesto único de segunda categoría se calcula sobre la renta neta de APV (rebaja en origen). Si además aportó $2M adicionales por transferencia directa, esos se rebajan en la Operación Renta y generan devolución.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "tags": [
+        "tributacion",
+        "operacion-renta",
+        "devolucion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-013",
+      "category": "APV",
+      "subcategory": "Topes y límites",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Tope mensual y anual APV",
+      "mainQuestion": "¿Cuál es el tope de aporte APV?",
+      "equivalentQuestions": [
+        "Tope APV",
+        "Máximo aporte APV",
+        "Límite mensual APV",
+        "Cuánto puedo aportar máximo al APV",
+        "600 UF APV"
+      ],
+      "keywords": [
+        "tope apv",
+        "maximo apv",
+        "limite apv",
+        "50 uf",
+        "600 uf",
+        "tope mensual apv"
+      ],
+      "shortAnswer": "El tope APV con beneficio tributario es <strong>50 UF mensuales</strong> y <strong>600 UF anuales</strong>, conjunto para régimen A y B. Aportes sobre ese tope no reciben beneficio tributario.",
+      "longAnswer": "El tope se calcula sobre la suma de aportes a todas las cuentas APV del trabajador (en distintas instituciones o regímenes). Si el cliente tiene APV en LVAM y en su AFP simultáneamente, el tope se reparte entre ambos. La conversión UF/CLP se hace al valor UF del día del aporte; verificar valor UF vigente al calcular equivalencias. El SII y la Superintendencia de Pensiones cruzan información para verificar que el tope no se exceda.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario",
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "topes",
+        "limites"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "tributacion",
+        "fundamentos-apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "data": {
+        "topeMensualUF": 50,
+        "topeAnualUF": 600
+      },
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-014",
+      "category": "APV",
+      "subcategory": "Topes y límites",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Tope bonificación régimen A (6 UTM anuales)",
+      "mainQuestion": "¿Cuánto puede bonificar el Estado en régimen A?",
+      "equivalentQuestions": [
+        "Tope bonificación 15%",
+        "Máximo 6 UTM bonificación APV",
+        "Límite régimen A APV",
+        "Cuánto da el Estado máximo por APV"
+      ],
+      "keywords": [
+        "tope bonificacion a",
+        "6 utm",
+        "limite regimen a",
+        "maximo bonificacion estado"
+      ],
+      "shortAnswer": "La bonificación régimen A tiene tope anual de <strong>6 UTM</strong>. Equivale al 15% de un aporte máximo de 40 UTM anuales. Aportes superiores no incrementan la bonificación; quedan como ahorro sin beneficio tributario adicional en A.",
+      "longAnswer": "Para maximizar la bonificación del régimen A, el cliente debe aportar al menos 40 UTM anuales (que a 15% generan las 6 UTM de tope). Aportar más solo tiene sentido si: (a) se quiere ahorrar más capital sin beneficio adicional en A, o (b) se combina el régimen A hasta el tope y el B para los aportes adicionales (ver APV-009). El tope se ajusta anualmente con el valor UTM, por lo que conviene actualizar el cálculo cada año en Operación Renta.",
+      "practicalExample": "Cliente aporta $250.000 mensuales en régimen A ($3M anuales, aprox. 44 UTM). Bonificación: se topa en 6 UTM = $410.000. Si aportara $500.000 mensuales, la bonificación seguiría siendo $410.000; el resto del aporte queda como ahorro sin beneficio tributario en A.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "topes",
+        "regimen-a",
+        "bonificacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "tributacion",
+        "fundamentos-apv"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "data": {
+        "topeBonificacionAnualUTM": 6,
+        "aporteMaximoBonificadoUTM": 40,
+        "porcentajeBonificacion": 0.15
+      },
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-015",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Apertura de APV en LVAM",
+      "mainQuestion": "¿Cómo abro un APV en LVAM?",
+      "equivalentQuestions": [
+        "Abrir cuenta APV LVAM",
+        "Cómo contratar APV LarrainVial",
+        "Proceso de apertura APV",
+        "Qué necesito para abrir APV en LVAM"
+      ],
+      "keywords": [
+        "abrir apv lvam",
+        "contratar apv",
+        "apertura apv",
+        "documentacion apv",
+        "como contratar"
+      ],
+      "shortAnswer": "La apertura de APV LVAM es 100% online vía el portal de cliente. Requiere RUT, datos de contacto, antecedentes laborales básicos y selección del fondo APV. Onboarding aproximado: <strong>10-15 minutos</strong>.",
+      "longAnswer": "El proceso estándar incluye: (1) registro en portal LVAM con clave única o validación de identidad; (2) firma del contrato APV digital; (3) selección del fondo APV (perfil de riesgo); (4) configuración del régimen tributario (A o B); (5) carga del PAC si se quiere automatizar aportes; (6) primer aporte vía transferencia o tarjeta. Documentación requerida: cédula vigente, comprobante de domicilio reciente y, para algunos perfiles, declaración de actividad económica. Para clientes corporate o de alto patrimonio, el onboarding se hace asistido por ejecutivo.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimiento operativo APV LVAM",
+          "date": "2025-08"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "onboarding",
+        "apertura"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "operativa",
+        "onboarding"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "Portal cliente LVAM"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-016",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Formas de aportar al APV",
+      "mainQuestion": "¿Cómo puedo aportar al APV?",
+      "equivalentQuestions": [
+        "Métodos de aporte APV",
+        "PAC APV",
+        "Aporte por planilla APV",
+        "Transferencia APV",
+        "Depósito empleador APV"
+      ],
+      "keywords": [
+        "formas de aportar",
+        "pac apv",
+        "aporte planilla",
+        "transferencia apv",
+        "deposito empleador"
+      ],
+      "shortAnswer": "Tres mecanismos principales: <strong>PAC (mandato automático)</strong>, <strong>transferencia directa</strong> desde cuenta bancaria, y <strong>descuento por planilla</strong> coordinado con el empleador. El PAC es el más usado por su consistencia.",
+      "longAnswer": "<strong>PAC</strong>: el cliente autoriza un débito mensual fijo desde su cuenta corriente o vista; opera por mandato CCA, sin intervención manual. Recomendado para construir hábito de ahorro y maximizar el efecto compuesto. <strong>Transferencia</strong>: aporte único o esporádico vía transferencia electrónica al CTA de LVAM, asociando el RUT del cliente. Útil para aportes extraordinarios (bono, finiquito, herencia). <strong>Descuento por planilla</strong>: el empleador retiene el aporte directamente del sueldo y lo deposita a LVAM. Particularmente eficiente en régimen B (rebaja base imponible en origen, sin esperar Operación Renta).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimiento operativo APV LVAM",
+          "date": "2025-08"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "aportes",
+        "pac"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "operativa",
+        "fundamentos-apv"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-017",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Traspaso de APV desde otra institución",
+      "mainQuestion": "¿Cómo traspaso mi APV a LVAM?",
+      "equivalentQuestions": [
+        "Traspasar APV desde el banco",
+        "Cambiar APV a LarrainVial",
+        "Traspaso APV entre instituciones",
+        "Moverme con mi APV a LVAM"
+      ],
+      "keywords": [
+        "traspaso apv",
+        "cambiar apv",
+        "traspasar a lvam",
+        "mover apv",
+        "trasladar apv"
+      ],
+      "shortAnswer": "El traspaso se hace 100% online vía mandato electrónico. El cliente <strong>conserva la antigüedad tributaria</strong> y los aportes históricos. Plazo legal de ejecución: hasta <strong>30 días corridos</strong>.",
+      "longAnswer": "El cliente firma el mandato de traspaso en el portal LVAM autorizando que la institución de origen (AFP, banco, otra administradora) transfiera el saldo de APV a la cuenta APV LVAM elegida. La operación no rompe la continuidad tributaria: el ahorro mantiene su carácter de APV, no genera evento tributario ni se considera retiro. El cliente puede traspasar el saldo total o parcial. Si tiene APV en régimen A con bonificación recibida, esa bonificación se traspasa también sin gatillar devolución al Estado. Es uno de los procesos de captación más valiosos en LVAM por su simpleza.",
+      "practicalExample": "Cliente con $35M acumulados en APV Banco Estado decide traspasar a LVAM Fondo APV Moderado. Firma mandato online en LVAM; Banco Estado tiene 30 días para liquidar y transferir. El cliente recibe confirmación de saldo recibido y los días siguientes lo ve invertido en el fondo elegido. Cero impacto tributario.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimiento operativo APV LVAM",
+          "date": "2025-08"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "operativa",
+        "traspaso",
+        "captacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "operativa",
+        "captacion",
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-018",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Modificar, suspender o reactivar el PAC",
+      "mainQuestion": "¿Puedo cambiar el monto del PAC del APV?",
+      "equivalentQuestions": [
+        "Modificar PAC APV",
+        "Suspender aportes APV",
+        "Reactivar APV",
+        "Cambiar monto aporte automático APV"
+      ],
+      "keywords": [
+        "modificar pac",
+        "suspender apv",
+        "reactivar pac",
+        "cambiar monto apv",
+        "pausar apv"
+      ],
+      "shortAnswer": "Sí. El cliente puede modificar el monto, suspender temporalmente o reactivar el PAC desde el portal LVAM en cualquier momento. No hay penalización ni costo asociado.",
+      "longAnswer": "Casos típicos: cliente que sube el aporte tras un aumento de sueldo, o lo baja tras un cambio laboral; cliente que suspende durante varios meses por reducción de ingresos y luego reactiva. La modificación opera al siguiente ciclo de cobro mensual. Si el cliente solo quiere saltarse un mes puntual, puede solicitar suspensión por un periodo determinado. Importante: <strong>suspender el PAC no es retirar el APV</strong>; el saldo acumulado sigue invertido y rentando, solo se detienen los aportes nuevos.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimiento operativo APV LVAM",
+          "date": "2025-08"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "pac",
+        "retencion-cliente"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "operativa",
+        "retencion"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "bajo",
+      "consultationFrequency": "media",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-019",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Aporte único vs aportes periódicos",
+      "mainQuestion": "¿Conviene aportar de una vez o mensualmente?",
+      "equivalentQuestions": [
+        "Aporte único APV",
+        "Aporte mensual vs anual",
+        "Mejor forma de aportar APV",
+        "Estrategia de aportes APV"
+      ],
+      "keywords": [
+        "aporte unico",
+        "aporte mensual apv",
+        "estrategia aporte",
+        "dollar cost averaging apv"
+      ],
+      "shortAnswer": "Aportes <strong>mensuales</strong> (PAC) maximizan el efecto compuesto y suavizan el precio promedio de entrada (DCA). Aportes <strong>únicos</strong> son útiles para ingresos extraordinarios (bono, finiquito) o para cerrar el cupo del año en diciembre.",
+      "longAnswer": "El aporte periódico tiene tres ventajas: disciplina de ahorro, diversificación temporal del precio de entrada al fondo (dollar-cost averaging), y maximización del tiempo de rentabilidad (cada cuota empieza a rentar antes). El aporte único es eficiente cuando el cliente recibe un monto puntual y quiere capturar el beneficio tributario del año en curso. Una estrategia mixta es lo más común en clientes de patrimonio: PAC mensual + aporte extraordinario en diciembre para completar tope anual y maximizar régimen B.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "estrategia",
+        "aportes"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "operativa",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-020",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "Aportes APV desde el extranjero",
+      "mainQuestion": "¿Puedo aportar al APV desde el extranjero?",
+      "equivalentQuestions": [
+        "APV residiendo fuera de Chile",
+        "Aporte APV chileno en el exterior",
+        "APV para chilenos en el extranjero",
+        "Transferencia internacional APV"
+      ],
+      "keywords": [
+        "apv extranjero",
+        "aporte desde afuera",
+        "chileno residente exterior",
+        "transferencia internacional apv"
+      ],
+      "shortAnswer": "Sí, es posible aportar desde el extranjero vía transferencia internacional o desde cuenta bancaria chilena habilitada. El beneficio tributario aplica si el cliente declara renta en Chile. Considerar costos de cambio y SWIFT.",
+      "longAnswer": "Chilenos residentes en el extranjero que mantienen tributación en Chile (por ejemplo, diplomáticos, ejecutivos asignados, jubilados con pensión chilena) pueden seguir aportando al APV y mantener los beneficios tributarios. Si el cliente cambia de residencia tributaria, el APV se conserva (no se obliga a retirar), pero deja de generar beneficios tributarios en Chile salvo que mantenga renta chilena gravable. Aportes vía cuenta bancaria chilena del propio cliente son los más simples; transferencias internacionales tienen costos SWIFT y diferencial cambiario que deben ser ponderados.",
+      "risksAndWarnings": "Verificar la situación tributaria del cliente en Chile antes de comprometer aportes regulares. Si pierde la calidad de contribuyente chileno, el beneficio tributario puede no aplicarse.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "extranjero",
+        "casos-especiales"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "operativa",
+        "casos-especiales"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "bajo",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-021",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "APV durante períodos sin empleo",
+      "mainQuestion": "¿Puedo seguir aportando APV si estoy sin trabajo?",
+      "equivalentQuestions": [
+        "APV cesante",
+        "APV sin renta",
+        "Aportar APV sin sueldo",
+        "Mantener APV estando desempleado"
+      ],
+      "keywords": [
+        "apv sin empleo",
+        "apv cesante",
+        "apv sin renta",
+        "desempleado apv",
+        "pausa apv trabajo"
+      ],
+      "shortAnswer": "Sí, se puede aportar al APV sin tener empleo formal, pero <strong>sin beneficio tributario</strong> en ese ejercicio (al no haber renta imponible). El saldo acumulado sigue invertido y rentando.",
+      "longAnswer": "Períodos de desempleo, sabático, estudios o emprendimiento temprano (sin renta declarada) no impiden aportar al APV, pero los aportes no rebajan base imponible (no hay renta que rebajar) ni generan bonificación A (que requiere renta del trabajo). Recomendación práctica: <strong>suspender el PAC</strong> mientras dura el período sin renta y reactivarlo al reincorporarse al mundo laboral. Si el cliente quiere mantener el hábito y tiene capital para hacerlo, aporta sabiendo que el beneficio tributario llegará cuando vuelva a tener renta gravable.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "casos-especiales",
+        "desempleo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "operativa",
+        "retencion"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "bajo",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-022",
+      "category": "APV",
+      "subcategory": "Aportes y operativa",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-12-11",
+      "title": "APV en cambio de empleador",
+      "mainQuestion": "¿Qué pasa con mi APV cuando cambio de trabajo?",
+      "equivalentQuestions": [
+        "Cambio de empleador APV",
+        "Mantener APV con nuevo trabajo",
+        "APV al cambiar de pega",
+        "APV portabilidad empleador"
+      ],
+      "keywords": [
+        "cambio empleador apv",
+        "nuevo trabajo apv",
+        "portar apv",
+        "apv entre trabajos"
+      ],
+      "shortAnswer": "El APV es portable y pertenece al trabajador, no al empleador. El cliente conserva la cuenta, el saldo acumulado y el régimen elegido. Solo hay que actualizar los datos del nuevo empleador si el aporte era por planilla.",
+      "longAnswer": "La cuenta APV es nominativa del trabajador y no depende del empleador (excepto APVC, ver APV-002). Al cambiar de empleo: (1) si el aporte era PAC desde cuenta personal, no hay cambio operativo; (2) si era descuento por planilla, hay que coordinar con el nuevo empleador para reanudar o el cliente puede pasar a PAC. La continuidad de aportes en el régimen elegido no se interrumpe. Importante: si recibe finiquito con saldo importante, parte de ese monto puede dirigirse al APV como aporte único para optimizar tributariamente el año (consultar APV-019).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimiento operativo APV LVAM",
+          "date": "2025-08"
+        }
+      ],
+      "tags": [
+        "operativa",
+        "casos-especiales",
+        "portabilidad"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "operativa",
+        "retencion"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-023",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Retiro anticipado régimen B: tributación general",
+      "mainQuestion": "¿Qué tributación tiene un retiro anticipado del APV-B?",
+      "equivalentQuestions": [
+        "Retiro anticipado APV B",
+        "Sacar APV antes de pensionarme",
+        "Impuesto retiro APV régimen B",
+        "Costos de retirar APV anticipado"
+      ],
+      "keywords": [
+        "retiro anticipado b",
+        "sacar apv antes",
+        "impuesto retiro apv",
+        "tributacion retiro apv"
+      ],
+      "shortAnswer": "Los retiros anticipados de APV-B pagan <strong>impuesto único</strong> equivalente al <strong>Global Complementario recargado</strong> en 3 puntos porcentuales adicionales. La lógica es desincentivar el uso del APV como vehículo de corto plazo.",
+      "longAnswer": "La normativa (LIR Art. 42 ter) establece que el retiro anticipado se grava como ingreso del año, sumándose a las demás rentas para determinar la tasa de Global Complementario, y aplicando un recargo adicional. Esto puede llevar al cliente a tramos altos artificialmente. Ejemplo: un cliente en tramo 8% que retira $50M de APV puede terminar en tramo 30% por el efecto acumulativo. Por eso el APV-B se considera ahorro <strong>destinado a la jubilación</strong>; si se necesita liquidez antes, suele ser más eficiente otros vehículos. Consultar APV-025 para detalle del cálculo.",
+      "risksAndWarnings": "El retiro anticipado puede generar un impuesto mucho mayor al beneficio que el cliente recibió originalmente. Antes de recomendar un retiro, simular el escenario tributario completo.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 ter — Tributación retiros anticipados APV"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "retiros",
+        "tributacion",
+        "regimen-b"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "retencion",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-024",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Retiro anticipado régimen A: devolución de bonificación",
+      "mainQuestion": "¿Qué pasa si retiro mi APV-A antes de pensionarme?",
+      "equivalentQuestions": [
+        "Retiro anticipado APV A",
+        "Devolver bonificación 15%",
+        "Sacar APV régimen A antes",
+        "Cómo se grava el retiro APV A"
+      ],
+      "keywords": [
+        "retiro anticipado a",
+        "devolver bonificacion",
+        "retiro regimen a",
+        "impuesto retiro apv a"
+      ],
+      "shortAnswer": "En régimen A el cliente debe <strong>devolver la bonificación recibida</strong> proporcionalmente al monto retirado, más un impuesto único sobre la rentabilidad. La devolución se hace al SII vía la institución administradora.",
+      "longAnswer": "El régimen A premia la permanencia: la bonificación del 15% es del Estado y se condiciona a que el ahorro se use efectivamente para pensión. Si el cliente retira anticipadamente, la institución calcula la proporción de bonificación recibida sobre el monto retirado y la retiene para devolverla al Fisco. Adicionalmente, las rentabilidades del aporte pagan impuesto único conforme al Art. 42 ter. El capital aportado por el cliente no tributa (es ahorro neto). Si el cliente retira el 100% del APV-A, devuelve el 100% de las bonificaciones recibidas.",
+      "practicalExample": "Cliente recibió $1.500.000 de bonificación A acumulada en 5 años. Retira el 40% del APV. Devolución de bonificación: $1.500.000 × 40% = $600.000 que LVAM retiene y reporta al SII. Sobre las rentabilidades del 40% retirado, aplica impuesto único Art. 42 ter.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 17 N°10 — Bonificación fiscal APV régimen A",
+        "LIR Art. 42 ter — Tributación retiros anticipados APV"
+      ],
+      "tags": [
+        "retiros",
+        "tributacion",
+        "regimen-a"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-025",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cálculo del impuesto único al retiro anticipado",
+      "mainQuestion": "¿Cómo se calcula el impuesto único de retiro APV?",
+      "equivalentQuestions": [
+        "Cálculo impuesto retiro APV",
+        "Cuánto pago por retiro anticipado APV",
+        "Fórmula impuesto APV retiro",
+        "Tasa impuesto único APV"
+      ],
+      "keywords": [
+        "calculo impuesto retiro",
+        "tasa impuesto unico apv",
+        "formula retiro apv",
+        "art 42 ter"
+      ],
+      "shortAnswer": "El impuesto único Art. 42 ter LIR se calcula sumando el monto retirado a las demás rentas anuales del cliente, determinando la tasa de Global Complementario resultante, y <strong>recargándola en 3 puntos porcentuales</strong>.",
+      "longAnswer": "Fórmula simplificada: (1) sumar el retiro a la renta anual normal del cliente; (2) determinar el tramo de Global Complementario que aplica al total; (3) calcular el impuesto sobre la renta total; (4) restar el impuesto que habría pagado sin el retiro; (5) recargar el resultado en 3 puntos porcentuales. Esa cifra es el impuesto único del retiro. El recargo busca devolver el beneficio tributario obtenido en el momento del aporte. La institución administradora retiene una tasa preliminar (típicamente 15%) y el saldo se ajusta en Operación Renta.",
+      "practicalExample": "Cliente con renta anual $40M (tramo 13,5%) retira $30M de APV-B. Renta total declarada: $70M, lo lleva a tramo 23%. Impuesto sobre $70M en tramo 23% vs impuesto sobre $40M en 13,5%: diferencia ~$6.900.000. Recargo 3 pp: ~$900.000 adicionales. Impuesto único total: ~$7.800.000 sobre los $30M retirados (26% efectivo).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 ter — Tributación retiros anticipados APV"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "retiros",
+        "tributacion",
+        "calculo"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "tributacion",
+        "asesoria-comercial",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-026",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Retiro al pensionarse: tributación como pensión",
+      "mainQuestion": "¿Cómo tributa el APV al pensionarme?",
+      "equivalentQuestions": [
+        "APV al jubilarse",
+        "Tributación APV pensión",
+        "Retiro APV al pensionarse",
+        "Cómo cobro mi APV al jubilarme"
+      ],
+      "keywords": [
+        "retiro pension apv",
+        "jubilarse apv",
+        "cobro apv jubilacion",
+        "tributacion pension apv"
+      ],
+      "shortAnswer": "Al pensionarse, el APV se integra como <strong>pensión adicional</strong> y tributa con Impuesto Único de Segunda Categoría como cualquier pensión. La rebaja base imponible obtenida en aportes se materializa como diferimiento tributario.",
+      "longAnswer": "El cliente puede optar entre distintas modalidades al pensionarse: (a) <strong>renta vitalicia</strong> con una compañía de seguros (pensión fija mensual de por vida); (b) <strong>retiro programado</strong> con la AFP o administradora (pensión variable según saldo); (c) combinación; (d) en algunos casos, <strong>excedente de libre disposición (ELD)</strong> — ver APV-027. La tributación se asimila a la de cualquier pensión: Impuesto Único de Segunda Categoría según el monto mensual. El cliente que hizo APV-B durante años ahora tributa la pensión completa, pero típicamente en tramos más bajos que cuando estaba activo, capturando así el diferimiento tributario.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 — Sistema de Pensiones",
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "tags": [
+        "retiros",
+        "tributacion",
+        "pension"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "tributacion",
+        "planificacion-previsional"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-027",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "Excedente de libre disposición (ELD)",
+      "mainQuestion": "¿Qué es el Excedente de Libre Disposición?",
+      "equivalentQuestions": [
+        "ELD APV",
+        "Excedente libre disposición",
+        "Retirar APV sin pensionarse parcial",
+        "ELD requisitos"
+      ],
+      "keywords": [
+        "eld",
+        "excedente libre disposicion",
+        "retiro sin pensionarse",
+        "exceso pension"
+      ],
+      "shortAnswer": "El <strong>ELD</strong> permite retirar parte del APV al pensionarse, si el saldo total alcanza para financiar una pensión superior al 70% de la renta promedio de los últimos 10 años. Hasta <strong>800 UTM</strong> pueden retirarse exentos.",
+      "longAnswer": "El ELD es un beneficio clave del APV en pensión: si los fondos acumulados (APV + cuenta obligatoria AFP) son suficientes para una pensión que supere el 70% de la renta promedio ajustada de los últimos 10 años, el cliente puede retirar el excedente. Hasta 200 UTM al año, con tope absoluto de 1.200 UTM, se pueden retirar exentos de impuesto bajo ciertas condiciones de ahorro mínimo previo (depende del año en que se hicieron los aportes). Sobre ese tope, el ELD tributa con Impuesto Global Complementario. Para muchos clientes de alto patrimonio, el ELD es el principal atractivo del APV: les permite recuperar un capital líquido al pensionarse con tratamiento tributario preferente.",
+      "practicalExample": "Cliente jubila con $400M en APV+AFP. Su pensión vitalicia consumiría $250M y le sobran $150M. Puede retirar ese ELD en cuotas anuales: las primeras 200 UTM (~$13,7M) exentas, el resto tributando como Global Complementario en cada año del retiro.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 — Sistema de Pensiones",
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "retiros",
+        "eld",
+        "pension",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "planificacion-previsional",
+        "altoPatrimonio",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-028",
+      "category": "APV",
+      "subcategory": "Retiros y tributación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial, Compliance",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2027-03-31",
+      "title": "APV y fallecimiento del titular",
+      "mainQuestion": "¿Qué pasa con el APV si fallece el titular?",
+      "equivalentQuestions": [
+        "Herencia APV",
+        "Fallecimiento titular APV",
+        "Beneficiarios APV",
+        "Sucesión APV"
+      ],
+      "keywords": [
+        "fallecimiento apv",
+        "herencia apv",
+        "beneficiarios apv",
+        "muerte titular apv",
+        "sucesion apv"
+      ],
+      "shortAnswer": "El saldo de APV se entrega a los beneficiarios designados o, en su defecto, integra la masa hereditaria. Tiene tratamiento favorable: <strong>no paga impuesto a la herencia</strong> hasta ciertos topes y se entrega sin esperar posesión efectiva si hay beneficiarios designados.",
+      "longAnswer": "El APV ofrece dos ventajas sucesorias relevantes: (1) <strong>designación de beneficiarios</strong> directos en el contrato APV (cónyuge, hijos, padres), que reciben el saldo sin pasar por posesión efectiva; (2) <strong>exención parcial de impuesto a la herencia</strong> hasta los topes legales de pensión de sobrevivencia. Para herederos directos típicamente no hay impuesto a pagar. Si no hay beneficiarios designados, el saldo integra la herencia general y sigue las reglas sucesorias normales. Esta es una de las ventajas patrimoniales menos conocidas del APV y un argumento fuerte en planificación sucesoria para clientes de patrimonio.",
+      "risksAndWarnings": "Verificar que el cliente tenga beneficiarios designados actualizados. Es común encontrar designaciones desactualizadas (excónyuges, hijos no incluidos) que generan problemas sucesorios.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 — Sistema de Pensiones"
+      ],
+      "tags": [
+        "retiros",
+        "sucesion",
+        "herencia",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "sucesion",
+        "altoPatrimonio",
+        "planificacion-previsional"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-029",
+      "category": "APV",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "nextReviewDate": "2026-09-11",
+      "title": "Fondos LVAM disponibles para APV",
+      "mainQuestion": "¿Qué fondos LVAM puedo elegir para mi APV?",
+      "equivalentQuestions": [
+        "Fondos APV LarrainVial",
+        "Catálogo APV LVAM",
+        "Opciones de inversión APV LVAM",
+        "Qué fondo APV elegir LVAM"
+      ],
+      "keywords": [
+        "fondos apv lvam",
+        "catalogo apv",
+        "opciones apv larrainvial",
+        "que fondo apv"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con el equipo LVAM. El listado oficial de fondos habilitados para APV, sus perfiles de riesgo y mínimos será cargado una vez confirmado por el área de productos.",
+      "longAnswer": "Contenido pendiente. No se incluyen nombres de fondos, perfiles ni mínimos hasta validación oficial. Mientras tanto, derivar la consulta a Habilitación Comercial LVAM o consultar las fichas vigentes en el portal interno y en BuscaFondos CMF.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con información oficial validada por LVAM."
+      },
+      "risksAndWarnings": "No usar este entry como referencia comercial hasta su validación. No citar fondos, perfiles, ni clasificaciones de riesgo de memoria.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        },
+        {
+          "sourceType": "web",
+          "title": "CMF · Normativa fondos APV",
+          "link": "https://www.cmfchile.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "BuscaFondos CMF",
+          "link": "https://www.cmfchile.cl/portal/principal/613/w3-channel.html",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "productos",
+        "fondos-lvam",
+        "catalogo",
+        "pendiente-validacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-030",
+      "category": "APV",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "nextReviewDate": "2026-09-11",
+      "title": "Series APV en fondos LVAM: comisiones y mínimos",
+      "mainQuestion": "¿Cuáles son las comisiones de las series APV LVAM?",
+      "equivalentQuestions": [
+        "Comisión APV LVAM",
+        "Series APV LVAM",
+        "Costo APV LarrainVial",
+        "Mínimo APV LVAM"
+      ],
+      "keywords": [
+        "comision apv lvam",
+        "series apv",
+        "costo apv",
+        "minimo apv lvam"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con el equipo LVAM. La tabla oficial de series APV (nombres de serie, comisiones de administración, mínimos de inversión y características diferenciales) será cargada una vez confirmada por el área de productos.",
+      "longAnswer": "Contenido pendiente. No se citan comisiones, series ni mínimos hasta validación oficial. Para consultas urgentes, derivar a Habilitación Comercial LVAM o revisar el reglamento interno de cada fondo en la CMF y la ficha producto vigente.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con información oficial validada por LVAM."
+      },
+      "risksAndWarnings": "No citar comisiones ni mínimos de memoria. Toda información de costos debe provenir de la ficha producto vigente o del reglamento interno publicado en CMF.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        },
+        {
+          "sourceType": "web",
+          "title": "CMF · Normativa fondos APV",
+          "link": "https://www.cmfchile.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "productos",
+        "comisiones",
+        "series",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-031",
+      "category": "APV",
+      "subcategory": "Productos APV LVAM",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Producto, Inversiones",
+      "reviewStatus": "pendingBusinessValidation",
+      "nextReviewDate": "2026-09-11",
+      "title": "Rentabilidades históricas APV LVAM",
+      "mainQuestion": "¿Cuál es la rentabilidad histórica del APV LVAM?",
+      "equivalentQuestions": [
+        "Rentabilidad APV LVAM",
+        "Historial rentabilidad APV LarrainVial",
+        "Cuánto ha rentado el APV LVAM",
+        "Performance APV LVAM"
+      ],
+      "keywords": [
+        "rentabilidad apv lvam",
+        "historial rentabilidad",
+        "performance apv",
+        "retorno apv lvam"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con el equipo LVAM. Las rentabilidades históricas publicadas (12, 36, 60 meses, nominal y real) y los benchmarks asociados serán cargados una vez confirmados con el área de productos y compliance.",
+      "longAnswer": "Contenido pendiente. No se citan cifras de rentabilidad hasta validación oficial. La presentación de rentabilidades debe seguir el formato exigido por CMF: período exacto, rentabilidad nominal y real, benchmark de referencia, y disclaimer regulatorio obligatorio. Para datos actualizados, consultar BuscaFondos CMF o la ficha producto vigente.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con información oficial validada por LVAM."
+      },
+      "risksAndWarnings": "Nunca citar rentabilidades de memoria. La rentabilidad pasada no garantiza rentabilidades futuras. Todo material comercial que cite rentabilidades debe ir acompañado del disclaimer CMF correspondiente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        },
+        {
+          "sourceType": "web",
+          "title": "BuscaFondos CMF",
+          "link": "https://www.cmfchile.cl/portal/principal/613/w3-channel.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "CMF · Normativa fondos APV",
+          "link": "https://www.cmfchile.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "productos",
+        "rentabilidad",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "productos-lvam"
+      ],
+      "actions": [],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-032",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV para trabajadores independientes",
+      "mainQuestion": "¿Cómo hacen APV los independientes?",
+      "equivalentQuestions": [
+        "APV honorarios",
+        "Independientes y APV",
+        "APV con boleta de honorarios",
+        "APV trabajador a honorarios"
+      ],
+      "keywords": [
+        "apv independientes",
+        "apv honorarios",
+        "boletas honorarios apv",
+        "trabajador independiente"
+      ],
+      "shortAnswer": "Los trabajadores independientes (con boletas de honorarios) pueden hacer APV con los mismos beneficios tributarios. El régimen B es particularmente eficiente porque la cotización obligatoria también se aplica sobre la renta de honorarios.",
+      "longAnswer": "Desde la reforma 2018-2020, los independientes están obligados a cotizar para previsión sobre sus boletas de honorarios. El APV opera en paralelo: permite aporte voluntario con beneficios tributarios. En régimen B, el aporte se rebaja de la base imponible declarada en la Operación Renta. Para honorarios muy variables, el aporte único anual (en diciembre) suele ser más manejable que el PAC mensual. Tope vigente igual que dependientes: 50 UF mensuales / 600 UF anuales. Topes específicos para profesiones liberales o sociedades de profesionales pueden tener consideraciones adicionales según la estructura jurídica del cliente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario",
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "casos-especiales",
+        "independientes",
+        "honorarios"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "casos-especiales",
+        "tributacion"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-033",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "Depósitos convenidos (empleador)",
+      "mainQuestion": "¿Qué son los depósitos convenidos del empleador?",
+      "equivalentQuestions": [
+        "Depósito convenido empleador",
+        "Aporte adicional empleador APV",
+        "Beneficios empleador APV",
+        "APV empleador trabajador"
+      ],
+      "keywords": [
+        "deposito convenido",
+        "aporte empleador apv",
+        "convenio empleador trabajador",
+        "beneficio empleador"
+      ],
+      "shortAnswer": "Los <strong>depósitos convenidos</strong> son aportes que el empleador hace a la cuenta APV del trabajador como parte de la negociación contractual. <strong>No se asimilan a remuneración</strong> (no pagan impuesto único de segunda categoría) hasta tope mensual y anual.",
+      "longAnswer": "Regulados por D.L. 3500 Art. 92, los depósitos convenidos son una herramienta poderosa de compensación: el empleador deposita dinero al APV del trabajador sin que ese aporte sume a la base de Impuesto Único de Segunda Categoría del trabajador, ni a la cotización obligatoria. Es una forma de transferir compensación con eficiencia tributaria. Tope vigente expresado en UF anuales según normativa del D.L. 3500 Art. 92, ajustado periódicamente (verificar valor vigente con Superintendencia de Pensiones). Muy usado en cargos ejecutivos como complemento al salario fijo. Para el empleador, los depósitos convenidos son gasto deducible como remuneración. Combinado con APV individual del trabajador puede maximizar significativamente la acumulación previsional.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 92 — Depósitos convenidos"
+      ],
+      "tags": [
+        "casos-especiales",
+        "empleador",
+        "ejecutivos",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "altoPatrimonio",
+        "casos-especiales",
+        "asesoria-corporativa"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-034",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV de jubilados activos",
+      "mainQuestion": "¿Puedo seguir aportando APV después de jubilarme?",
+      "equivalentQuestions": [
+        "APV jubilados",
+        "Aportar APV ya pensionado",
+        "APV después de jubilarse",
+        "Seguir con APV en jubilación"
+      ],
+      "keywords": [
+        "apv jubilados",
+        "pensionado activo apv",
+        "apv post jubilacion",
+        "jubilado trabajando apv"
+      ],
+      "shortAnswer": "Sí. Un jubilado que sigue trabajando o que tiene rentas afectas puede seguir aportando al APV y obtener los beneficios tributarios sobre esas rentas. Frecuente en directores de empresa, asesores y consultores senior.",
+      "longAnswer": "La normativa no impide aportar APV después de pensionarse. Si el cliente sigue teniendo rentas gravables (sueldo, honorarios, rentas de directorio), puede aprovechar el régimen B para rebajar la base imponible de esas rentas adicionales. El régimen A también está disponible si el cliente realiza alguna cotización previsional (por ejemplo, sigue cotizando como dependiente). Los aportes nuevos se acumulan en una cuenta APV que el cliente puede retirar luego como complemento adicional de pensión o vía ELD. Es un argumento poco usado pero valioso para clientes senior con actividad económica continuada.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "casos-especiales",
+        "jubilados",
+        "alto-patrimonio"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "casos-especiales",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "bajo",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-035",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV ante término del vínculo laboral",
+      "mainQuestion": "¿Qué hago con mi APV cuando me despiden o renuncio?",
+      "equivalentQuestions": [
+        "APV finiquito",
+        "APV despido",
+        "Renunciar y APV",
+        "Qué pasa con APV al dejar el trabajo"
+      ],
+      "keywords": [
+        "finiquito apv",
+        "despido apv",
+        "renuncia apv",
+        "termino laboral apv"
+      ],
+      "shortAnswer": "El APV sigue siendo del trabajador, no se pierde ni se modifica por el término del vínculo laboral. Parte del finiquito puede aportarse al APV como aporte único para optimizar tributariamente el año.",
+      "longAnswer": "El finiquito tiene componentes con distintos tratamientos tributarios: indemnización legal (exenta hasta tope), feriado proporcional (afecto), vacaciones acumuladas. Para clientes con finiquitos abultados que entran en tramos altos de Global Complementario en el año, <strong>aportar al APV-B parte del finiquito</strong> puede generar ahorro tributario significativo. Si el cliente queda cesante varios meses, el APV existente sigue invertido y rentando; los aportes nuevos pueden suspenderse temporalmente (PAC). Si se reincorpora luego, retoma aportes con continuidad. Es uno de los momentos de mayor oportunidad comercial: el cliente cobra finiquito y necesita una decisión rápida sobre qué hacer.",
+      "practicalExample": "Ejecutivo recibe finiquito de $80M en agosto. Su renta acumulada anual lo proyecta en tramo 13,5%. Si aporta $24M al APV-B (tope anual), reduce base imponible y ahorra ~$3,2M en impuesto. El saldo del finiquito ($56M) puede ir a otros vehículos LVAM (fondos mutuos, depósito a plazo).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "tags": [
+        "casos-especiales",
+        "finiquito",
+        "termino-laboral"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "casos-especiales",
+        "captacion",
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-036",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV para personas con rentas variables",
+      "mainQuestion": "¿Cómo planificar APV con rentas variables (bonos, comisiones)?",
+      "equivalentQuestions": [
+        "APV con bonos",
+        "APV comisiones variables",
+        "Planificar APV renta variable",
+        "APV ingresos fluctuantes"
+      ],
+      "keywords": [
+        "apv bonos",
+        "apv comisiones",
+        "renta variable apv",
+        "ingresos fluctuantes",
+        "bono anual apv"
+      ],
+      "shortAnswer": "Clientes con bonos anuales o rentas variables (ventas, asesoría, honorarios) suelen optimizar haciendo PAC mensual moderado + aporte único en el mes de cobro del bono, calibrando para no exceder tope ni quedar bajo aprovechamiento.",
+      "longAnswer": "La renta variable complica la planificación tributaria porque el cliente no sabe en qué tramo terminará el año hasta cobrar todos sus ingresos. Estrategia recomendada: (1) PAC mensual conservador asegurando un piso de aporte; (2) en el mes de cobro del bono anual, calcular el tramo Global Complementario proyectado y aportar adicionalmente para optimizar (típicamente régimen B en clientes de tramo medio-alto); (3) cierre en diciembre revisando saldo de tope anual y aportando lo que falte si conviene. Aporte único en diciembre con cargo a bono diferido es muy común en clientes corporativos.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "tags": [
+        "casos-especiales",
+        "renta-variable",
+        "ejecutivos",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "altoPatrimonio",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-037",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV como herramienta de planificación previsional",
+      "mainQuestion": "¿Cómo encaja el APV en una planificación previsional integral?",
+      "equivalentQuestions": [
+        "Planificación previsional APV",
+        "Estrategia previsional APV",
+        "Pensión adecuada APV",
+        "Construir pensión con APV"
+      ],
+      "keywords": [
+        "planificacion previsional",
+        "estrategia pension",
+        "complemento pension",
+        "construir pension"
+      ],
+      "shortAnswer": "El APV es el principal vehículo voluntario para complementar la pensión proyectada por AFP, que típicamente reemplaza solo 30-50% del último sueldo. Una planificación previsional sólida incluye APV con horizonte de 20+ años.",
+      "longAnswer": "La tasa de reemplazo del sistema AFP en Chile está bajo presión: pensión proyectada vs último sueldo está entre 30% y 50% para la mayoría de los trabajadores. El APV permite acercar esa tasa al 70-80% deseable. Una planificación previsional integral considera: (1) cuenta obligatoria AFP (no negociable); (2) APV como capa adicional con beneficio tributario; (3) seguros de vida con ahorro (CUI) para protección + ahorro adicional; (4) inversiones tradicionales en fondos mutuos o renta fija para liquidez. Para clientes patrimoniales, el APV es la primera capa voluntaria por su eficiencia tributaria; recién después se incorporan otros vehículos.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "planificacion",
+        "previsional",
+        "estrategia",
+        "alto-patrimonio"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "planificacion-previsional",
+        "asesoria-comercial",
+        "altoPatrimonio"
+      ],
+      "relatedProducts": [
+        "LVAM APV",
+        "Consorcio Inversión Gold",
+        "Consorcio CUI"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-038",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV para complementar jubilación temprana",
+      "mainQuestion": "¿Sirve el APV para jubilarme antes?",
+      "equivalentQuestions": [
+        "Jubilación anticipada APV",
+        "Jubilar antes con APV",
+        "APV retiro temprano",
+        "Pensión anticipada APV"
+      ],
+      "keywords": [
+        "jubilacion anticipada",
+        "jubilar antes apv",
+        "retiro temprano",
+        "pension anticipada apv"
+      ],
+      "shortAnswer": "El APV puede financiar una jubilación anticipada si el saldo acumulado permite cubrir el período entre el retiro voluntario y la pensión normal. Estrategia clásica de FIRE y de ejecutivos que quieren retirarse a los 55-60.",
+      "longAnswer": "La pensión AFP normal arranca a 65/60 años (hombres/mujeres). Clientes que quieren retirarse antes (típicamente entre 55-60) necesitan financiar ese gap con ahorro propio. El APV ofrece dos rutas: (a) <strong>pensión anticipada</strong> si el saldo permite financiar una renta vitalicia ≥ 70% del promedio últimos 10 años; (b) <strong>ELD anticipado</strong> si se cumple el mismo requisito y se retira el excedente. Para llegar al objetivo en menos años, el cliente debe aportar máximos topes y diversificar a fondos de mayor retorno esperado (renta variable global). Es un proyecto de planificación financiera que requiere acompañamiento del ejecutivo.",
+      "risksAndWarnings": "Jubilar anticipadamente reduce el saldo final y la pensión vitalicia. Antes de proyectar, verificar que el saldo cubra holgadamente las expectativas de vida del cliente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "planificacion",
+        "jubilacion-anticipada",
+        "alto-patrimonio"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "planificacion-previsional",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-039",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV para altos patrimonios",
+      "mainQuestion": "¿Por qué un cliente alto patrimonio debería hacer APV?",
+      "equivalentQuestions": [
+        "APV wealth",
+        "APV alto patrimonio",
+        "APV cliente patrimonial",
+        "APV para grandes ingresos"
+      ],
+      "keywords": [
+        "alto patrimonio apv",
+        "wealth apv",
+        "cliente patrimonial",
+        "apv ricos"
+      ],
+      "shortAnswer": "Para clientes en tramos altos (27%+), el APV-B genera ahorro tributario significativo, ofrece vehículo eficiente para sucesión, y permite ELD al pensionarse. Es la primera capa voluntaria antes de fondos mutuos tradicionales.",
+      "longAnswer": "Aunque un cliente patrimonial podría considerar el tope de 600 UF anuales como modesto frente a su capacidad de ahorro, los argumentos son contundentes: (1) ahorro tributario anual del orden de $7-9M en tramo 30,4%-40%; (2) acumulación con eficiencia tributaria a lo largo de 20+ años; (3) ventaja sucesoria (ver APV-028); (4) ELD para retiro líquido al pensionarse con tope exento; (5) instrumento estable, no requiere gestión activa del cliente. Para patrimonios que exceden lo aportable al APV, el resto va a fondos mutuos tradicionales o productos patrimoniales. Pero el APV es la primera capa por eficiencia.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)"
+      ],
+      "tags": [
+        "planificacion",
+        "alto-patrimonio",
+        "wealth"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "altoPatrimonio",
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-040",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV vs Cuenta 2 (ahorro voluntario AFP)",
+      "mainQuestion": "¿Qué diferencia hay entre APV y Cuenta 2?",
+      "equivalentQuestions": [
+        "APV o Cuenta 2",
+        "Cuenta de ahorro voluntario AFP",
+        "Diferencia APV y CAV",
+        "Cuál conviene APV o Cuenta 2"
+      ],
+      "keywords": [
+        "cuenta 2",
+        "ahorro voluntario afp",
+        "cav",
+        "apv vs cuenta 2"
+      ],
+      "shortAnswer": "La <strong>Cuenta 2 (CAV)</strong> es ahorro voluntario en la AFP sin beneficio tributario, pero con <strong>liquidez total</strong>. El <strong>APV</strong> ofrece beneficio tributario pero penaliza el retiro anticipado. Cuenta 2 es para metas de corto-mediano plazo; APV es previsional.",
+      "longAnswer": "La Cuenta de Ahorro Voluntario (Cuenta 2) en la AFP funciona como un fondo de inversión líquido: aportas, rentas (puede ganar o perder según el fondo elegido), y retiras hasta 6 veces al año sin restricciones tributarias mayores. No tiene beneficio tributario al aporte ni penalidad al retiro. El APV es el opuesto: beneficio tributario al aporte (A o B), pero penalidad al retiro anticipado. Para metas como junta de vivienda, viaje o educación de hijos en 5-10 años, Cuenta 2 es más apropiada. Para previsión a 20+ años, APV es netamente superior por el efecto tributario compuesto.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        }
+      ],
+      "tags": [
+        "comparaciones",
+        "afp",
+        "cuenta-2"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "argumentos-comerciales",
+        "asesoria-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "comparador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-041",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV vs fondos mutuos tradicionales",
+      "mainQuestion": "¿Por qué APV y no un fondo mutuo normal?",
+      "equivalentQuestions": [
+        "APV vs fondo mutuo",
+        "Fondos mutuos tradicionales o APV",
+        "Diferencia APV y FFMM",
+        "Conviene APV o fondo tradicional"
+      ],
+      "keywords": [
+        "apv vs fondo mutuo",
+        "fondos mutuos tradicionales",
+        "ffmm vs apv",
+        "apv o fondo normal"
+      ],
+      "shortAnswer": "Los fondos mutuos tradicionales tienen <strong>liquidez total</strong> y no penalizan retiros. El APV ofrece <strong>beneficio tributario al aporte</strong> pero condicionado al uso previsional. Decisión depende del horizonte y del tramo tributario del cliente.",
+      "longAnswer": "Mismo gestor LVAM, distintas estructuras. Un fondo mutuo tradicional permite rescatar cuando quieras; tributa las rentabilidades al rescate (Art. 107 LIR para fondos elegibles, o impuesto normal en otros). No tiene beneficio tributario al aporte. El APV tiene beneficio fuerte al aporte (régimen A o B) pero el retiro anticipado se grava recargado. Para horizonte previsional (20+ años) el APV es superior por el efecto tributario al aporte compuesto en el tiempo. Para objetivos de mediano plazo con liquidez requerida, fondos mutuos tradicionales son la opción. Muchos clientes combinan ambos: APV para previsión + FFMM para liquidez y oportunidades.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "tags": [
+        "comparaciones",
+        "fondos-mutuos"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "argumentos-comerciales",
+        "productos-lvam"
+      ],
+      "relatedProducts": [
+        "LVAM Fondos Mutuos"
+      ],
+      "actions": [
+        "pdf",
+        "comparador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica"
+    },
+    {
+      "id": "APV-042",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV vs depósito a plazo",
+      "mainQuestion": "¿Conviene APV o depósito a plazo?",
+      "equivalentQuestions": [
+        "APV vs DAP",
+        "Depósito a plazo o APV",
+        "DAP vs APV",
+        "Diferencia depósito y APV"
+      ],
+      "keywords": [
+        "apv vs dap",
+        "deposito a plazo apv",
+        "dap apv",
+        "comparacion dap apv"
+      ],
+      "shortAnswer": "El depósito a plazo es renta fija de corto-mediano plazo con <strong>capital garantizado</strong> pero rentabilidad limitada. El APV tiene horizonte previsional y exposición a fondos diversos. Son productos distintos para necesidades distintas.",
+      "longAnswer": "El DAP entrega tasa fija conocida al inicio, capital nominal garantizado a vencimiento, sin beneficios tributarios al aporte y tributación normal sobre los intereses. Es ideal para necesidades de liquidez a 30-360 días o reserva de emergencia. El APV es horizonte largo, rentabilidad variable según fondo elegido, con beneficio tributario al aporte y al rescate diferido al pensionarse. No compiten: el cliente típicamente tiene ambos (DAP para liquidez, APV para previsión). El comparativo más útil es ver tasa real DAP vs rentabilidad esperada APV considerando el ahorro tributario.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "tags": [
+        "comparaciones",
+        "depositos",
+        "renta-fija"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "comparador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-043",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV vs seguros con ahorro",
+      "mainQuestion": "¿Conviene APV o un seguro con ahorro?",
+      "equivalentQuestions": [
+        "APV vs CUI",
+        "APV vs Inversión Gold",
+        "Seguro con ahorro o APV",
+        "Diferencia APV y seguro ahorro"
+      ],
+      "keywords": [
+        "apv vs cui",
+        "seguro con ahorro apv",
+        "apv vs gold",
+        "comparacion apv seguro"
+      ],
+      "shortAnswer": "Los seguros con ahorro (CUI, Inversión Gold Consorcio) combinan cobertura de vida + componente de inversión. APV es ahorro puro con beneficio tributario más fuerte. En la práctica son complementarios, no excluyentes.",
+      "longAnswer": "El cliente que necesita protección financiera de su familia (deudas hipotecarias, hijos dependientes) requiere cobertura de vida. Los seguros con ahorro ofrecen esa cobertura más un componente de inversión, con tratamientos tributarios específicos según el producto. El APV no tiene componente de seguro: es ahorro puro con beneficio tributario al aporte. La asesoría correcta suele ser: (1) cubrir necesidades de protección con un seguro adecuado; (2) maximizar APV por la eficiencia tributaria; (3) construir ahorro complementario con fondos mutuos o productos patrimoniales. Para clientes que pueden combinar ambos, la combinación es robusta.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "tags": [
+        "comparaciones",
+        "seguros",
+        "consorcio"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "argumentos-comerciales",
+        "productos-consorcio"
+      ],
+      "relatedProducts": [
+        "Consorcio Inversión Gold",
+        "Consorcio CUI"
+      ],
+      "actions": [
+        "pdf",
+        "comparador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-044",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "Riesgos de invertir APV en fondos conservadores",
+      "mainQuestion": "¿Qué riesgos tiene un APV en fondo conservador?",
+      "equivalentQuestions": [
+        "Riesgo APV conservador",
+        "APV renta fija riesgo",
+        "Peligros perfil conservador APV",
+        "Limitaciones APV conservador"
+      ],
+      "keywords": [
+        "riesgo apv conservador",
+        "apv renta fija riesgos",
+        "perfil conservador apv"
+      ],
+      "shortAnswer": "El principal riesgo del APV conservador a largo plazo es <strong>no superar la inflación</strong> y perder poder adquisitivo. Apropiado cerca de jubilación, pero puede ser sub-óptimo si el horizonte es largo.",
+      "longAnswer": "Los fondos APV conservadores (renta fija local, money market) ofrecen baja volatilidad y capital relativamente protegido, pero su rentabilidad real (descontada inflación) puede ser marginal o incluso negativa en períodos de inflación alta. Para un cliente de 30 años con horizonte de 35 años a la pensión, mantenerse en perfil conservador implica renunciar al premio de la renta variable a largo plazo, que históricamente ha superado significativamente la renta fija. La recomendación clásica es asignación dinámica: más riesgo en juventud, migración progresiva a conservador en los 5-10 años previos a la jubilación.",
+      "risksAndWarnings": "Un perfil demasiado conservador en horizonte largo puede no acumular suficiente capital para una pensión adecuada. Revisar perfilamiento del cliente periódicamente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "riesgos",
+        "perfilamiento",
+        "conservador"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "asesoria-comercial",
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-045",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "Riesgos de invertir APV en fondos agresivos",
+      "mainQuestion": "¿Qué riesgos tiene un APV en fondo agresivo?",
+      "equivalentQuestions": [
+        "Riesgo APV agresivo",
+        "APV renta variable riesgo",
+        "Peligros perfil agresivo APV",
+        "Volatilidad APV agresivo"
+      ],
+      "keywords": [
+        "riesgo apv agresivo",
+        "apv renta variable riesgos",
+        "perfil agresivo apv",
+        "volatilidad apv"
+      ],
+      "shortAnswer": "El APV agresivo (renta variable global) puede tener caídas de 20-40% en crisis. Riesgo crítico si el cliente está cerca de pensionarse y no tiene tiempo de recuperar.",
+      "longAnswer": "Los fondos APV agresivos invierten mayoritariamente en renta variable global, con expectativa de rentabilidad real superior a largo plazo pero con volatilidad alta. Caídas de 20-40% en crisis financieras (2008, 2020) son históricamente normales; lo que importa es el horizonte para recuperar. Para un cliente de 30-45 años, la volatilidad de corto plazo es absorbible por el horizonte. Para un cliente cercano a jubilación (5-10 años por delante), una caída fuerte puede comprometer el saldo final. La recomendación es asignación dinámica: agresivo en juventud, balanceado en mediana edad, conservador cerca de la pensión.",
+      "risksAndWarnings": "El cliente debe ser informado de la volatilidad esperada y de su capacidad de tolerarla emocional y financieramente. Un cliente que se asusta en caídas y se cambia a conservador en el peor momento concreta pérdidas en lugar de absorberlas.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "riesgos",
+        "perfilamiento",
+        "agresivo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "asesoria-comercial",
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-046",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "Impacto de caídas de mercado sobre APV",
+      "mainQuestion": "¿Qué pasa con mi APV si cae el mercado?",
+      "equivalentQuestions": [
+        "Caída mercado APV",
+        "Crisis financiera APV",
+        "Pérdidas APV mercado",
+        "Recuperación APV crisis"
+      ],
+      "keywords": [
+        "caida mercado apv",
+        "crisis apv",
+        "perdida apv",
+        "recuperacion apv"
+      ],
+      "shortAnswer": "Las caídas de mercado afectan el valor cuota del fondo APV, no el saldo en UF como si fuera depósito. La recuperación depende del horizonte: a 5+ años la historia muestra recuperación completa en la mayoría de las crisis.",
+      "longAnswer": "El APV se invierte en fondos que tienen valor cuota diario sujeto a las condiciones de mercado. En una crisis (caída global del 30%, por ejemplo), el valor del APV cae proporcionalmente según el perfil del fondo. Lo crítico es el comportamiento del cliente: vender en el piso concreta la pérdida; mantenerse permite la recuperación. Después de la crisis 2008, los fondos diversificados se recuperaron en 2-4 años. Después de la crisis 2020 (COVID), la recuperación fue de meses. Mensaje al cliente: aportes durante caídas compran cuotas más baratas y son los más rentables a largo plazo (dollar-cost averaging en favor).",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        }
+      ],
+      "cmfDisclaimers": "La rentabilidad pasada no garantiza rentabilidades futuras. Antes de invertir, revisar reglamento interno del fondo e información publicada por la CMF.",
+      "tags": [
+        "riesgos",
+        "mercado",
+        "educacion-financiera"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "asesoria-comercial",
+        "educacion-financiera",
+        "retencion"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-047",
+      "category": "APV",
+      "subcategory": "Comparaciones y consideraciones",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "Horizonte recomendado según perfil de riesgo",
+      "mainQuestion": "¿Qué perfil de fondo APV me conviene según mi edad?",
+      "equivalentQuestions": [
+        "Perfil APV edad",
+        "Qué fondo APV elegir",
+        "Estrategia APV ciclo vida",
+        "Asignación APV según años a pensión"
+      ],
+      "keywords": [
+        "perfil edad apv",
+        "horizonte apv",
+        "fondo apv segun edad",
+        "ciclo de vida apv"
+      ],
+      "shortAnswer": "Regla práctica: <strong>20+ años a pensión</strong> → agresivo (mayor renta variable). <strong>10-20 años</strong> → moderado (mix balanceado). <strong>Menos de 10 años</strong> → conservador (renta fija + dolarización progresiva).",
+      "longAnswer": "La asignación por ciclo de vida (life-cycle) es estándar en planificación previsional. La lógica: a mayor horizonte, mayor capacidad de absorber volatilidad y mayor premio esperado de la renta variable. A medida que el horizonte se acorta, la preservación del capital acumulado pasa a ser prioritaria sobre la rentabilidad. Recomendación operativa LVAM: revisar perfil del cliente cada 3-5 años o ante eventos significativos (cambio de empleo, mejora de patrimonio, cercanía a la pensión). Para algunos clientes ultra-conservadores, mantener perfil bajo desde joven es preferible al estrés emocional de la volatilidad, aunque sub-óptimo financieramente.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Ficha producto APV LVAM",
+          "date": "2025-11"
+        }
+      ],
+      "tags": [
+        "perfilamiento",
+        "ciclo-vida",
+        "educacion-financiera"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "asesoria-comercial",
+        "perfilamiento",
+        "educacion-financiera"
+      ],
+      "actions": [
+        "pdf",
+        "simulador"
+      ],
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante"
+    },
+    {
+      "id": "APV-048",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV en regímenes previsionales especiales",
+      "mainQuestion": "¿Pueden hacer APV los afiliados a Capredena o Dipreca?",
+      "equivalentQuestions": [
+        "APV FFAA",
+        "APV Carabineros",
+        "APV Capredena",
+        "APV Dipreca",
+        "APV PDI",
+        "APV régimen especial"
+      ],
+      "keywords": [
+        "capredena apv",
+        "dipreca apv",
+        "ffaa apv",
+        "carabineros apv",
+        "regimen especial apv",
+        "pdi apv"
+      ],
+      "shortAnswer": "Sí. Afiliados a Capredena (FFAA), Dipreca (Carabineros) y otros regímenes previsionales especiales pueden hacer APV con los mismos beneficios tributarios. Opera en paralelo a su sistema previsional propio.",
+      "longAnswer": "Los regímenes previsionales especiales (Capredena para FFAA y dependientes, Dipreca para Carabineros y PDI, junto con otros sistemas específicos) tienen sus propios mecanismos de cotización y pensión, distintos al sistema AFP. Sin embargo, el APV regulado por D.L. 3500 está disponible para sus afiliados como vehículo de ahorro voluntario adicional. Las reglas son las mismas: tope 50 UF mensuales / 600 UF anuales, regímenes A y B disponibles, tributación de retiros idéntica. La elegibilidad para régimen A requiere tener renta del trabajo (que sí tienen los afiliados activos a estos regímenes). Es un segmento menos masivo pero relevante en regiones y para clientes patrimoniales del sector defensa y seguridad.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones · APV",
+          "link": "https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-9913.html",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes — Ahorro Previsional Voluntario"
+      ],
+      "tags": [
+        "casos-especiales",
+        "regimenes-especiales",
+        "ffaa",
+        "carabineros"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "casos-especiales",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "businessImpact": "bajo",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal"
+    },
+    {
+      "id": "APV-049",
+      "category": "APV",
+      "subcategory": "Casos especiales y planificación",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Habilitación Comercial",
+      "reviewStatus": "draft",
+      "nextReviewDate": "2026-09-11",
+      "title": "APV para rentas superiores al tope imponible AFP",
+      "mainQuestion": "¿Sirve el APV si mi sueldo está sobre el tope imponible?",
+      "equivalentQuestions": [
+        "APV sueldo sobre tope",
+        "APV alto sueldo",
+        "Tope imponible y APV",
+        "APV cuando supero el tope AFP",
+        "APV con renta sobre 87 UF"
+      ],
+      "keywords": [
+        "tope imponible afp",
+        "sueldo sobre tope",
+        "apv alto sueldo",
+        "renta sobre tope imponible"
+      ],
+      "shortAnswer": "Sí. El APV opera sobre la renta total del trabajador, no solo sobre la parte imponible AFP. Para sueldos sobre el tope imponible mensual (definido en UF por la Superintendencia de Pensiones y reajustado anualmente), el APV-B es especialmente eficiente porque rebaja Global Complementario sobre la totalidad de la renta.",
+      "longAnswer": "La cotización obligatoria AFP se aplica solo hasta el tope imponible mensual (valor en UF, ajustado anualmente por la SP). Sobre ese tope no hay cotización obligatoria, pero la renta sí tributa con Impuesto Único de Segunda Categoría e integra el Global Complementario anual. El APV se diferencia: el tope de 50 UF mensuales / 600 UF anuales es independiente del tope imponible AFP y se aplica sobre la totalidad de la renta del trabajador. Para un ejecutivo con remuneraciones muy sobre el tope imponible, aportar al APV-B hasta el máximo legal rebaja base imponible y reduce Global Complementario sobre toda su renta anual. Es un argumento poderoso para el segmento ejecutivo y profesional senior.",
+      "practicalExample": "Gerente con sueldo bruto $12M mensuales. Cotización obligatoria AFP solo aplica sobre los primeros ~$3,6M (tope imponible). Aporta 50 UF/mes (~$2.040.000) a APV-B: rebaja base imponible mensual, ahorrando aproximadamente $700.000 mensuales en impuestos (tramo marginal alto). Anual: ~$8,4M de ahorro tributario sobre aporte de ~$24,5M.",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual comercial APV LVAM",
+          "date": "2025-10"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Argumentario APV LVAM",
+          "date": "2025-09"
+        },
+        {
+          "sourceType": "web",
+          "title": "SII · Beneficios tributarios APV",
+          "link": "https://www.sii.cl/destacados/apv/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "LIR Art. 42 bis — APV régimen B (rebaja base imponible)",
+        "D.L. 3500 — Sistema de Pensiones"
+      ],
+      "cmfDisclaimers": "Beneficios tributarios dependen de la situación particular del contribuyente. Valores UTM/UF se actualizan periódicamente; verificar valores vigentes al momento del aporte.",
+      "tags": [
+        "casos-especiales",
+        "alto-patrimonio",
+        "tope-imponible",
+        "ejecutivos"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "altoPatrimonio",
+        "tributacion",
+        "argumentos-comerciales"
+      ],
+      "actions": [
+        "pdf",
+        "correo",
+        "simulador"
+      ],
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante"
+    }
+  ]
+}

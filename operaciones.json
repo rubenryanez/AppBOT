@@ -1,0 +1,3405 @@
+{
+  "schemaVersion": "1.0",
+  "category": "Operaciones",
+  "categoryLabel": "Operaciones — ejecución operativa LVAM",
+  "generatedAt": "2026-06-11",
+  "metadata": {
+    "owner": "LVAM — Operaciones + Compliance",
+    "version": "1.0",
+    "lastEdited": "2026-06-11",
+    "entriesCount": 44,
+    "purpose": "Knowledge base interno del Asistente FFVV LVAM. Categoría Operaciones v1.0. Fuente única de ejecución operativa según knowledge-governance. OPS describe cómo se ejecuta; REG describe qué exige la normativa.",
+    "audience": "uso comercial interno LVAM",
+    "language": "es-CL",
+    "blueprintReference": "OPS v1.0 Blueprint aprobado"
+  },
+  "disclaimers": {
+    "general": "Información para uso comercial interno LVAM. No constituye asesoría regulatoria, tributaria ni de inversión personalizada. Para casos específicos, derivar a Compliance u Operaciones según corresponda.",
+    "operativo": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+    "compliance": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+    "tributario": "El tratamiento tributario depende de la situación particular del contribuyente. Para asesoría personalizada, derivar a Tributario o sugerir consulta con asesor especializado."
+  },
+  "schema": {
+    "required": [
+      "id",
+      "category",
+      "title",
+      "keywords",
+      "shortAnswer",
+      "sources",
+      "version",
+      "lastEdited"
+    ],
+    "requiredOPS": [
+      "ownerType",
+      "crossReferences",
+      "operationalCriticality",
+      "serviceImpact",
+      "dependencyLevel",
+      "processType",
+      "reviewPeriodicity"
+    ],
+    "optional": [
+      "subcategory",
+      "longAnswer",
+      "data",
+      "actions",
+      "tags",
+      "mainQuestion",
+      "equivalentQuestions",
+      "practicalExample",
+      "risksAndWarnings",
+      "regulatoryReferences",
+      "cmfDisclaimers",
+      "relatedProducts",
+      "audience",
+      "difficulty",
+      "trainingTags",
+      "contentOwner",
+      "reviewStatus",
+      "nextReviewDate",
+      "placeholder",
+      "businessImpact",
+      "consultationFrequency",
+      "trainingPriority",
+      "queryExamples",
+      "operationalSteps",
+      "slaDescription",
+      "requiredDocuments"
+    ],
+    "sourceTypes": [
+      "web",
+      "internal",
+      "pdf"
+    ],
+    "reviewStatusValues": [
+      "draft",
+      "validated",
+      "approved",
+      "deprecated",
+      "pendingBusinessValidation"
+    ],
+    "reviewPeriodicityValues": [
+      "anual",
+      "semestral"
+    ],
+    "businessImpactValues": [
+      "alto",
+      "medio",
+      "bajo"
+    ],
+    "consultationFrequencyValues": [
+      "alta",
+      "media",
+      "baja"
+    ],
+    "trainingPriorityValues": [
+      "critica",
+      "importante",
+      "normal"
+    ],
+    "operationalCriticalityValues": [
+      "critica",
+      "alta",
+      "media",
+      "baja"
+    ],
+    "serviceImpactValues": [
+      "critico",
+      "alto",
+      "medio",
+      "bajo"
+    ],
+    "dependencyLevelValues": [
+      "alta",
+      "media",
+      "baja"
+    ],
+    "processTypeValues": [
+      "onboarding",
+      "mantenimiento",
+      "transaccion",
+      "derivacion",
+      "control",
+      "cierre"
+    ],
+    "ownerTypeValues": [
+      "Operaciones",
+      "Compliance",
+      "HabilitacionComercial",
+      "Producto",
+      "ServicioCliente",
+      "Tributario",
+      "Inversiones"
+    ]
+  },
+  "subcategories": [
+    "Onboarding del cliente",
+    "Perfilamiento operativo",
+    "Apertura de productos",
+    "Aportes y rescates",
+    "Modificaciones y mantenimiento",
+    "Traspasos y transferencias",
+    "Derivaciones operativas y reclamos",
+    "Cierre operativo y compliance diario"
+  ],
+  "entries": [
+    {
+      "id": "OPS-001",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Tipos de cliente y documentación inicial",
+      "mainQuestion": "¿Qué documentación inicial se requiere según el tipo de cliente?",
+      "equivalentQuestions": [
+        "Documentos de inicio",
+        "Documentación apertura",
+        "Qué pide LVAM al inicio"
+      ],
+      "keywords": [
+        "documentacion inicial",
+        "tipos de cliente",
+        "onboarding documentos",
+        "kyc inicial"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-049. Este entry describe la ejecución operativa LVAM. La documentación varía según tipo de cliente: <strong>persona natural residente</strong>, <strong>persona natural no residente</strong>, <strong>persona jurídica</strong>, <strong>menor de edad con representante</strong>.",
+      "longAnswer": "Conceptualmente la documentación cubre tres dimensiones: identificación (cédula o pasaporte, comprobante de domicilio), conocimiento del cliente (actividad económica, situación patrimonial, origen de fondos) y trazabilidad tributaria internacional (autocertificación FATCA/CRS, ver OPS-005). Para personas naturales residentes el set base es estándar; para no residentes se suma documentación de residencia fiscal y pasaporte; para personas jurídicas se agrega documentación constitutiva, beneficiarios finales y representantes con poderes vigentes. Los formularios específicos y formato de carga en sistema interno LVAM son responsabilidad de Operaciones.",
+      "requiredDocuments": [
+        "Cédula de identidad o pasaporte vigente",
+        "Comprobante de domicilio",
+        "Información de actividad económica",
+        "Autocertificación tributaria",
+        "Documentación específica según tipo (constitutiva PJ, poderes, etc.)"
+      ],
+      "crossReferences": [
+        "REG-049",
+        "REG-054",
+        "OPS-005"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política KYC LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Ley 19.913 — Prevención de Lavado de Activos",
+        "Normativa UAF · KYC"
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "onboarding",
+        "documentacion",
+        "kyc",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "onboarding",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-002",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Apertura de cuenta LVAM: marco operativo",
+      "mainQuestion": "¿Cuáles son los pasos para abrir una cuenta en LVAM?",
+      "equivalentQuestions": [
+        "Apertura cuenta LVAM",
+        "Cómo se abre una cuenta",
+        "Flujo apertura cliente nuevo"
+      ],
+      "keywords": [
+        "apertura cuenta",
+        "nuevo cliente",
+        "registro cliente",
+        "alta cliente"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-029. Conceptualmente la apertura comprende: identificación del cliente, KYC, autocertificación tributaria, perfilamiento, entrega de información obligatoria y firma de documentación. El paso a paso operativo específico en sistemas LVAM se valida con Operaciones.",
+      "longAnswer": "El flujo de apertura integra varios procesos: captura inicial de antecedentes (ver OPS-001), validación de identidad (OPS-003), KYC operativo (OPS-004), autocertificación FATCA/CRS (OPS-005), perfilamiento (OPS-007), entrega de información obligatoria al inversionista (ver REG-029) y firma de documentación (OPS-015). El orden, formularios, sistemas internos donde se registra y SLA específicos por etapa son responsabilidad de Operaciones LVAM y deben validarse antes de productivizar este entry.",
+      "crossReferences": [
+        "REG-029",
+        "REG-049",
+        "OPS-001",
+        "OPS-003",
+        "OPS-004",
+        "OPS-005",
+        "OPS-007",
+        "OPS-015"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "onboarding",
+        "apertura",
+        "flujo-operativo",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "onboarding"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-003",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Compliance",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Validación de identidad: estándar y reforzada",
+      "mainQuestion": "¿Cómo se valida la identidad del cliente y cuándo aplica validación reforzada?",
+      "equivalentQuestions": [
+        "Validar identidad cliente",
+        "Identificación reforzada",
+        "PEP onboarding"
+      ],
+      "keywords": [
+        "validacion identidad",
+        "identificacion reforzada",
+        "pep",
+        "onboarding identidad"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-049 y REG-050. La validación estándar verifica documento de identidad y datos básicos. La <strong>validación reforzada</strong> aplica a PEP, no residentes, alto patrimonio o señales de alerta, e incluye documentación adicional y aprobación de mayor jerarquía.",
+      "longAnswer": "La validación estándar comprende: revisión del documento de identidad vigente, contrastación con datos provistos por el cliente, captura de imagen o copia para registro, validación de domicilio. La validación reforzada se aplica obligatoriamente cuando el cliente es PEP (ver REG-050), no residente con dimensión internacional relevante, presenta señales de alerta operativas, o el monto/perfil así lo exige según política interna. Incluye: documentación adicional de origen de fondos, validación contra listas restrictivas, autorización de jefatura o Compliance previa al alta.",
+      "risksAndWarnings": "Si en el onboarding aparece estatus PEP, escalar a Compliance ANTES de cualquier alta operativa. La validación reforzada no es opcional cuando aplica.",
+      "crossReferences": [
+        "REG-049",
+        "REG-050"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política KYC LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "UAF · Unidad de Análisis Financiero",
+          "link": "https://www.uaf.cl/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Normativa UAF · PEP",
+        "Ley 19.913"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "onboarding",
+        "identidad",
+        "pep",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "onboarding",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-004",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Compliance",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "KYC operativo: captura, registro y vigencia",
+      "mainQuestion": "¿Qué información KYC se captura y cómo se mantiene actualizada?",
+      "equivalentQuestions": [
+        "KYC operativo",
+        "Información KYC",
+        "Vigencia KYC"
+      ],
+      "keywords": [
+        "kyc operativo",
+        "captura kyc",
+        "vigencia kyc",
+        "actualizacion kyc"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-049. La captura KYC en LVAM cubre: identidad, actividad económica, situación patrimonial, origen y propósito de fondos, beneficiario final, residencia fiscal y exposición política. Se actualiza ante cambios relevantes y según vigencia definida por política interna.",
+      "longAnswer": "El KYC se ejecuta en tres momentos: al onboarding inicial (captura completa), ante eventos que cambian el perfil del cliente (cambio patrimonial, laboral, vital), y en revisiones periódicas según política interna. La captura es responsabilidad del ejecutivo; el registro y custodia en sistema interno son responsabilidad de Operaciones. La vigencia operativa (cada cuántos meses se solicita actualización proactiva) está definida por política LVAM; en ausencia de gatillo específico, sigue el ciclo estándar interno. El KYC debe permitir auditoría posterior y reconstruir la situación del cliente al momento de cada operación relevante.",
+      "crossReferences": [
+        "REG-049",
+        "REG-054",
+        "OPS-009",
+        "OPS-010"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política KYC LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "UAF · Unidad de Análisis Financiero",
+          "link": "https://www.uaf.cl/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Ley 19.913 — Ley PLA",
+        "Ley 19.628 — Protección de Datos"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "onboarding",
+        "kyc",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "onboarding",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-005",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Tributario",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Autocertificación FATCA/CRS operativa",
+      "mainQuestion": "¿Cómo se ejecuta operativamente la autocertificación FATCA/CRS al onboarding?",
+      "equivalentQuestions": [
+        "FATCA CRS operativo",
+        "Autocertificación tributaria",
+        "Residencia fiscal cliente"
+      ],
+      "keywords": [
+        "fatca",
+        "crs",
+        "autocertificacion",
+        "residencia fiscal"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-045. Operativamente, en el onboarding el cliente declara su residencia fiscal y los países correspondientes. Si declara residencia distinta a Chile o EEUU, se aplican procedimientos reforzados de identificación de cuentas reportables.",
+      "longAnswer": "La autocertificación se obtiene mediante formulario firmado por el cliente al inicio de la relación, con declaración de país(es) de residencia fiscal y número de identificación tributaria correspondiente. Indicadores que disparan revisión reforzada: país de nacimiento distinto a Chile/EEUU, dirección o teléfono extranjero, instrucciones permanentes a cuenta extranjera, poder a tercero con dirección extranjera, US person por nacionalidad o green card. Las cuentas alcanzadas se reportan al SII para su transmisión a las autoridades fiscales correspondientes. Casos complejos (múltiples residencias, estructuras corporativas, ciudadanía adicional) se derivan a Tributario y Compliance.",
+      "crossReferences": [
+        "REG-045",
+        "OPS-001",
+        "OPS-004"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "SII · Servicio de Impuestos Internos",
+          "link": "https://www.sii.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política KYC LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "FATCA",
+        "OECD CRS"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "onboarding",
+        "fatca",
+        "crs",
+        "tributacion-internacional"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "onboarding",
+        "altoPatrimonio",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-006",
+      "category": "Operaciones",
+      "subcategory": "Onboarding del cliente",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "SLA de onboarding y trazabilidad de tiempos",
+      "mainQuestion": "¿Cuál es el SLA operativo de onboarding LVAM y cómo se mide?",
+      "equivalentQuestions": [
+        "Tiempo apertura cuenta",
+        "Plazos onboarding",
+        "SLA onboarding"
+      ],
+      "keywords": [
+        "sla onboarding",
+        "tiempo apertura",
+        "plazo onboarding",
+        "trazabilidad onboarding"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. El SLA específico de onboarding (tiempos por etapa, totales, indicadores) se completará una vez confirmado por el área.",
+      "longAnswer": "Contenido pendiente. Conceptualmente el SLA mide: tiempo desde primer contacto hasta cuenta operativa, tiempos por etapa intermedia (captura → validación → alta), porcentaje de altas con KYC completo, casos que requieren reprocesos. Los plazos específicos LVAM, los responsables por etapa y los indicadores de seguimiento serán definidos por Operaciones LVAM.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "OPS-002"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "processType": "onboarding",
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "onboarding",
+        "sla",
+        "pendiente-validacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "onboarding"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-007",
+      "category": "Operaciones",
+      "subcategory": "Perfilamiento operativo",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Habilitación Comercial",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Aplicación del test de perfilamiento en LVAM",
+      "mainQuestion": "¿Cómo se aplica operativamente el test de perfilamiento en LVAM?",
+      "equivalentQuestions": [
+        "Aplicar test perfilamiento",
+        "Cuestionario perfil cliente",
+        "Cómo perfilar"
+      ],
+      "keywords": [
+        "test perfilamiento",
+        "aplicar test",
+        "cuestionario perfil"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-024. El test se aplica al onboarding y en re-perfilamientos. Es presencial o digital, con preguntas estandarizadas sobre tolerancia al riesgo, horizonte, objetivos, experiencia y situación patrimonial. El resultado clasifica al cliente en un perfil.",
+      "longAnswer": "La aplicación del test debe ser previa a cualquier recomendación. Operativamente: el ejecutivo presenta el test al cliente, recorre las preguntas explicando el sentido cuando es necesario sin influir en las respuestas, registra el resultado en el sistema interno (ver OPS-008), comunica al cliente el perfil resultante y explica qué tipo de productos son idóneos. El test estándar cubre tolerancia al riesgo, horizonte de inversión, objetivos financieros, conocimiento y experiencia, y situación patrimonial. El formulario específico LVAM y la herramienta de aplicación dependen del sistema interno.",
+      "operationalSteps": [
+        "Presentar el test al cliente sin influir",
+        "Recorrer todas las preguntas con explicación del sentido",
+        "Registrar respuestas en sistema interno",
+        "Calcular resultado y comunicar perfil al cliente",
+        "Documentar la entrega y registrar fecha"
+      ],
+      "crossReferences": [
+        "REG-022",
+        "REG-024",
+        "REG-025",
+        "OPS-008"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política de perfilamiento LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Normativa CMF · Perfilamiento"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "perfilamiento",
+        "test",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-008",
+      "category": "Operaciones",
+      "subcategory": "Perfilamiento operativo",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Registro del perfil en el sistema interno",
+      "mainQuestion": "¿Dónde y cómo se registra el resultado del perfilamiento?",
+      "equivalentQuestions": [
+        "Registrar perfil",
+        "Sistema perfilamiento",
+        "Guardar perfil cliente"
+      ],
+      "keywords": [
+        "registro perfil",
+        "sistema interno",
+        "guardar perfilamiento"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. El sistema interno específico donde se registra el perfil, los campos obligatorios y los flujos de aprobación se completarán una vez confirmados por el área.",
+      "longAnswer": "Contenido pendiente. Conceptualmente el registro contiene: fecha del test, identificación del ejecutivo aplicador, respuestas individuales, perfil resultante, vigencia, observaciones cuando aplica. El sistema específico (CRM, núcleo, plataforma de perfilamiento), permisos de visualización y modificación, y flujos de aprobación serán definidos por Operaciones LVAM.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-022",
+        "OPS-007",
+        "OPS-009"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política de perfilamiento LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "perfilamiento",
+        "sistema",
+        "registro",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "perfilamiento"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-009",
+      "category": "Operaciones",
+      "subcategory": "Perfilamiento operativo",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Habilitación Comercial",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Vigencia del perfil y actualización periódica",
+      "mainQuestion": "¿Cada cuánto se renueva el perfilamiento del cliente?",
+      "equivalentQuestions": [
+        "Vigencia perfil",
+        "Cuándo renovar perfil",
+        "Caducidad perfilamiento"
+      ],
+      "keywords": [
+        "vigencia perfil",
+        "renovacion perfilamiento",
+        "caducidad perfil"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-027. Operativamente, el perfil se renueva al cumplir la vigencia estándar (típicamente 12-24 meses) o ante eventos que cambian la situación del cliente. El ejecutivo proactivamente propone la actualización antes del vencimiento.",
+      "longAnswer": "La vigencia del perfil es responsabilidad compartida: el sistema notifica próximos vencimientos al ejecutivo, quien propone al cliente la renovación con tiempo suficiente. Si el cliente no responde al primer contacto, se mantiene seguimiento. Tras el vencimiento sin renovar, la política interna define restricciones operativas (por ejemplo, no proceder con nuevas operaciones hasta actualizar). El ciclo de renovación específico LVAM lo confirma Operaciones.",
+      "crossReferences": [
+        "REG-027",
+        "OPS-007",
+        "OPS-010"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política de perfilamiento LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Normativa CMF · Perfilamiento"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "perfilamiento",
+        "vigencia",
+        "actualizacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-010",
+      "category": "Operaciones",
+      "subcategory": "Perfilamiento operativo",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Habilitación Comercial",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Re-perfilamiento gatillado por evento del cliente",
+      "mainQuestion": "¿Qué eventos del cliente obligan a re-perfilar antes de su vencimiento?",
+      "equivalentQuestions": [
+        "Re-perfilar cliente",
+        "Eventos perfilamiento",
+        "Cambio situación cliente"
+      ],
+      "keywords": [
+        "re-perfilamiento",
+        "gatillo perfilamiento",
+        "eventos cliente"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-027. Eventos que obligan a re-perfilar antes del vencimiento: cambios patrimoniales relevantes, cambios laborales o de ingresos, eventos vitales (matrimonio, hijos, jubilación, divorcio), cambios en objetivos o tolerancia al riesgo.",
+      "longAnswer": "El re-perfilamiento gatillado no es opcional: si el ejecutivo detecta un cambio relevante en la situación del cliente durante sus conversaciones (cambio de empleo, mejora o deterioro patrimonial, jubilación inminente, evento vital significativo), debe proponer la actualización del perfil. Esto protege al cliente de recibir recomendaciones desactualizadas y a LVAM de eventuales reclamos. El registro de la actualización gatillada debe incluir el evento que la motivó.",
+      "crossReferences": [
+        "REG-027",
+        "OPS-007",
+        "OPS-009"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Política de perfilamiento LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "perfilamiento",
+        "gatillo",
+        "actualizacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "perfilamiento"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-011",
+      "category": "Operaciones",
+      "subcategory": "Perfilamiento operativo",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Operaciones",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Operaciones fuera de perfil: workflow y autorizaciones",
+      "mainQuestion": "¿Qué workflow operativo aplica cuando un cliente solicita operar fuera de su perfil?",
+      "equivalentQuestions": [
+        "Fuera de perfil workflow",
+        "Autorización producto no idóneo",
+        "Excepción perfilamiento"
+      ],
+      "keywords": [
+        "fuera de perfil",
+        "autorizacion excepcion",
+        "workflow no idoneo"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM. El workflow específico de operaciones fuera de perfil (autorizaciones requeridas, documentación, controles) se completará una vez confirmado por el área.",
+      "longAnswer": "Contenido pendiente. Marco regulatorio aplicable: ver REG-028. Conceptualmente el workflow incluye: detección del desajuste perfil-producto, explicación al cliente de los motivos y riesgos, propuesta de alternativas idóneas, si el cliente insiste documentación reforzada con declaración explícita del cliente, autorización de jefatura o Compliance según el caso, registro en sistema interno con trazabilidad del proceso. Los niveles de autorización, formularios y umbrales para escalar serán definidos por Compliance LVAM.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-025",
+        "REG-028",
+        "OPS-007"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política de perfilamiento LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "perfilamiento",
+        "fuera-de-perfil",
+        "autorizacion",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "perfilamiento",
+        "compliance-comercial"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-012",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Producto",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Suscripción a fondo mutuo LVAM",
+      "mainQuestion": "¿Cómo se ejecuta la suscripción inicial a un fondo mutuo LVAM?",
+      "equivalentQuestions": [
+        "Suscripcion FM",
+        "Inversion fondo mutuo",
+        "Primer aporte FM"
+      ],
+      "keywords": [
+        "suscripcion fondo mutuo",
+        "primer aporte",
+        "inversion fm",
+        "abrir fm"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-029. Conceptualmente la suscripción requiere: cliente con cuenta activa (ver OPS-002), perfil vigente (ver OPS-007), entrega previa de información obligatoria del fondo, transferencia del aporte y emisión de cuotas al valor cuota correspondiente.",
+      "longAnswer": "El flujo conceptual: el ejecutivo confirma idoneidad del fondo respecto al perfil del cliente; entrega ficha producto y reglamento interno (REG-029, REG-030); el cliente firma la suscripción y autoriza el cargo o transfiere el aporte; el aporte se identifica y se emiten cuotas al valor cuota aplicable según el reglamento del fondo (ver OPS-023); la confirmación se envía al cliente (ver OPS-016). Los formularios específicos LVAM, plataforma de suscripción y plazos por familia de fondo serán confirmados por Operaciones.",
+      "operationalSteps": [
+        "Confirmar idoneidad fondo vs perfil",
+        "Entregar ficha producto y reglamento",
+        "Recoger firma de suscripción",
+        "Ejecutar/identificar aporte",
+        "Emitir cuotas al valor cuota aplicable",
+        "Enviar confirmación al cliente"
+      ],
+      "crossReferences": [
+        "REG-029",
+        "REG-030",
+        "OPS-002",
+        "OPS-007",
+        "OPS-015",
+        "OPS-016",
+        "OPS-018",
+        "OPS-023"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "critico",
+      "dependencyLevel": "alta",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "apertura",
+        "suscripcion",
+        "fm",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "apertura-productos"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-013",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Producto",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Apertura APV: flujo operativo",
+      "mainQuestion": "¿Cómo se ejecuta la apertura de un APV en LVAM?",
+      "equivalentQuestions": [
+        "Apertura APV",
+        "Inversion APV",
+        "Abrir APV cliente"
+      ],
+      "keywords": [
+        "apertura apv",
+        "apv inicial",
+        "invertir apv"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver categoría APV. Conceptualmente: cuenta cliente activa con KYC y perfilamiento, elección de régimen tributario (A o B), elección de fondo APV LVAM, firma de mandato APV, primer aporte. El paso a paso operativo específico LVAM se valida con Operaciones.",
+      "longAnswer": "La apertura APV combina decisiones tributarias (régimen A vs régimen B, ver APV-005 y APV-009) con la operación de inversión (elección de fondo APV LVAM, definición de aporte mensual o aporte único). Conceptualmente el flujo: explicación del régimen y simulación tributaria si aplica, firma del mandato APV con datos del cliente y régimen elegido, ejecución del primer aporte. El cliente debe entender que el APV es vehículo previsional con beneficios tributarios y restricciones de retiro. Los formularios LVAM APV específicos y la integración con el sistema previsional son responsabilidad de Operaciones.",
+      "crossReferences": [
+        "APV-005",
+        "APV-009",
+        "APV-015",
+        "REG-005",
+        "OPS-007",
+        "OPS-015"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones",
+          "link": "https://www.spensiones.cl/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes",
+        "LIR Art. 42 bis"
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "apertura",
+        "apv",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "apertura-productos",
+        "apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "OPS-014",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Producto",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Apertura Inversión Gold / CUI Consorcio",
+      "mainQuestion": "¿Cómo se ejecuta la apertura de Inversión Gold o CUI Consorcio?",
+      "equivalentQuestions": [
+        "Apertura Gold",
+        "CUI Consorcio",
+        "Seguro con ahorro Consorcio"
+      ],
+      "keywords": [
+        "apertura gold",
+        "cui consorcio",
+        "seguro ahorro",
+        "inversion gold"
+      ],
+      "shortAnswer": "La apertura de Inversión Gold / CUI Consorcio combina aspectos de seguro con ahorro y de inversión. Como producto del aliado Consorcio comercializado por LVAM, el flujo operativo específico depende de la integración con Consorcio y se valida con Operaciones.",
+      "longAnswer": "Conceptualmente la apertura comprende: explicación del producto al cliente (componente de seguro + componente de ahorro/inversión), evaluación de idoneidad y necesidad aseguradora, recolección de antecedentes médicos cuando aplique según el componente seguro, suscripción del contrato, definición de plan de pago de primas y rentabilidad esperada del componente inversión. La integración operativa LVAM-Consorcio (sistemas, formularios, plazos, distribución de comisiones) será confirmada por Operaciones.",
+      "crossReferences": [
+        "OPS-002",
+        "OPS-007"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "apertura",
+        "gold",
+        "cui",
+        "consorcio"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "apertura-productos",
+        "consorcio"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "relatedProducts": [
+        "Inversión Gold Consorcio",
+        "CUI Consorcio"
+      ]
+    },
+    {
+      "id": "OPS-015",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Compliance",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Documentación firmada obligatoria: contenido y registro",
+      "mainQuestion": "¿Qué documentación debe firmar el cliente al suscribir un producto?",
+      "equivalentQuestions": [
+        "Documentos firmar cliente",
+        "Firma suscripcion",
+        "Contratos LVAM"
+      ],
+      "keywords": [
+        "documentacion firmada",
+        "contrato suscripcion",
+        "firma cliente"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-018 y REG-030. Operativamente el cliente firma: contrato o solicitud de suscripción, acuse de recibo de información obligatoria del fondo (reglamento interno, ficha producto), declaración de perfilamiento, mandatos de aporte/rescate, autorizaciones para tratamiento de datos.",
+      "longAnswer": "La documentación firmada cumple dos funciones: cumplir la obligación regulatoria de información al inversionista (REG-029, REG-030) y dejar evidencia operativa de la operación. El conjunto típico incluye: solicitud de suscripción con datos del cliente y producto, acuse de recibo de reglamento interno y ficha producto, declaración del perfil aplicado, mandato sobre la cuenta bancaria del cliente, consentimientos requeridos por Ley 19.628 (datos personales). La forma de firma (presencial, digital, mixta), el almacenamiento del documento firmado y los flujos de validación son responsabilidad de Operaciones LVAM.",
+      "requiredDocuments": [
+        "Solicitud de suscripción",
+        "Acuse de recibo de reglamento y ficha producto",
+        "Declaración del perfilamiento aplicado",
+        "Mandato sobre cuenta bancaria",
+        "Consentimientos de tratamiento de datos"
+      ],
+      "crossReferences": [
+        "REG-018",
+        "REG-029",
+        "REG-030",
+        "REG-054",
+        "OPS-002"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "processType": "onboarding",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Normativa CMF · Información al inversionista",
+        "Ley 19.628"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "apertura",
+        "documentacion",
+        "firma",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "apertura-productos",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-016",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Confirmación al cliente: contenido, formato y plazo",
+      "mainQuestion": "¿Qué confirmación recibe el cliente tras una suscripción o aporte?",
+      "equivalentQuestions": [
+        "Confirmacion suscripcion",
+        "Comprobante aporte",
+        "Aviso cliente"
+      ],
+      "keywords": [
+        "confirmacion cliente",
+        "aviso suscripcion",
+        "comprobante operacion"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. El formato exacto de confirmación (email, carta digital, app), el contenido obligatorio y el plazo desde la operación se completarán una vez confirmados por el área.",
+      "longAnswer": "Contenido pendiente. Conceptualmente la confirmación al cliente debe contener: identificación de la operación (suscripción, aporte, rescate), fondo o producto involucrado, monto y/o cuotas, valor cuota aplicado, fecha de operación, identificación del ejecutivo cuando aplique. El plazo regulatorio máximo está establecido en normativa CMF; el plazo operativo LVAM puede ser menor. El canal (email corporativo LVAM, app del cliente, carta digital), el formato gráfico y las firmas internas serán definidos por Operaciones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-029",
+        "OPS-012",
+        "OPS-018"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "apertura",
+        "confirmacion",
+        "cliente",
+        "pendiente-validacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "apertura-productos"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-017",
+      "category": "Operaciones",
+      "subcategory": "Apertura de productos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Plazos de procesamiento por producto (T+)",
+      "mainQuestion": "¿Cuáles son los plazos de procesamiento por producto?",
+      "equivalentQuestions": [
+        "T+1 LVAM",
+        "Plazos liquidacion",
+        "Cuando se ejecuta operacion"
+      ],
+      "keywords": [
+        "plazos procesamiento",
+        "t+1",
+        "t+",
+        "tiempos operacion"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. Los plazos exactos de procesamiento por familia de producto (T+0, T+1, T+N, etc.) se completarán una vez confirmados por el área.",
+      "longAnswer": "Contenido pendiente. Conceptualmente los plazos varían por tipo de fondo: fondos mutuos de renta fija de corto plazo suelen tener plazos menores; fondos accionarios pueden tener plazos mayores; fondos de inversión, plazos definidos en reglamento. Los plazos T+ específicos LVAM por familia, las excepciones por horario de corte, y la interacción con días feriados serán definidos por Operaciones. El reglamento interno de cada fondo establece el marco vinculante (ver REG-018).",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-018",
+        "OPS-022",
+        "OPS-023"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "apertura",
+        "plazos",
+        "sla",
+        "pendiente-validacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "apertura-productos"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-018",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Aporte vía transferencia bancaria",
+      "mainQuestion": "¿Cómo se ejecuta un aporte vía transferencia bancaria?",
+      "equivalentQuestions": [
+        "Aporte transferencia",
+        "Como aportar",
+        "Transferencia a fondo"
+      ],
+      "keywords": [
+        "aporte transferencia",
+        "invertir transferencia",
+        "aporte fondo"
+      ],
+      "shortAnswer": "Conceptualmente: el cliente transfiere a la cuenta del fondo en el banco custodio; LVAM identifica el aporte y emite cuotas al valor cuota correspondiente al día de identificación. Los datos específicos de cuenta destino y rut LVAM para transferencias son entregados por Operaciones.",
+      "longAnswer": "El flujo conceptual del aporte por transferencia: el ejecutivo entrega o confirma al cliente los datos de la cuenta de destino (titular: el fondo o LVAM AGF según corresponda, banco, número de cuenta, RUT), el cliente ejecuta la transferencia desde su cuenta bancaria registrada, LVAM identifica el ingreso y lo asocia al cliente correcto, se emiten cuotas al valor cuota aplicable según el reglamento del fondo (típicamente día hábil siguiente a la identificación). La cuenta origen debe estar registrada a nombre del cliente para cumplir con KYC y prevención PLA; aportes desde terceros requieren validación adicional. Los datos exactos de cuenta y formatos LVAM son responsabilidad de Operaciones.",
+      "operationalSteps": [
+        "Confirmar datos de cuenta destino al cliente",
+        "Cliente ejecuta transferencia desde su cuenta registrada",
+        "LVAM identifica e imputa el aporte",
+        "Emisión de cuotas al valor cuota aplicable",
+        "Envío de confirmación al cliente"
+      ],
+      "crossReferences": [
+        "REG-049",
+        "OPS-012",
+        "OPS-016",
+        "OPS-023"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "critico",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "aportes",
+        "transferencia",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-019",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Aporte recurrente o mandato de pago automático",
+      "mainQuestion": "¿Cómo se configura un aporte recurrente o mandato automático?",
+      "equivalentQuestions": [
+        "Aporte mensual",
+        "Mandato pago automatico",
+        "Aporte recurrente"
+      ],
+      "keywords": [
+        "aporte recurrente",
+        "mandato automatico",
+        "aporte mensual"
+      ],
+      "shortAnswer": "Conceptualmente el cliente firma un mandato que autoriza a LVAM a cargar periódicamente un monto desde su cuenta bancaria para destinarlo a un fondo específico. Útil especialmente en APV mensual. La configuración exacta y formularios LVAM son responsabilidad de Operaciones.",
+      "longAnswer": "El mandato recurrente formaliza una autorización del cliente para realizar cargos periódicos. Conceptualmente requiere: identificación del cliente y cuenta origen, fondo de destino, monto, periodicidad (mensual habitualmente), fecha mensual de cargo, vigencia (indefinida hasta revocación o plazo determinado). El cliente puede modificar o revocar el mandato en cualquier momento. Operativamente LVAM debe verificar disponibilidad de fondos al momento del cargo y manejar fallos (cargo rechazado). Los formularios específicos LVAM, integración con sistemas bancarios y manejo de fallos serán confirmados por Operaciones.",
+      "crossReferences": [
+        "OPS-018",
+        "OPS-028"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "aportes",
+        "mandato",
+        "recurrente"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-020",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Rescate parcial vs total: flujo operativo",
+      "mainQuestion": "¿Cómo se ejecuta un rescate parcial o total de un fondo?",
+      "equivalentQuestions": [
+        "Rescate fondo",
+        "Retirar dinero fondo",
+        "Rescate parcial total"
+      ],
+      "keywords": [
+        "rescate parcial",
+        "rescate total",
+        "retirar fondo",
+        "liquidar"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-042. Operativamente el cliente solicita rescate por canal autorizado (presencial, sucursal, app, vía ejecutivo); LVAM ejecuta el rescate al valor cuota correspondiente al día de solicitud según reglamento del fondo; los fondos se transfieren a la cuenta registrada del cliente en el plazo definido.",
+      "longAnswer": "El rescate parcial solicita una porción del saldo (en monto o número de cuotas); el rescate total liquida toda la posición. Conceptualmente: el cliente identifica el fondo y el monto/porcentaje, firma la solicitud, LVAM ejecuta al valor cuota aplicable, transfiere los fondos a la cuenta registrada del cliente. El plazo de liquidación depende del reglamento del fondo (ver REG-018) y suele estar entre 1 y 10 días hábiles. Para rescates en APV aplican reglas específicas adicionales (ver APV-023). Para implicancias tributarias del rescate, ver REG-042.",
+      "operationalSteps": [
+        "Identificar fondo y monto del rescate",
+        "Firmar solicitud",
+        "Ejecutar al valor cuota aplicable",
+        "Transferir fondos a cuenta registrada del cliente",
+        "Enviar confirmación al cliente"
+      ],
+      "crossReferences": [
+        "REG-018",
+        "REG-042",
+        "APV-023",
+        "OPS-022",
+        "OPS-023"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "critico",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "rescates",
+        "critico"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-021",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "MLT (Mandato Local de Traspaso) operativo",
+      "mainQuestion": "¿Cómo se ejecuta operativamente un traspaso vía MLT?",
+      "equivalentQuestions": [
+        "MLT operativo",
+        "Mandato local traspaso",
+        "Traspasar fondos"
+      ],
+      "keywords": [
+        "mlt",
+        "mandato local traspaso",
+        "traspaso fondos"
+      ],
+      "shortAnswer": "Conceptualmente el MLT es un mandato electrónico que permite traspasar fondos entre AGF sin requerir rescate y nuevo aporte. El cliente lo firma electrónicamente y se ejecuta dentro de los plazos legales. Detalles operativos LVAM específicos se validan con Operaciones.",
+      "longAnswer": "El MLT (Mandato Local de Traspaso) es un mecanismo operativo estándar de la industria chilena que permite mover fondos mutuos entre AGF de forma electrónica, sin liquidación intermedia que pueda afectar la continuidad de la inversión. Conceptualmente: el cliente firma el mandato electrónico en LVAM (AGF destino), LVAM gestiona la solicitud con la AGF origen, la AGF origen liquida la posición y transfiere los fondos a LVAM, LVAM emite cuotas en el fondo destino. El plazo legal máximo está establecido en normativa, típicamente hasta 5 días hábiles. Los formularios específicos LVAM, integración con el sistema MLT industrial y manejo de incidencias serán confirmados por Operaciones.",
+      "crossReferences": [
+        "OPS-020"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "CMF · Comisión para el Mercado Financiero",
+          "link": "https://www.cmfchile.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "aportes",
+        "mlt",
+        "traspaso"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-022",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Plazos de liquidación por tipo de fondo",
+      "mainQuestion": "¿En cuántos días recibe el cliente el dinero tras un rescate?",
+      "equivalentQuestions": [
+        "Plazo rescate",
+        "Cuando recibo dinero",
+        "Dias liquidacion"
+      ],
+      "keywords": [
+        "plazos liquidacion",
+        "cuando recibo",
+        "dias rescate"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. Los plazos exactos de liquidación por familia de fondo se completarán una vez confirmados por el área. El plazo máximo está establecido en cada reglamento interno (ver REG-018).",
+      "longAnswer": "Contenido pendiente. Conceptualmente el plazo de liquidación es el tiempo desde la solicitud de rescate hasta el abono efectivo en la cuenta bancaria del cliente. El reglamento interno del fondo establece el plazo máximo legal; LVAM puede operar en plazos menores. Los plazos típicos por familia (renta fija corto plazo, renta fija largo plazo, accionarios, multiactivos), excepciones por horario de corte y comportamiento en días feriados serán definidos por Operaciones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-018",
+        "OPS-020",
+        "OPS-023"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "rescates",
+        "plazos",
+        "sla",
+        "pendiente-validacion"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-023",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Valor cuota aplicable según día y horario de operación",
+      "mainQuestion": "¿Qué valor cuota se aplica a una operación según día y horario?",
+      "equivalentQuestions": [
+        "Valor cuota operacion",
+        "Cuando se valoriza",
+        "Corte horario fondo"
+      ],
+      "keywords": [
+        "valor cuota",
+        "horario corte",
+        "valorizacion operacion",
+        "corte diario"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-018 (reglamento interno del fondo). Conceptualmente, el valor cuota aplicado depende del día y hora en que se identifica la operación: operaciones recibidas antes del horario de corte aplican valor cuota del mismo día hábil; recibidas después, del siguiente. Detalles específicos LVAM se validan con Operaciones.",
+      "longAnswer": "El valor cuota es el precio diario de la cuota del fondo. Cada fondo tiene un horario de corte que define qué valor cuota se aplica a las operaciones recibidas durante el día: operaciones identificadas antes del corte se valorizan con el valor cuota del cierre del día hábil; operaciones después del corte, con el valor cuota del cierre del día hábil siguiente. Días feriados, fines de semana y horarios bursátiles especiales afectan el cálculo. El reglamento interno del fondo es la fuente vinculante. Los horarios de corte específicos LVAM por familia de fondo serán confirmados por Operaciones.",
+      "crossReferences": [
+        "REG-018",
+        "OPS-018",
+        "OPS-020"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "valor-cuota",
+        "horarios",
+        "operacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-024",
+      "category": "Operaciones",
+      "subcategory": "Aportes y rescates",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Rescate urgente: criterios y workflow",
+      "mainQuestion": "¿Existe un workflow operativo para rescates urgentes?",
+      "equivalentQuestions": [
+        "Rescate urgente",
+        "Acelerar rescate",
+        "Casos especiales rescate"
+      ],
+      "keywords": [
+        "rescate urgente",
+        "aceleracion",
+        "emergencia rescate"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Operaciones LVAM. Los criterios para aceptar solicitudes de rescate urgente, el workflow de autorización y los plazos asociados se completarán una vez confirmados por el área.",
+      "longAnswer": "Contenido pendiente. Conceptualmente la noción de rescate urgente surge cuando el cliente necesita disponibilidad antes del plazo estándar del fondo. La práctica habitual es: el plazo del reglamento es vinculante y no puede acortarse arbitrariamente; pueden existir mecanismos comerciales o financieros para casos excepcionales (compromisos LVAM, préstamos puente, productos con mayor liquidez). El workflow específico, criterios de elegibilidad, autorizaciones internas requeridas y comunicación con el cliente serán definidos por Operaciones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-018",
+        "OPS-020",
+        "OPS-022"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "baja",
+      "processType": "transaccion",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "rescates",
+        "urgente",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "aportes-rescates"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-025",
+      "category": "Operaciones",
+      "subcategory": "Modificaciones y mantenimiento",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Actualización de datos personales del cliente",
+      "mainQuestion": "¿Cómo se actualizan los datos personales de un cliente existente?",
+      "equivalentQuestions": [
+        "Cambiar datos cliente",
+        "Actualizar direccion",
+        "Modificar datos personales"
+      ],
+      "keywords": [
+        "actualizar datos",
+        "cambio direccion",
+        "modificar telefono",
+        "datos personales"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-054. Conceptualmente: el cliente solicita el cambio por canal autorizado, valida su identidad, presenta documentación de respaldo cuando aplique (cambio de dirección con comprobante), LVAM registra y confirma. Los canales y plazos LVAM específicos se validan con Operaciones.",
+      "longAnswer": "El cliente puede actualizar sus datos personales en cualquier momento. Los datos típicos incluyen: dirección, teléfono, email, estado civil, situación laboral, datos de contacto de emergencia. Para datos sensibles que afecten el KYC o el perfilamiento (cambio de actividad económica, cambio patrimonial significativo), corresponde re-evaluar KYC y eventualmente re-perfilar (ver OPS-004 y OPS-010). Los canales habilitados, plazos de procesamiento y documentación requerida por tipo de cambio serán confirmados por Operaciones.",
+      "crossReferences": [
+        "REG-054",
+        "OPS-004",
+        "OPS-010"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Ley 19.628 — Protección de Datos"
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "modificaciones",
+        "datos-personales",
+        "mantenimiento"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "mantenimiento"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-026",
+      "category": "Operaciones",
+      "subcategory": "Modificaciones y mantenimiento",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cambio de cuenta bancaria asociada",
+      "mainQuestion": "¿Cómo se cambia la cuenta bancaria asociada al cliente?",
+      "equivalentQuestions": [
+        "Cambiar cuenta banco",
+        "Modificar cuenta cliente",
+        "Nueva cuenta bancaria"
+      ],
+      "keywords": [
+        "cambio cuenta bancaria",
+        "modificar cuenta",
+        "cuenta destino"
+      ],
+      "shortAnswer": "Conceptualmente: el cliente declara nueva cuenta bancaria a su nombre, firma la modificación del mandato, LVAM valida titularidad y reemplaza la cuenta registrada para todos los movimientos futuros (aportes recurrentes, pagos de rescates).",
+      "longAnswer": "El cambio de cuenta bancaria es un evento sensible: la cuenta debe estar a nombre del cliente (KYC/PLA prohíbe cuentas de terceros sin validación específica). El proceso conceptual: el cliente solicita el cambio, declara la nueva cuenta con todos sus datos (banco, número, tipo), aporta evidencia de titularidad (cartola, formulario bancario), LVAM valida la información, actualiza el mandato y confirma al cliente. Los aportes recurrentes y mandatos vigentes se migran a la nueva cuenta. Los formularios LVAM específicos y plazos de procesamiento son responsabilidad de Operaciones.",
+      "risksAndWarnings": "Una cuenta destino que no esté a nombre del cliente puede gatillar alerta PLA. Verificar siempre la titularidad antes de procesar.",
+      "crossReferences": [
+        "REG-049",
+        "OPS-019"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Política KYC LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "modificaciones",
+        "cuenta-bancaria",
+        "kyc"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "mantenimiento",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-027",
+      "category": "Operaciones",
+      "subcategory": "Modificaciones y mantenimiento",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cambio o designación de beneficiarios",
+      "mainQuestion": "¿Cómo se designan o modifican beneficiarios?",
+      "equivalentQuestions": [
+        "Designar beneficiario",
+        "Cambiar beneficiario",
+        "Beneficiario fondo"
+      ],
+      "keywords": [
+        "beneficiarios",
+        "designacion beneficiario",
+        "cambio beneficiario"
+      ],
+      "shortAnswer": "Conceptualmente: el cliente firma una declaración designando beneficiarios con sus datos identificatorios y proporciones, LVAM registra y confirma. La modificación posterior sigue el mismo proceso. Aplicable principalmente a productos con dimensión sucesoria explícita (APV, seguros con ahorro).",
+      "longAnswer": "La designación de beneficiarios formaliza a quiénes corresponderá el saldo del producto ante el fallecimiento del titular. Conceptualmente requiere: identificación clara de cada beneficiario (nombre, RUT, parentesco), proporción asignada (que sumen 100%), declaración firmada. La validez legal y el procedimiento sucesorio efectivo se rigen por la normativa aplicable; en APV existen reglas específicas (ver categoría APV). Para detalle de tributación de herencias y donaciones, ver REG-070. Los formularios LVAM específicos y la integración con sistemas son responsabilidad de Operaciones.",
+      "crossReferences": [
+        "REG-070",
+        "OPS-034"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "modificaciones",
+        "beneficiarios",
+        "sucesion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "mantenimiento"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-028",
+      "category": "Operaciones",
+      "subcategory": "Modificaciones y mantenimiento",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Producto",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Modificación de mandato APV",
+      "mainQuestion": "¿Cómo se modifica el mandato APV existente del cliente?",
+      "equivalentQuestions": [
+        "Cambiar mandato APV",
+        "Modificar APV",
+        "Aumentar aporte APV"
+      ],
+      "keywords": [
+        "modificar mandato apv",
+        "cambiar apv",
+        "aporte apv"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver APV. Conceptualmente el cliente puede modificar monto del aporte mensual, fondo APV destino, régimen tributario (con restricciones), o suspender temporalmente aportes. La firma de la modificación reemplaza el mandato anterior.",
+      "longAnswer": "Las modificaciones típicas del mandato APV: aumentar o disminuir el monto del aporte mensual respetando el tope (ver APV-004), cambiar el fondo APV destino dentro del catálogo LVAM, suspender temporalmente los aportes, cambiar la fecha mensual del cargo. El cambio de régimen tributario A↔B tiene reglas específicas (ver APV-013). La modificación se ejecuta firmando un nuevo mandato que reemplaza el anterior. Para casos especiales (cambio de empleador con APVC, cliente que jubila, retiro anticipado), aplican reglas adicionales (ver categoría APV). Formularios LVAM específicos a confirmar con Operaciones.",
+      "crossReferences": [
+        "APV-004",
+        "APV-013",
+        "APV-015",
+        "OPS-013",
+        "OPS-019"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "mantenimiento",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos APV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "modificaciones",
+        "apv",
+        "mandato"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "mantenimiento",
+        "apv"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "OPS-029",
+      "category": "Operaciones",
+      "subcategory": "Modificaciones y mantenimiento",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Servicio al Cliente",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cierre de cuenta o relación con el cliente",
+      "mainQuestion": "¿Cómo se ejecuta el cierre completo de la relación con un cliente?",
+      "equivalentQuestions": [
+        "Cerrar cuenta",
+        "Terminar relacion",
+        "Cliente se va"
+      ],
+      "keywords": [
+        "cierre cuenta",
+        "terminar relacion",
+        "baja cliente"
+      ],
+      "shortAnswer": "Conceptualmente: el cliente solicita el cierre, se procede a la liquidación de todas las posiciones (vía rescate, traspaso a otra entidad u otra modalidad según producto), se transfieren los saldos a la cuenta del cliente y se da de baja al cliente en sistemas internos manteniendo los registros por el plazo legal aplicable.",
+      "longAnswer": "El cierre de cuenta es la terminación formal de la relación contractual. Conceptualmente: el cliente firma una solicitud de cierre, se liquidan las posiciones según el tipo de producto (rescate de fondos mutuos, traspaso APV si aplica, finalización de seguros con ahorro según contrato), se transfieren los saldos finales a la cuenta bancaria registrada, se da de baja al cliente para operativa nueva pero los registros se mantienen por el plazo legal de conservación documental (típicamente al menos 5 años para fines tributarios y regulatorios). El plazo exacto de conservación, los formularios LVAM y el manejo de saldos remanentes serán confirmados por Operaciones.",
+      "crossReferences": [
+        "REG-054",
+        "REG-068",
+        "OPS-020",
+        "OPS-031"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "normal",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "modificaciones",
+        "cierre",
+        "baja-cliente"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "mantenimiento"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-030",
+      "category": "Operaciones",
+      "subcategory": "Traspasos y transferencias",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Traspaso entre fondos LVAM",
+      "mainQuestion": "¿Cómo se ejecuta el traspaso de un fondo LVAM a otro fondo LVAM?",
+      "equivalentQuestions": [
+        "Traspaso interno LVAM",
+        "Cambio de fondo LVAM",
+        "Mover entre fondos LVAM"
+      ],
+      "keywords": [
+        "traspaso interno",
+        "cambio fondo",
+        "traspaso lvam"
+      ],
+      "shortAnswer": "Conceptualmente el cliente solicita traspaso indicando fondo origen y destino; LVAM ejecuta la operación internamente sin requerir transferencia bancaria intermedia; se aplican los valores cuota correspondientes según los reglamentos de cada fondo.",
+      "longAnswer": "El traspaso entre fondos LVAM es operativamente eficiente: no requiere transferencia bancaria al cliente y de vuelta. Conceptualmente: el cliente firma la solicitud identificando fondo origen, monto/cuotas y fondo destino; LVAM liquida la posición en el fondo origen al valor cuota aplicable (ver OPS-023); con esos recursos suscribe cuotas en el fondo destino al valor cuota aplicable; la operación se confirma al cliente con detalle de ambas operaciones. Implicancias tributarias del traspaso siguen las reglas del rescate del fondo origen (ver REG-042). Para fondos Art. 107, ver REG-038. Los formularios LVAM y el sistema interno de traspaso son responsabilidad de Operaciones.",
+      "crossReferences": [
+        "REG-042",
+        "REG-038",
+        "OPS-018",
+        "OPS-020",
+        "OPS-023"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "traspasos",
+        "interno"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "traspasos"
+      ],
+      "actions": [
+        "pdf",
+        "correo"
+      ]
+    },
+    {
+      "id": "OPS-031",
+      "category": "Operaciones",
+      "subcategory": "Traspasos y transferencias",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Producto",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Traspaso APV desde o hacia otra entidad",
+      "mainQuestion": "¿Cómo se ejecuta el traspaso APV entre LVAM y otra entidad?",
+      "equivalentQuestions": [
+        "Traspaso APV otra AGF",
+        "Traer APV",
+        "Sacar APV LVAM"
+      ],
+      "keywords": [
+        "traspaso apv inter-entidad",
+        "traer apv",
+        "trasladar apv"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver categoría APV. Conceptualmente el cliente firma un mandato en la entidad destino (LVAM o la otra), que gestiona la solicitud con la entidad origen. El traspaso APV preserva los beneficios tributarios sin gatillar tributación. El procedimiento operativo específico se valida con Operaciones.",
+      "longAnswer": "El traspaso APV inter-entidad permite al cliente mover su APV entre distintas entidades autorizadas (AFP, AGF, compañías de seguros) sin gatillar tributación ni perder los beneficios acumulados. Conceptualmente: el cliente firma el mandato en la entidad destino; ésta gestiona la solicitud con la entidad origen vía los mecanismos previsionales; los fondos se transfieren y se mantienen como APV en la entidad destino. El régimen tributario (A o B) se mantiene salvo solicitud expresa de cambio. Operativamente intervienen sistemas previsionales sectoriales. Los formularios LVAM APV específicos, plazos y manejo de incidencias son responsabilidad de Operaciones.",
+      "crossReferences": [
+        "APV-013",
+        "APV-015",
+        "REG-005",
+        "OPS-021",
+        "OPS-028"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "transaccion",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos APV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "Superintendencia de Pensiones",
+          "link": "https://www.spensiones.cl/",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "D.L. 3500 Art. 20 y siguientes"
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "traspasos",
+        "apv",
+        "inter-entidad"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "traspasos",
+        "apv"
+      ],
+      "actions": [
+        "pdf"
+      ],
+      "relatedProducts": [
+        "LVAM APV"
+      ]
+    },
+    {
+      "id": "OPS-032",
+      "category": "Operaciones",
+      "subcategory": "Traspasos y transferencias",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Compliance",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Transferencia entre titulares: casos permitidos",
+      "mainQuestion": "¿Se puede transferir una cuenta o posición entre titulares?",
+      "equivalentQuestions": [
+        "Cambio titular",
+        "Transferir cuenta otro",
+        "Cesion cuenta"
+      ],
+      "keywords": [
+        "transferencia titular",
+        "cambio titular",
+        "cesion cuenta"
+      ],
+      "shortAnswer": "Regla general: las cuentas son personales y nominativas, NO transferibles libremente. Las únicas situaciones que habilitan cambio de titularidad son: fallecimiento (sucesión, ver OPS-034), incapacidad declarada judicialmente, o casos contractuales específicos. Toda transferencia requiere documentación legal.",
+      "longAnswer": "La regla regulatoria y comercial es estricta: una cuenta o posición no se transfiere voluntariamente a otra persona como si fuera un activo común. Las excepciones aplican por causas específicas: fallecimiento del titular con posesión efectiva (ver OPS-034); declaración judicial de interdicción con curador designado; instrucciones explícitas del contrato en productos específicos (por ejemplo, ciertos seguros con ahorro). En todos los casos se requiere documentación legal vinculante (resolución judicial, sentencia, escritura pública según corresponda). El ejecutivo ante solicitud de este tipo debe derivar a Compliance y a Servicio al Cliente.",
+      "risksAndWarnings": "Una transferencia entre titulares ejecutada sin base legal puede constituir infracción regulatoria, fiscal o civil. NUNCA prometer este tipo de operación al cliente sin validación previa.",
+      "crossReferences": [
+        "OPS-034",
+        "OPS-029"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "medio",
+      "dependencyLevel": "media",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "traspasos",
+        "titular",
+        "casos-especiales"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "traspasos",
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-033",
+      "category": "Operaciones",
+      "subcategory": "Traspasos y transferencias",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Devoluciones, rectificaciones y reversas",
+      "mainQuestion": "¿Cómo se gestionan errores operativos que requieren devolución o reversa?",
+      "equivalentQuestions": [
+        "Devolver aporte",
+        "Reversar operacion",
+        "Rectificar error"
+      ],
+      "keywords": [
+        "devolucion",
+        "reversa",
+        "rectificacion",
+        "error operativo"
+      ],
+      "shortAnswer": "Conceptualmente cuando se detecta un error operativo (aporte mal imputado, rescate por monto incorrecto, datos cargados con error) se gestiona la rectificación: anulación de la operación errónea, ejecución correcta, comunicación al cliente. El procedimiento específico LVAM se valida con Operaciones.",
+      "longAnswer": "Las devoluciones, rectificaciones y reversas son procesos correctivos sobre operaciones ya ejecutadas. Conceptualmente: detección del error (por LVAM, por el cliente, por auditoría), análisis del impacto (financiero, regulatorio, tributario), ejecución de la corrección (anular operación errónea, ejecutar la correcta, ajustar saldos), comunicación al cliente con explicación clara y documentación. El cliente debe recibir trato proactivo: si el error es responsabilidad LVAM, no debe quedar perjudicado. Los procedimientos LVAM específicos, niveles de autorización y registro auditable serán definidos por Operaciones.",
+      "crossReferences": [
+        "OPS-018",
+        "OPS-020"
+      ],
+      "operationalCriticality": "media",
+      "serviceImpact": "alto",
+      "dependencyLevel": "media",
+      "processType": "transaccion",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos operativos LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "traspasos",
+        "devolucion",
+        "reversa",
+        "correccion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "traspasos"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-034",
+      "category": "Operaciones",
+      "subcategory": "Traspasos y transferencias",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Servicio al Cliente",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Casos especiales: incapacidad, fallecimiento, sucesión",
+      "mainQuestion": "¿Cómo se gestionan operativamente los casos de incapacidad o fallecimiento del titular?",
+      "equivalentQuestions": [
+        "Fallecimiento titular",
+        "Incapacidad cliente",
+        "Sucesion fondo"
+      ],
+      "keywords": [
+        "fallecimiento",
+        "incapacidad",
+        "sucesion",
+        "posesion efectiva"
+      ],
+      "shortAnswer": "Estos casos tienen marco regulatorio y procedimiento legal específico. <strong>Fallecimiento</strong>: suspensión operativa, tramitación de posesión efectiva, traspaso a herederos. <strong>Incapacidad</strong>: actuación del curador con poder vigente. <strong>Sucesión</strong>: aplicación de impuesto a la herencia (ver REG-070).",
+      "longAnswer": "Al recibir notificación de fallecimiento del titular: LVAM suspende inmediatamente la cuenta del titular fallecido, conserva los activos en custodia, espera la presentación de la posesión efectiva inscrita y demás documentación sucesoria (cónyuge sobreviviente, herederos, cesionarios), procede al traspaso de los activos según la resolución sucesoria. Para incapacidad: el curador designado judicialmente opera la cuenta con los poderes vigentes. El impuesto a la herencia y donaciones (ver REG-070) se aplica según la naturaleza de los activos y la relación de parentesco. El procedimiento específico LVAM, formularios y plazos serán confirmados por Operaciones y Servicio al Cliente.",
+      "risksAndWarnings": "Estos casos son sensibles emocional y legalmente. La empatía y la precisión documental son igualmente críticas. Cualquier consulta sucesoria debe derivarse al área Tributaria o al asesor del cliente.",
+      "crossReferences": [
+        "REG-070",
+        "OPS-027",
+        "OPS-029",
+        "OPS-032"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "mantenimiento",
+      "businessImpact": "medio",
+      "consultationFrequency": "baja",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Ley 16.271 — Herencias y Donaciones"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "traspasos",
+        "fallecimiento",
+        "sucesion",
+        "casos-especiales"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "traspasos",
+        "compliance-comercial",
+        "altoPatrimonio"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-035",
+      "category": "Operaciones",
+      "subcategory": "Derivaciones operativas y reclamos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Operaciones",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Flujo de derivación operativa a especialistas",
+      "mainQuestion": "¿Cuál es el flujo operativo para derivar una consulta del cliente a un especialista?",
+      "equivalentQuestions": [
+        "Como derivar",
+        "Flujo derivacion",
+        "Pasar consulta a especialista"
+      ],
+      "keywords": [
+        "derivacion operativa",
+        "flujo derivacion",
+        "escalar consulta"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM y Operaciones. El flujo operativo específico de derivación (canal, sistema de registro, SLA por área destino, comunicación al cliente) se completará una vez confirmado.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-062 y REG-065. Contenido operativo pendiente. Conceptualmente el flujo abarca: identificación de la necesidad de derivación, comunicación clara al cliente con disclaimer apropiado, registro en sistema interno con fecha y área destino, traspaso de la consulta al área correspondiente, seguimiento hasta que el cliente recibe respuesta. Los canales específicos (correo, ticketing, sistema de derivaciones), los SLA por área destino y los formatos de registro serán definidos por Compliance y Operaciones LVAM.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-062",
+        "REG-065"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "derivacion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "derivaciones",
+        "flujo",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-036",
+      "category": "Operaciones",
+      "subcategory": "Derivaciones operativas y reclamos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Canal por área destino: Tributario, Inversiones, Compliance, Producto",
+      "mainQuestion": "¿A qué área deriva el ejecutivo según el tipo de consulta?",
+      "equivalentQuestions": [
+        "Areas destino derivacion",
+        "Canal especialistas",
+        "A quien escalar"
+      ],
+      "keywords": [
+        "canal derivacion",
+        "area destino",
+        "especialistas internos"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-062. Conceptualmente: consultas tributarias personalizadas → Tributario; consultas técnicas profundas de portafolio → Inversiones; consultas regulatorias/compliance → Compliance; detalles técnicos de productos → Producto. Reclamos formales → Servicio al Cliente o Compliance.",
+      "longAnswer": "El mapeo por tipo de consulta orienta la derivación apropiada: <strong>Tributario</strong> para cálculo personalizado, estructuras patrimoniales, herencias, FATCA/CRS complejos. <strong>Inversiones</strong> para análisis técnico de cartera, opiniones de mercado profundas, decisiones de portafolio sofisticadas. <strong>Compliance</strong> para dudas regulatorias, casos PEP, señales PLA, conflictos de interés. <strong>Producto</strong> para características técnicas, nuevos productos, reglamento interno. <strong>Servicio al Cliente</strong> para reclamos formales e incidencias operativas. Los canales operativos específicos (email, ticketing, llamada interna) y SLA por área serán confirmados por Operaciones.",
+      "crossReferences": [
+        "REG-062",
+        "REG-065",
+        "OPS-035"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "alto",
+      "dependencyLevel": "alta",
+      "processType": "derivacion",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "derivaciones",
+        "areas",
+        "mapeo"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-037",
+      "category": "Operaciones",
+      "subcategory": "Derivaciones operativas y reclamos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Servicio al Cliente",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Recepción y registro operativo de reclamos",
+      "mainQuestion": "¿Cómo se recepcionan y registran operativamente los reclamos del cliente?",
+      "equivalentQuestions": [
+        "Recibir reclamo",
+        "Registrar reclamo",
+        "Reclamo formal cliente"
+      ],
+      "keywords": [
+        "recepcion reclamo",
+        "registro reclamo",
+        "reclamo formal"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM y Servicio al Cliente. El sistema de recepción y registro de reclamos (canal oficial, formulario, SLA, responsables) se completará una vez confirmado por las áreas.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-068. Contenido operativo pendiente. Conceptualmente la recepción de reclamos requiere: canal oficial habilitado para el cliente, registro inmediato y fechado en sistema interno con identificación del cliente y del ejecutivo receptor, acuse de recibo al cliente con plazo de respuesta esperado, derivación al área responsable según naturaleza del reclamo. El sistema específico LVAM, formularios y SLA serán definidos por Compliance y Servicio al Cliente.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-068",
+        "OPS-038"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "critico",
+      "dependencyLevel": "alta",
+      "processType": "derivacion",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "reclamos",
+        "recepcion",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial",
+        "servicio-cliente"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-038",
+      "category": "Operaciones",
+      "subcategory": "Derivaciones operativas y reclamos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Servicio al Cliente",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Escalamiento de reclamos: SAC, Compliance, SERNAC, CMF",
+      "mainQuestion": "¿Cómo se escalan los reclamos según gravedad y resolución?",
+      "equivalentQuestions": [
+        "Escalamiento reclamo",
+        "Reclamo no resuelto",
+        "Sernac CMF reclamo"
+      ],
+      "keywords": [
+        "escalamiento reclamo",
+        "sernac",
+        "cmf reclamo",
+        "reclamo externo"
+      ],
+      "shortAnswer": "Conceptualmente el escalamiento es progresivo: Servicio al Cliente (primera instancia), Compliance si involucra dimensión regulatoria, jefatura comercial, eventualmente SERNAC (defensa del consumidor) o CMF (regulador) si el cliente no queda conforme. Cada escalón tiene plazo y proceso definido.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-068. Conceptualmente el flujo de escalamiento: <strong>nivel 1</strong> Servicio al Cliente resuelve la mayoría de reclamos operativos en primera instancia. <strong>Nivel 2</strong> Compliance interviene cuando hay dimensión regulatoria, conducta del ejecutivo o suitability. <strong>Nivel 3</strong> jefatura comercial o gerencia si el caso lo amerita. <strong>Nivel externo</strong> el cliente siempre puede recurrir directamente al SERNAC (defensa del consumidor financiero) o a la CMF (regulador). LVAM debe responder formalmente a requerimientos externos en los plazos legales. El procedimiento específico LVAM, SLA por nivel y formularios serán confirmados por Compliance y Servicio al Cliente.",
+      "risksAndWarnings": "Un reclamo escalado a SERNAC o CMF implica trazabilidad regulatoria. La gestión oportuna en niveles internos previene escalamientos externos.",
+      "crossReferences": [
+        "REG-068",
+        "OPS-037",
+        "OPS-039"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "critico",
+      "dependencyLevel": "alta",
+      "processType": "derivacion",
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos de Servicio al Cliente LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "SERNAC · Servicio Nacional del Consumidor",
+          "link": "https://www.sernac.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "CMF · Comisión para el Mercado Financiero",
+          "link": "https://www.cmfchile.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "reclamos",
+        "escalamiento",
+        "sernac",
+        "cmf",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial",
+        "servicio-cliente"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-039",
+      "category": "Operaciones",
+      "subcategory": "Derivaciones operativas y reclamos",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Operaciones",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Trazabilidad operativa de la atención al cliente",
+      "mainQuestion": "¿Cómo se asegura la trazabilidad de la atención al cliente para auditoría y reclamos?",
+      "equivalentQuestions": [
+        "Trazabilidad cliente",
+        "Historial atencion",
+        "Auditoria interacciones"
+      ],
+      "keywords": [
+        "trazabilidad",
+        "historial atencion",
+        "registro interacciones"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-061. Conceptualmente la trazabilidad se construye con registros sistemáticos de cada interacción relevante con el cliente: perfilamiento, recomendaciones, operaciones, derivaciones, reclamos. La trazabilidad es protección regulatoria y operativa.",
+      "longAnswer": "La trazabilidad permite reconstruir, ante una auditoría o reclamo, qué se hizo con el cliente, cuándo, por quién y con qué fundamento. Conceptualmente debe registrarse: cada perfilamiento aplicado (ver OPS-008), cada recomendación con su justificación de idoneidad, cada operación ejecutada con sus respaldos firmados (ver OPS-015), cada derivación (ver OPS-035), cada reclamo (ver OPS-037). El registro debe ser fechado, identificar al ejecutivo y al cliente, y conservarse por el plazo legal de retención documental. El formato preciso del registro y los sistemas internos donde vive son responsabilidad de Compliance y Operaciones LVAM (ver REG-061, placeholder REG).",
+      "crossReferences": [
+        "REG-061",
+        "REG-067",
+        "OPS-008",
+        "OPS-015",
+        "OPS-035",
+        "OPS-037",
+        "OPS-040",
+        "OPS-041"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "processType": "control",
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "trazabilidad",
+        "auditoria",
+        "control",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-040",
+      "category": "Operaciones",
+      "subcategory": "Cierre operativo y compliance diario",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Habilitación Comercial",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Documentación obligatoria diaria del ejecutivo",
+      "mainQuestion": "¿Qué documentación debe dejar el ejecutivo diariamente como evidencia de su gestión?",
+      "equivalentQuestions": [
+        "Documentacion diaria ejecutivo",
+        "Evidencia gestion",
+        "Registros diarios"
+      ],
+      "keywords": [
+        "documentacion diaria",
+        "evidencia ejecutivo",
+        "registros diarios"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM y Habilitación Comercial. La política exacta de documentación obligatoria diaria del ejecutivo se completará una vez confirmada por las áreas, en línea con REG-061 y REG-067.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-061 y REG-067. Contenido operativo pendiente. Conceptualmente la documentación diaria del ejecutivo cubre: registro de interacciones con clientes (presenciales, telefónicas, digitales), evidencia de recomendaciones con su justificación, respaldos de operaciones ejecutadas, derivaciones realizadas, comunicaciones relevantes. El estándar específico LVAM (formato del registro, sistema interno, frecuencia, validaciones) debe ser definido por Compliance y Habilitación Comercial.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-061",
+        "REG-067",
+        "OPS-039",
+        "OPS-041"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "medio",
+      "dependencyLevel": "alta",
+      "processType": "control",
+      "businessImpact": "alto",
+      "consultationFrequency": "alta",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "control",
+        "documentacion",
+        "diaria",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-041",
+      "category": "Operaciones",
+      "subcategory": "Cierre operativo y compliance diario",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance, Operaciones",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Bitácora operativa de interacciones con clientes",
+      "mainQuestion": "¿Qué es la bitácora operativa y qué debe contener?",
+      "equivalentQuestions": [
+        "Bitacora ejecutivo",
+        "Diario interacciones",
+        "Log cliente"
+      ],
+      "keywords": [
+        "bitacora",
+        "interacciones",
+        "log cliente",
+        "diario operativo"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM y Operaciones. El formato, sistema interno y reglas de uso de la bitácora operativa se completarán una vez confirmados.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-067. Contenido operativo pendiente. Conceptualmente la bitácora operativa es el registro continuo de cada interacción relevante con el cliente: tipo de contacto, fecha y hora, tema tratado, productos discutidos, recomendaciones emitidas, decisiones tomadas, próximos pasos acordados. Permite continuidad de la relación, defensa ante reclamos y trazabilidad regulatoria. El sistema específico LVAM, plantillas, integración con el CRM y reglas de auditoría serán definidos por Compliance y Operaciones.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-067",
+        "OPS-039",
+        "OPS-040"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "bajo",
+      "dependencyLevel": "alta",
+      "processType": "control",
+      "businessImpact": "alto",
+      "consultationFrequency": "media",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "control",
+        "bitacora",
+        "pendiente-validacion"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-042",
+      "category": "Operaciones",
+      "subcategory": "Cierre operativo y compliance diario",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance",
+      "ownerType": "Compliance",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-12-11",
+      "title": "Operaciones especiales: efectivo y operaciones sobre umbrales",
+      "mainQuestion": "¿Cómo se manejan las operaciones en efectivo o sobre umbrales reglamentarios?",
+      "equivalentQuestions": [
+        "Operacion en efectivo",
+        "Umbrales reportables",
+        "Reporte sobre monto"
+      ],
+      "keywords": [
+        "efectivo",
+        "umbrales",
+        "operaciones especiales",
+        "reporte uaf"
+      ],
+      "shortAnswer": "Marco regulatorio aplicable: ver REG-047 y REG-048. Las operaciones en efectivo y sobre los umbrales establecidos por la UAF requieren tratamiento operativo especial: identificación reforzada, registro detallado y reporte obligatorio a la UAF según corresponda.",
+      "longAnswer": "La normativa UAF establece umbrales sobre los cuales determinadas operaciones requieren reporte obligatorio (operaciones en efectivo sobre cierto monto, operaciones inusuales sin justificación). Operativamente: el ejecutivo identifica la operación, valida con KYC reforzado el origen y propósito de los fondos, registra con detalle, escala a Compliance para evaluación del reporte UAF. LVAM puede tener políticas internas más estrictas que el mínimo regulatorio. El cliente NO debe ser informado del reporte UAF.",
+      "risksAndWarnings": "Alertar al cliente sobre el reporte UAF o demorar el escalamiento puede generar responsabilidad personal del ejecutivo. Escalar inmediatamente ante señales.",
+      "crossReferences": [
+        "REG-047",
+        "REG-048",
+        "REG-051",
+        "OPS-043"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "bajo",
+      "dependencyLevel": "alta",
+      "processType": "control",
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "web",
+          "title": "UAF · Unidad de Análisis Financiero",
+          "link": "https://www.uaf.cl/",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        }
+      ],
+      "regulatoryReferences": [
+        "Ley 19.913 — PLA",
+        "Normativa UAF · ROS"
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "control",
+        "efectivo",
+        "umbrales",
+        "uaf",
+        "critico"
+      ],
+      "difficulty": "avanzado",
+      "trainingTags": [
+        "compliance",
+        "pla"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    },
+    {
+      "id": "OPS-043",
+      "category": "Operaciones",
+      "subcategory": "Cierre operativo y compliance diario",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Compliance",
+      "ownerType": "Compliance",
+      "reviewStatus": "pendingBusinessValidation",
+      "reviewPeriodicity": "semestral",
+      "nextReviewDate": "2026-09-11",
+      "title": "Reporte interno de operaciones inusuales (antes de ROS)",
+      "mainQuestion": "¿Cómo se reporta internamente una operación inusual antes de un eventual ROS?",
+      "equivalentQuestions": [
+        "Reporte interno operacion",
+        "Operacion inusual",
+        "Antes de ROS"
+      ],
+      "keywords": [
+        "operacion inusual",
+        "reporte interno",
+        "antes ros"
+      ],
+      "shortAnswer": "Esta entrada está pendiente de validación con Compliance LVAM. El flujo interno previo al eventual reporte ROS (canal, formato, plazo, responsables) se completará una vez confirmado por el área.",
+      "longAnswer": "Marco regulatorio aplicable: ver REG-047 y REG-051. Contenido operativo pendiente. Conceptualmente el flujo interno: el ejecutivo identifica señales de alerta (ver REG-051), reporta inmediatamente a Compliance vía canal interno sin alertar al cliente, Compliance evalúa, documenta, decide si corresponde reporte ROS a la UAF. El flujo específico, canal exacto, plazo entre detección y reporte interno, formato del registro serán definidos por Compliance LVAM.",
+      "placeholder": {
+        "status": "pendingBusinessValidation",
+        "notes": "Completar con procedimientos operativos validados por Operaciones LVAM (sistemas internos, SLA, formularios, canales)."
+      },
+      "crossReferences": [
+        "REG-047",
+        "REG-051",
+        "OPS-042"
+      ],
+      "operationalCriticality": "critica",
+      "serviceImpact": "bajo",
+      "dependencyLevel": "alta",
+      "processType": "control",
+      "businessImpact": "alto",
+      "consultationFrequency": "baja",
+      "trainingPriority": "critica",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual de cumplimiento regulatorio LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Procedimientos Compliance LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "web",
+          "title": "UAF · Unidad de Análisis Financiero",
+          "link": "https://www.uaf.cl/",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Información orientativa para uso comercial interno. Ante dudas o casos específicos, consultar con el área de Compliance LVAM.",
+      "tags": [
+        "control",
+        "reporte-interno",
+        "pla",
+        "pendiente-validacion",
+        "critico"
+      ],
+      "difficulty": "intermedio",
+      "trainingTags": [
+        "compliance",
+        "pla"
+      ],
+      "actions": []
+    },
+    {
+      "id": "OPS-044",
+      "category": "Operaciones",
+      "subcategory": "Cierre operativo y compliance diario",
+      "version": "1.0",
+      "lastEdited": "2026-06-11",
+      "audience": [
+        "ejecutivo"
+      ],
+      "contentOwner": "Operaciones, Habilitación Comercial",
+      "ownerType": "Operaciones",
+      "reviewStatus": "draft",
+      "reviewPeriodicity": "anual",
+      "nextReviewDate": "2027-03-31",
+      "title": "Cierre del día y cierre semanal del ejecutivo",
+      "mainQuestion": "¿En qué consisten el cierre diario y semanal del ejecutivo?",
+      "equivalentQuestions": [
+        "Cierre del dia",
+        "Cierre semanal",
+        "Tareas fin de dia"
+      ],
+      "keywords": [
+        "cierre diario",
+        "cierre semanal",
+        "fin de dia",
+        "fin de semana"
+      ],
+      "shortAnswer": "Conceptualmente el cierre diario revisa las operaciones del día, valida la documentación generada, confirma trazabilidad, y deja la cuenta clara para el día siguiente. El cierre semanal consolida la actividad, revisa pendientes y prepara el reporting interno.",
+      "longAnswer": "El cierre del día y semanal son prácticas operativas que aseguran que ninguna operación quede sin documentar y que no haya inconsistencias acumulándose. Conceptualmente el cierre diario incluye: revisión de operaciones procesadas, validación de documentación firmada, verificación de la bitácora actualizada (ver OPS-041), seguimiento de derivaciones pendientes (ver OPS-035), identificación de incidencias para escalamiento. El cierre semanal añade: consolidado de actividad comercial, reporting interno, planificación de la semana siguiente, revisión con jefatura cuando corresponda. La rutina específica LVAM (formato, sistemas, indicadores) es responsabilidad de Operaciones y Habilitación Comercial.",
+      "crossReferences": [
+        "OPS-039",
+        "OPS-040",
+        "OPS-041"
+      ],
+      "operationalCriticality": "alta",
+      "serviceImpact": "bajo",
+      "dependencyLevel": "baja",
+      "processType": "cierre",
+      "businessImpact": "medio",
+      "consultationFrequency": "alta",
+      "trainingPriority": "importante",
+      "sources": [
+        {
+          "sourceType": "internal",
+          "title": "Manual del ejecutivo FFVV LVAM",
+          "date": "2025"
+        },
+        {
+          "sourceType": "internal",
+          "title": "Manual de operaciones LVAM",
+          "date": "2025"
+        }
+      ],
+      "cmfDisclaimers": "Los detalles operativos específicos LVAM (sistemas internos, SLA, formularios, canales) están sujetos a actualización. Ante duda operativa, validar con Operaciones LVAM.",
+      "tags": [
+        "cierre",
+        "rutina",
+        "control"
+      ],
+      "difficulty": "basico",
+      "trainingTags": [
+        "compliance-comercial"
+      ],
+      "actions": [
+        "pdf"
+      ]
+    }
+  ]
+}
